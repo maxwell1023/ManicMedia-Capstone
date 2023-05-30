@@ -14,7 +14,6 @@ public class PhysicsGun : MonoBehaviour
     private bool rotateMode = false;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -93,7 +92,6 @@ public class PhysicsGun : MonoBehaviour
 
     private void RotateObject()
     {
-        
 
 
         if (rotateMode && grabbedRB)
