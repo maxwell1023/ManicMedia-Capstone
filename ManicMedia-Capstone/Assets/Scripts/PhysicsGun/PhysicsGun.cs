@@ -38,6 +38,22 @@ public class PhysicsGun : MonoBehaviour
             grabbedRB.MovePosition(objectHolder.position);
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (rotateMode)
+            {
+                //Turn on rotate mode
+                print("Rotate mode is OFF");
+                rotateMode = false;
+            }
+            else
+            {
+                //Turn off rotate mode
+                print("Rotate mode is ON");
+                rotateMode = true;
+            }
+        }
+
         RotateObject();
     }
 
@@ -77,43 +93,29 @@ public class PhysicsGun : MonoBehaviour
 
     private void RotateObject()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            if (rotateMode)
-            {
-                //Turn on rotate mode
-                print("Rotate mode is OFF");
-                rotateMode = false;
-            }
-            else
-            {
-                //Turn off rotate mode
-                print("Rotate mode is ON");
-                rotateMode = true;
-            }
-        }
+        
 
 
-        if (rotateMode)
+        if (rotateMode && grabbedRB)
         {
             if(Input.GetKeyDown(KeyCode.W))
             {
-                transform.Rotate(90, transform.rotation.y, transform.rotation.z, Space.World);
+                grabbedRB.transform.Rotate(90, transform.rotation.y, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.A))
             {
-                transform.Rotate(transform.rotation.x, 90, transform.rotation.z, Space.World);
+                grabbedRB.transform.Rotate(transform.rotation.x, 90, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.S))
             {
-                transform.Rotate(-90, transform.rotation.y, transform.rotation.z, Space.World);
+                grabbedRB.transform.Rotate(-90, transform.rotation.y, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.D))
             {
-                transform.Rotate(transform.rotation.x, -90, transform.rotation.z, Space.World);
+                grabbedRB.transform.Rotate(transform.rotation.x, -90, transform.rotation.z, Space.Self);
             }
 
         }
