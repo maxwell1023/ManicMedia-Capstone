@@ -13,17 +13,9 @@ public class PhysicsGun : MonoBehaviour
 
     private bool rotateMode = false;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        //print(cam.ScreenToWorldPoint(Input.mousePosition));
         
         //Debug.DrawRay(transform.position, cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, Color.blue);
 
@@ -53,12 +45,8 @@ public class PhysicsGun : MonoBehaviour
             }
         }
 
+        //If rotate mode is on this checks for keyboard inputs
         RotateObject();
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     private void GrabObject()
@@ -66,8 +54,8 @@ public class PhysicsGun : MonoBehaviour
 
         if (grabbedRB)
         {
-            ReleaseObject();
             //Drop the object if one is already being held
+            ReleaseObject();
             //grabbedRB.isKinematic = false;
             //grabbedRB = null;
         }
@@ -85,6 +73,7 @@ public class PhysicsGun : MonoBehaviour
                 {
                     print("Changing object behavior");
                     grabbedRB.isKinematic = true;
+                    grabbedRB.transform.rotation = Quaternion.identity;
                 }
             }
         }
@@ -94,27 +83,26 @@ public class PhysicsGun : MonoBehaviour
     private void RotateObject()
     {
 
-
         if (rotateMode && grabbedRB)
         {
             if(Input.GetKeyDown(KeyCode.W))
             {
-                grabbedRB.transform.Rotate(90, transform.rotation.y, transform.rotation.z, Space.Self);
+                grabbedRB.transform.Rotate(45, transform.rotation.y, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.A))
             {
-                grabbedRB.transform.Rotate(transform.rotation.x, 90, transform.rotation.z, Space.Self);
+                grabbedRB.transform.Rotate(transform.rotation.x, 45, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.S))
             {
-                grabbedRB.transform.Rotate(-90, transform.rotation.y, transform.rotation.z, Space.Self);
+                grabbedRB.transform.Rotate(-45, transform.rotation.y, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.D))
             {
-                grabbedRB.transform.Rotate(transform.rotation.x, -90, transform.rotation.z, Space.Self);
+                grabbedRB.transform.Rotate(transform.rotation.x, -45, transform.rotation.z, Space.Self);
             }
 
         }
@@ -137,8 +125,6 @@ public class PhysicsGun : MonoBehaviour
 
             grabbedRB = null;
         }
-       
-
         
     }
 
