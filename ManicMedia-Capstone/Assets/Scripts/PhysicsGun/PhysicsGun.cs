@@ -27,7 +27,7 @@ public class PhysicsGun : MonoBehaviour
         
         //Debug.DrawRay(transform.position, cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, Color.blue);
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             GrabObject();
         }
@@ -66,9 +66,10 @@ public class PhysicsGun : MonoBehaviour
 
         if (grabbedRB)
         {
+            ReleaseObject();
             //Drop the object if one is already being held
-            grabbedRB.isKinematic = false;
-            grabbedRB = null;
+            //grabbedRB.isKinematic = false;
+            //grabbedRB = null;
         }
         else
         {
@@ -117,6 +118,28 @@ public class PhysicsGun : MonoBehaviour
             }
 
         }
+    }
+
+    //this lets go of the current object grabbed by the player
+    private void ReleaseObject()
+    {
+        //check if an object has been released in "placeable" zone
+        if (grabbedRB.gameObject.GetComponent<PipeLogic>().canStick == true)
+        {
+            print("placed!");
+            grabbedRB.velocity = Vector3.zero;
+            grabbedRB.isKinematic = false;
+            grabbedRB = null;
+        }
+        else
+        {
+            grabbedRB.isKinematic = false;
+
+            grabbedRB = null;
+        }
+       
+
+        
     }
 
 

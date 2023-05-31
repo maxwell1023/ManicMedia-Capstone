@@ -20,7 +20,7 @@ public class UIController : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("JoelTestScene");
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void QuitButton()
