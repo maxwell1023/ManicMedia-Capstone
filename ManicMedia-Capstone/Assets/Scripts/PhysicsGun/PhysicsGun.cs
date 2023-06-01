@@ -24,11 +24,6 @@ public class PhysicsGun : MonoBehaviour
             GrabObject();
         }
 
-        if (grabbedRB)
-        {
-            grabbedRB.MovePosition(objectHolder.position);
-        }
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (rotateMode)
@@ -45,8 +40,29 @@ public class PhysicsGun : MonoBehaviour
             }
         }
 
+        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+        {
+            ChangeObjectDistance();
+        }
+
         //If rotate mode is on this checks for keyboard inputs
         RotateObject();
+    }
+
+    private void FixedUpdate()
+    {
+        //Moves the held objects rigidbody to the specificed position
+        if (grabbedRB)
+        {
+            //grabbedRB.MovePosition(objectHolder.position);
+
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Vector3 newObjectPos = ray.GetPoint(objectHolder.transform.localPosition.z);
+            grabbedRB.MovePosition(newObjectPos);
+            //grabbedRB.transform.LookAt(cam.transform.position, Vector3.up);
+            //grabbedRB.transform.position = newObjectPos;
+
+        }
     }
 
     private void GrabObject()
@@ -74,6 +90,7 @@ public class PhysicsGun : MonoBehaviour
                     print("Changing object behavior");
                     grabbedRB.isKinematic = true;
                     grabbedRB.transform.rotation = Quaternion.identity;
+                    
                 }
             }
         }
@@ -87,22 +104,30 @@ public class PhysicsGun : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.W))
             {
-                grabbedRB.transform.Rotate(45, transform.rotation.y, transform.rotation.z, Space.Self);
+                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.eulerAngles + new Vector3(45, 0, 0));
+                grabbedRB.MoveRotation(rotation);
+                //grabbedRB.transform.Rotate(45, transform.rotation.y, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.A))
             {
-                grabbedRB.transform.Rotate(transform.rotation.x, 45, transform.rotation.z, Space.Self);
+                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.eulerAngles + new Vector3(0, 45, 0));
+                grabbedRB.MoveRotation(rotation);
+                //grabbedRB.transform.Rotate(transform.rotation.x, 45, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.S))
             {
-                grabbedRB.transform.Rotate(-45, transform.rotation.y, transform.rotation.z, Space.Self);
+                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.eulerAngles + new Vector3(-45, 0, 0));
+                grabbedRB.MoveRotation(rotation);
+                //grabbedRB.transform.Rotate(-45, transform.rotation.y, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.D))
             {
-                grabbedRB.transform.Rotate(transform.rotation.x, -45, transform.rotation.z, Space.Self);
+                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.eulerAngles + new Vector3(0, -45, 0));
+                grabbedRB.MoveRotation(rotation);
+                //grabbedRB.transform.Rotate(transform.rotation.x, -45, transform.rotation.z, Space.Self);
             }
 
         }
@@ -122,11 +147,22 @@ public class PhysicsGun : MonoBehaviour
         else
         {
             grabbedRB.isKinematic = false;
-
             grabbedRB = null;
         }
         
     }
 
+
+    private void ChangeObjectDistance()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && objectHolder.transform.localPosition.z < 15)
+        {
+            objectHolder.transform.localPosition = objectHolder.transform.localPosition + new Vector3(0, 0, 0.25f);
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && objectHolder.transform.localPosition.z > 3)
+        {
+            objectHolder.transform.localPosition = objectHolder.transform.localPosition - new Vector3(0, 0, 0.25f);
+        }
+    }
 
 }
