@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PhysicsGun : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PhysicsGun : MonoBehaviour
             GrabObject();
         }
 
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (rotateMode)
@@ -39,6 +41,7 @@ public class PhysicsGun : MonoBehaviour
                 rotateMode = true;
             }
         }
+        */
 
         if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
@@ -46,7 +49,7 @@ public class PhysicsGun : MonoBehaviour
         }
 
         //If rotate mode is on this checks for keyboard inputs
-        RotateObject();
+        //RotateObject();
     }
 
     private void FixedUpdate()
@@ -54,13 +57,24 @@ public class PhysicsGun : MonoBehaviour
         //Moves the held objects rigidbody to the specificed position
         if (grabbedRB)
         {
-            //grabbedRB.MovePosition(objectHolder.position);
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             Vector3 newObjectPos = ray.GetPoint(objectHolder.transform.localPosition.z);
-            grabbedRB.MovePosition(newObjectPos);
-            //grabbedRB.transform.LookAt(cam.transform.position, Vector3.up);
+            
+
+            //grabbedRB.transform.LookAt(cam.transform.position);
+            //grabbedRB.transform.position = Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10);
+
+            objectHolder.transform.LookAt(newObjectPos, Vector3.up);
+            grabbedRB.position = Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10);
+            grabbedRB.rotation = Quaternion.Slerp(grabbedRB.transform.rotation, objectHolder.transform.rotation, Time.deltaTime * 10);
+
+            //grabbedRB.MovePosition(newObjectPos);
+
+            //SmoothTranslation(newObjectPos, 10, grabbedRB.gameObject);
             //grabbedRB.transform.position = newObjectPos;
+
+
 
         }
     }
@@ -72,8 +86,6 @@ public class PhysicsGun : MonoBehaviour
         {
             //Drop the object if one is already being held
             ReleaseObject();
-            //grabbedRB.isKinematic = false;
-            //grabbedRB = null;
         }
         else
         {
@@ -88,15 +100,17 @@ public class PhysicsGun : MonoBehaviour
                 if (grabbedRB)
                 {
                     print("Changing object behavior");
-                    grabbedRB.isKinematic = true;
-                    grabbedRB.transform.rotation = Quaternion.identity;
-                    
+                    grabbedRB.useGravity = false;
+                    //grabbedRB.isKinematic = true;
+                    //grabbedRB.transform.rotation = Quaternion.identity;
+
                 }
             }
         }
         
     }
 
+    /*
     private void RotateObject()
     {
 
@@ -104,34 +118,35 @@ public class PhysicsGun : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.W))
             {
-                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.eulerAngles + new Vector3(45, 0, 0));
+                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.localEulerAngles + new Vector3(45, 0, 0));
                 grabbedRB.MoveRotation(rotation);
                 //grabbedRB.transform.Rotate(45, transform.rotation.y, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.A))
             {
-                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.eulerAngles + new Vector3(0, 45, 0));
+                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.localEulerAngles + new Vector3(0, 45, 0));
                 grabbedRB.MoveRotation(rotation);
                 //grabbedRB.transform.Rotate(transform.rotation.x, 45, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.S))
             {
-                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.eulerAngles + new Vector3(-45, 0, 0));
+                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.localEulerAngles + new Vector3(-45, 0, 0));
                 grabbedRB.MoveRotation(rotation);
                 //grabbedRB.transform.Rotate(-45, transform.rotation.y, transform.rotation.z, Space.Self);
             }
 
             if (Input.GetKeyDown(KeyCode.D))
             {
-                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.eulerAngles + new Vector3(0, -45, 0));
+                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.localEulerAngles + new Vector3(0, -45, 0));
                 grabbedRB.MoveRotation(rotation);
                 //grabbedRB.transform.Rotate(transform.rotation.x, -45, transform.rotation.z, Space.Self);
             }
 
         }
     }
+    */
 
     //this lets go of the current object grabbed by the player
     private void ReleaseObject()
@@ -146,7 +161,8 @@ public class PhysicsGun : MonoBehaviour
         }
         else
         {
-            grabbedRB.isKinematic = false;
+            //grabbedRB.isKinematic = false;
+            grabbedRB.useGravity = true;
             grabbedRB = null;
         }
         
@@ -155,13 +171,15 @@ public class PhysicsGun : MonoBehaviour
 
     private void ChangeObjectDistance()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && objectHolder.transform.localPosition.z < 15)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && objectHolder.transform.localPosition.z < 12)
         {
-            objectHolder.transform.localPosition = objectHolder.transform.localPosition + new Vector3(0, 0, 0.25f);
+            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition + new Vector3(0, 0, 5), Time.deltaTime * 10);
+
+            //objectHolder.transform.localPosition = objectHolder.transform.localPosition + new Vector3(0, 0, 0.5f);
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && objectHolder.transform.localPosition.z > 3)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && objectHolder.transform.localPosition.z > 5)
         {
-            objectHolder.transform.localPosition = objectHolder.transform.localPosition - new Vector3(0, 0, 0.25f);
+            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition - new Vector3(0, 0, 5), Time.deltaTime * 10);
         }
     }
 
