@@ -17,11 +17,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
     //private variables (not seen in editor)
-    private bool mainCameraOn = true;
+    public bool mainCameraOn = true;
     private bool cameraDelayed = true;
     private bool canJump = true;
     private float turnV;
     private float ySpeed;
+    public int playerMelee;
+
 
     private void Start() //Intial conditions
     {
