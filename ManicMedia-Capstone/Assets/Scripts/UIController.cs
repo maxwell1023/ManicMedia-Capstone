@@ -22,4 +22,9 @@ public class UIController : MonoBehaviour
         print("Is quitting...");
         Application.Quit();
     }
+
+    private void Update()
+    {
+        
+    }
 }
