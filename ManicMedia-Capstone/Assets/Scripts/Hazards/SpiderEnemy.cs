@@ -21,20 +21,22 @@ public class SpiderEnemy : MonoBehaviour
     [SerializeField] private GameObject hitBox;                       //Enemy Hitbox
     [SerializeField] private int sEnemyHealth = 100;                 //Spider enemy's health  
     [SerializeField] private GameObject spawner;                    //Where the spider Spawns from
+    private Transform startLocation;
+    [SerializeField] private float defaultSpeed, chaseSpeed;
 
     void Awake()
     {
         hitBox.SetActive(false);
-        player = GameObject.FindWithTag("player").transform;
+        player = GameObject.FindWithTag("Player").transform;
         spiderAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        spiderAgent.speed = defaultSpeed;
         isAlive = true;
 
         if(linkedToSpawner == true)
         {
             this.gameObject.transform.position = spawner.gameObject.transform.position;
         }
-        this.gameObject.transform.position = spawner.gameObject.transform.position;
-        //   startLocation = this.gameObject.transform.rotation;
+        startLocation = this.gameObject.transform;
     }
 
     // Update is called once per frame
@@ -67,6 +69,7 @@ public class SpiderEnemy : MonoBehaviour
     {
         if (!walkPointSet)
         {
+            spiderAgent.speed = defaultSpeed;
             RandomizeWalk();
         }
 
@@ -86,7 +89,7 @@ public class SpiderEnemy : MonoBehaviour
         float randomVert = Random.Range(-walkRange, walkRange);
         float randomHoriz = Random.Range(-walkRange, walkRange);
 
-        walkPoint = new Vector3(spawner.transform.position.x + randomHoriz, transform.position.y, spawner.transform.position.z + randomVert);
+        walkPoint = new Vector3(startLocation.transform.position.x + randomHoriz, transform.position.y, startLocation.transform.position.z + randomVert);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, groundMask))
         {
@@ -106,7 +109,7 @@ public class SpiderEnemy : MonoBehaviour
 
 
             justAttacked = true;
-            Invoke("WaitForAttack", attackCooldown); //honestly just learned this, will be using coroutine a lot less in the future!
+            Invoke("WaitForAttack", attackCooldown); 
 
         }
 
@@ -125,6 +128,7 @@ public class SpiderEnemy : MonoBehaviour
 
     private void Chase()
     {
+        spiderAgent.speed = chaseSpeed;
         spiderAgent.SetDestination(player.position);
     }
 
@@ -137,12 +141,13 @@ public class SpiderEnemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "playerslash")
+        if (other.gameObject.tag == "PlayerMelee")
         {
-            sEnemyHealth = sEnemyHealth - player.gameObject.GetComponent<PlayerMovement>().playerMelee;
+            sEnemyHealth = sEnemyHealth - player.gameObject.GetComponent<PlayerController>().playerMelee;
             if (sEnemyHealth <= 0)
             {
-                this.gameObject.transform.position = spawner.gameObject.transform.position;
+                this.gameObject.transform.position = startLocation.position;
+                this.gameObject.transform.rotation = startLocation.rotation;
                 //this.gameObject.transform.rotation = startRotation;       
                 this.gameObject.SetActive(false);
                 isAlive = false;

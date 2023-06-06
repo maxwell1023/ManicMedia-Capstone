@@ -21,12 +21,15 @@ public class FPCinemachineExtension : CinemachineExtension
     {
         inputManager = InputManager.Instance;
         base.Awake();
+        Debug.unityLogger.logEnabled = false; //!!!!DANGER!!!! This is hiding a problem with this script running while not in play mode... need to find a way to fix the editor
 
     }
 
     protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
     {
-        if(vcam.Follow)
+        Debug.unityLogger.logEnabled = false; //!!!!DANGER!!!! This is hiding a problem with this script running while not in play mode... need to find a way to fix the editor
+
+        if (vcam.Follow)
         {
             if (stage == CinemachineCore.Stage.Aim)
             {

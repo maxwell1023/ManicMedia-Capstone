@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,8 +19,18 @@ public class PlayerController : MonoBehaviour
     private Transform cameraTransform;
 
     private InputManager inputManager;
+
+    [SerializeField]
+    private GameObject hitbox;
+    private bool canAttack = true;
+    [SerializeField]
+    private float meleeCoolDown = .5f;
+    public int playerMelee = 30;
+
     private void Start()
     {
+        hitbox.SetActive(false);
+        Cursor.lockState = CursorLockMode.Confined;
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
@@ -48,5 +60,23 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    private IEnumerator Attack()
+    {
+        if (canAttack == true)
+        {
+            canAttack = false;
+            hitbox.SetActive(true);
+            yield return new WaitForSeconds(.3f);
+            hitbox.SetActive(false);
+            yield return new WaitForSeconds(meleeCoolDown);
+            canAttack = true;
+        }
+
     }
 }
