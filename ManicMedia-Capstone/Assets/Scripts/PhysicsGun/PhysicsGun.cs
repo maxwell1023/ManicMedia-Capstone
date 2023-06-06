@@ -25,6 +25,11 @@ public class PhysicsGun : MonoBehaviour
             GrabObject();
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            FlingObject();
+        }
+
         /*
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -173,13 +178,30 @@ public class PhysicsGun : MonoBehaviour
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0f && objectHolder.transform.localPosition.z < 12)
         {
-            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition + new Vector3(0, 0, 5), Time.deltaTime * 10);
+            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition + new Vector3(0, 0, 20), Time.deltaTime * 10);
 
             //objectHolder.transform.localPosition = objectHolder.transform.localPosition + new Vector3(0, 0, 0.5f);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f && objectHolder.transform.localPosition.z > 5)
         {
-            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition - new Vector3(0, 0, 5), Time.deltaTime * 10);
+            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition - new Vector3(0, 0, 20), Time.deltaTime * 10);
+        }
+    }
+
+    private void FlingObject()
+    {
+        if (grabbedRB)
+        {
+
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Vector3 newObjectPos = ray.GetPoint(objectHolder.transform.localPosition.z);
+            
+
+            grabbedRB.useGravity = true;
+            //Vector3 direction = objectHolder.transform.position - grabbedRB.transform.position;
+            Vector3 direction = (newObjectPos - cam.transform.position).normalized;
+            grabbedRB.AddForce(direction * 100, ForceMode.Impulse);
+            grabbedRB = null;
         }
     }
 
