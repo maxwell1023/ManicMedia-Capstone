@@ -26,5 +26,15 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         
+
+        if (Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftBracket))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 }
