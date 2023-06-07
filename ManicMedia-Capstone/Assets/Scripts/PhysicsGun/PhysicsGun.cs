@@ -12,6 +12,9 @@ public class PhysicsGun : MonoBehaviour
     private Rigidbody grabbedRB = null;
 
     private bool rotateMode = false;
+    private bool laserMode = false;
+
+    [SerializeField] private LineRenderer laserRender;
 
     // Update is called once per frame
     void Update()
@@ -28,6 +31,27 @@ public class PhysicsGun : MonoBehaviour
         {
             FlingObject();
         }
+
+        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+        {
+            ChangeObjectDistance();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if(laserMode)
+            {
+                laserRender.enabled = false;
+                laserMode = false;
+            }
+            else
+            {
+                laserRender.enabled = true;
+                laserMode = true;
+            }
+        }
+
+        
 
         /*
         if (Input.GetKeyDown(KeyCode.R))
@@ -47,10 +71,7 @@ public class PhysicsGun : MonoBehaviour
         }
         */
 
-        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
-        {
-            ChangeObjectDistance();
-        }
+
 
         //If rotate mode is on this checks for keyboard inputs
         //RotateObject();
@@ -64,23 +85,14 @@ public class PhysicsGun : MonoBehaviour
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             Vector3 newObjectPos = ray.GetPoint(objectHolder.transform.localPosition.z);
-            
-
-            //grabbedRB.transform.LookAt(cam.transform.position);
-            //grabbedRB.transform.position = Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10);
 
             objectHolder.transform.LookAt(newObjectPos, Vector3.up);
             grabbedRB.position = Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10);
             grabbedRB.rotation = Quaternion.Slerp(grabbedRB.transform.rotation, objectHolder.transform.rotation, Time.deltaTime * 10);
 
-            //grabbedRB.MovePosition(newObjectPos);
-
-            //SmoothTranslation(newObjectPos, 10, grabbedRB.gameObject);
-            //grabbedRB.transform.position = newObjectPos;
-
-
-
         }
+
+        LaserMode();
     }
 
     private void GrabObject()
@@ -204,4 +216,24 @@ public class PhysicsGun : MonoBehaviour
         }
     }
 
+
+    private void LaserMode()
+    {
+        if (laserMode)
+        {
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, maxGrabDistance, physicsInteractableObjectMask))
+            {
+
+            }
+
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = 100f;
+
+            laserRender.SetPosition(0, transform.position);
+            laserRender.SetPosition(1, cam.ScreenToWorldPoint(mousePos));
+        }
+        
+    }
 }
