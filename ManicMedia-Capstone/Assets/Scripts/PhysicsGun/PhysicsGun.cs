@@ -22,12 +22,12 @@ public class PhysicsGun : MonoBehaviour
         
         //Debug.DrawRay(transform.position, cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, Color.blue);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             GrabObject();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             FlingObject();
         }
@@ -211,7 +211,7 @@ public class PhysicsGun : MonoBehaviour
             grabbedRB.useGravity = true;
             //Vector3 direction = objectHolder.transform.position - grabbedRB.transform.position;
             Vector3 direction = (newObjectPos - cam.transform.position).normalized;
-            grabbedRB.AddForce(direction * 100, ForceMode.Impulse);
+            grabbedRB.AddForce(direction * 10000, ForceMode.Impulse);
             grabbedRB = null;
         }
     }

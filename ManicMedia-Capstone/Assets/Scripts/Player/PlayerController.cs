@@ -24,24 +24,39 @@ public class PlayerController : MonoBehaviour
     private GameObject hitbox;
     private bool canAttack = true;
     [SerializeField]
-    private float meleeCoolDown = .5f;
-    public int playerMelee = 30;
+    private float meleeCoolDown = .7f;
+    public int playerMelee = 70;
+
+    private bool unlocked = false;
+    [SerializeField]
+    private GameObject door;
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
         hitbox.SetActive(false);
         Cursor.lockState = CursorLockMode.Confined;
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
+        unlocked = false;
     }
 
     void Update()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
+        }
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartCoroutine(Attack());
         }
 
         Vector2 movement = inputManager.GetPlayerMovement();
@@ -64,7 +79,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (other.gameObject.tag == "Exit" && unlocked == true)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if(other.gameObject.tag == "Key")
+        {
+            unlocked = true;
+            Destroy(door);
+            Destroy(other.gameObject);
+        }
     }
     private IEnumerator Attack()
     {

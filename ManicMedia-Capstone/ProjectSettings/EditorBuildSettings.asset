@@ -9,21 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a7a2c68575e02a44eaa7d41325282d3b
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/LevelA1.unity
-    guid: 111c5eb003de70e4b9f1a8202c5118cc
+    path: Assets/Scenes/Enemy test Scene.unity
+    guid: 7cf74d51afbd13848a126408691cb66b
   - enabled: 1
     path: Assets/Scenes/LevelA2.unity
     guid: 61da3f92051112c4aa50aea0310b0165
   - enabled: 1
-    path: Assets/Scenes/Zach Test Scene.unity
-    guid: cd07d97387d002847bb0a08cdd47f931
-  - enabled: 1
-    path: Assets/Scenes/ElliottLevel1.unity
-    guid: 592ae7b4b124ac448bb0388b75d01633
-  - enabled: 1
-    path: Assets/Scenes/ElliottLevel2.unity
-    guid: 61ea3a04901b9e445b4771fa03ba631c
+    path: Assets/Scenes/LevelA1.unity
+    guid: 111c5eb003de70e4b9f1a8202c5118cc
   m_configObjects: {}
