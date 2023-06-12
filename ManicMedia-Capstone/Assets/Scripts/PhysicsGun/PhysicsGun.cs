@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PhysicsGun : MonoBehaviour
 {
@@ -14,20 +15,31 @@ public class PhysicsGun : MonoBehaviour
     private bool rotateMode = false;
     private bool laserMode = false;
 
+    public Slider flingSlider;
+    private int sliderNum = 0;
+
     [SerializeField] private LineRenderer laserRender;
+
+    private void Start()
+    {
+        flingSlider.gameObject.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
-        //Debug.DrawRay(transform.position, cam.ScreenToWorldPoint(Input.mousePosition) - transform.position, Color.blue);
 
         if (Input.GetMouseButtonDown(1))
         {
             GrabObject();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
+        {
+            ObjectVelocity();
+        }
+
+        if (Input.GetMouseButtonUp(0))
         {
             FlingObject();
         }
@@ -51,30 +63,6 @@ public class PhysicsGun : MonoBehaviour
             }
         }
 
-        
-
-        /*
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (rotateMode)
-            {
-                //Turn on rotate mode
-                print("Rotate mode is OFF");
-                rotateMode = false;
-            }
-            else
-            {
-                //Turn off rotate mode
-                print("Rotate mode is ON");
-                rotateMode = true;
-            }
-        }
-        */
-
-
-
-        //If rotate mode is on this checks for keyboard inputs
-        //RotateObject();
     }
 
     private void FixedUpdate()
@@ -86,7 +74,8 @@ public class PhysicsGun : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             Vector3 newObjectPos = ray.GetPoint(objectHolder.transform.localPosition.z);
 
-            objectHolder.transform.LookAt(newObjectPos, Vector3.up);
+            objectHolder.transform.LookAt(cam.transform.position, Vector3.up);
+
             grabbedRB.position = Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10);
             grabbedRB.rotation = Quaternion.Slerp(grabbedRB.transform.rotation, objectHolder.transform.rotation, Time.deltaTime * 10);
 
@@ -106,19 +95,14 @@ public class PhysicsGun : MonoBehaviour
         else
         {
             //Pick up an object the player is pointing at with the mouse
-
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, maxGrabDistance, physicsInteractableObjectMask))
             {
-                print("raycast shot");
                 grabbedRB = hit.collider.gameObject.GetComponent<Rigidbody>();
                 if (grabbedRB)
                 {
-                    print("Changing object behavior");
                     grabbedRB.useGravity = false;
-                    //grabbedRB.isKinematic = true;
-                    //grabbedRB.transform.rotation = Quaternion.identity;
 
                 }
             }
@@ -126,62 +110,13 @@ public class PhysicsGun : MonoBehaviour
         
     }
 
-    /*
-    private void RotateObject()
-    {
-
-        if (rotateMode && grabbedRB)
-        {
-            if(Input.GetKeyDown(KeyCode.W))
-            {
-                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.localEulerAngles + new Vector3(45, 0, 0));
-                grabbedRB.MoveRotation(rotation);
-                //grabbedRB.transform.Rotate(45, transform.rotation.y, transform.rotation.z, Space.Self);
-            }
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.localEulerAngles + new Vector3(0, 45, 0));
-                grabbedRB.MoveRotation(rotation);
-                //grabbedRB.transform.Rotate(transform.rotation.x, 45, transform.rotation.z, Space.Self);
-            }
-
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.localEulerAngles + new Vector3(-45, 0, 0));
-                grabbedRB.MoveRotation(rotation);
-                //grabbedRB.transform.Rotate(-45, transform.rotation.y, transform.rotation.z, Space.Self);
-            }
-
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                Quaternion rotation = Quaternion.Euler(grabbedRB.transform.localEulerAngles + new Vector3(0, -45, 0));
-                grabbedRB.MoveRotation(rotation);
-                //grabbedRB.transform.Rotate(transform.rotation.x, -45, transform.rotation.z, Space.Self);
-            }
-
-        }
-    }
-    */
-
     //this lets go of the current object grabbed by the player
     private void ReleaseObject()
     {
-        //check if an object has been released in "placeable" zone
-        if (grabbedRB.gameObject.GetComponent<PipeLogic>().canStick == true)
-        {
-            print("placed!");
-            grabbedRB.velocity = Vector3.zero;
-            grabbedRB.isKinematic = false;
-            grabbedRB = null;
-        }
-        else
-        {
-            //grabbedRB.isKinematic = false;
-            grabbedRB.useGravity = true;
-            grabbedRB = null;
-        }
-        
+        grabbedRB.useGravity = true;
+        grabbedRB = null;
+
+        objectHolder.localPosition = objectHolder.localPosition - (objectHolder.localPosition - new Vector3(0,0,8));
     }
 
 
@@ -189,13 +124,11 @@ public class PhysicsGun : MonoBehaviour
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0f && objectHolder.transform.localPosition.z < 25)
         {
-            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition + new Vector3(0, 0, 20), Time.deltaTime * 10);
-
-            //objectHolder.transform.localPosition = objectHolder.transform.localPosition + new Vector3(0, 0, 0.5f);
+            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition + new Vector3(0, 0, 20), Time.deltaTime * 30);
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && objectHolder.transform.localPosition.z > 7)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && objectHolder.transform.localPosition.z > 8)
         {
-            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition - new Vector3(0, 0, 20), Time.deltaTime * 10);
+            objectHolder.transform.localPosition = Vector3.Lerp(objectHolder.transform.localPosition, objectHolder.transform.localPosition - new Vector3(0, 0, 20), Time.deltaTime * 30);
         }
     }
 
@@ -206,14 +139,54 @@ public class PhysicsGun : MonoBehaviour
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             Vector3 newObjectPos = ray.GetPoint(objectHolder.transform.localPosition.z);
-            
+
 
             grabbedRB.useGravity = true;
-            //Vector3 direction = objectHolder.transform.position - grabbedRB.transform.position;
             Vector3 direction = (newObjectPos - cam.transform.position).normalized;
-            grabbedRB.AddForce(direction * 10000, ForceMode.Impulse);
+            grabbedRB.AddForce(direction * (sliderNum * 300), ForceMode.Impulse);
             grabbedRB = null;
+
+            sliderNum = 0;
+            flingSlider.gameObject.SetActive(false);
         }
+
+
+    }
+
+    private void ObjectVelocity()
+    {
+        if (grabbedRB)
+        {
+            sliderNum = sliderNum + 1;
+            if (sliderNum >= 100)
+            {
+                sliderNum = 100;
+            }
+
+            /*
+            if (sliderNum <= 0)
+            {
+                switchCount = false;
+            }
+            else if (sliderNum >= 100)
+            {
+                switchCount = true;
+            }
+
+            if (!switchCount)
+            {
+                sliderNum = sliderNum + 2;
+            }
+            else
+            {
+                sliderNum = sliderNum - 2;
+            }
+            */
+
+            flingSlider.value = sliderNum;
+            flingSlider.gameObject.SetActive(true);
+        }
+
     }
 
 
