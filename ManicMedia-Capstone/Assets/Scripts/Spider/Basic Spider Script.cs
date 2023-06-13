@@ -18,7 +18,7 @@ public class BasicSpiderScript : MonoBehaviour
     void FixedUpdate()
     {
 
-      _rigidbody.AddForce(0, 0, _speed);
+        transform.position += Vector3.forward * Time.deltaTime * _speed;
 
     }
 }
