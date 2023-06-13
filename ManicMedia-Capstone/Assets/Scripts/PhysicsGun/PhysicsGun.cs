@@ -205,7 +205,7 @@ public class PhysicsGun : MonoBehaviour
             mousePos.z = 100f;
 
             laserRender.SetPosition(0, transform.position);
-            laserRender.SetPosition(1, cam.ScreenToWorldPoint(mousePos));
+            laserRender.SetPosition(laserRender.positionCount - 1, cam.ScreenToWorldPoint(mousePos));
         }
         
     }

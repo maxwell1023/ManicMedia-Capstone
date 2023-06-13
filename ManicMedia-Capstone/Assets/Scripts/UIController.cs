@@ -7,6 +7,14 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
 
+    private bool optionsIsActive = false;
+    [SerializeField] private Animator optionsAnimator;
+
+    private void Start()
+    {
+        
+    }
+
     public void PlayButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -36,5 +44,34 @@ public class UIController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            ActivateOptionsMenu();
+        }
+
+
     }
+
+    public void ActivateOptionsMenu()
+    {
+        if(optionsIsActive)
+        {
+            //Close
+            optionsIsActive = false;
+            optionsAnimator.SetBool("isActive", optionsIsActive);
+
+
+        }
+        else
+        {
+            //Open
+            optionsIsActive = true;
+            optionsAnimator.SetBool("isActive", optionsIsActive);
+
+            
+        }
+    }
+
+
 }
