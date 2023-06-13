@@ -24717,7 +24717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856bf84d69ce4224c8a50aacdc005ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLegDistance: 10
+  maxLegDistance: 15.4
   matchLimit: 1
   legSpeed: 2000
   posCheck01: {fileID: 2129248894}
