@@ -10,6 +10,9 @@ public class UIController : MonoBehaviour
     private bool optionsIsActive = false;
     [SerializeField] private Animator optionsAnimator;
 
+    static private bool isFullscreen = false;
+
+
     private void Start()
     {
         
@@ -53,6 +56,26 @@ public class UIController : MonoBehaviour
 
     }
 
+    public void FullscreenMode()
+    {
+        if(isFullscreen)
+        {
+            //Not fullscreen
+            isFullscreen = false;
+            Screen.fullScreen = isFullscreen;
+            
+        }
+        else
+        {
+            //Fullscreen it
+            isFullscreen = true;
+            Screen.fullScreen = isFullscreen;
+        }
+        
+    }
+
+    
+
     public void ActivateOptionsMenu()
     {
         if(optionsIsActive)
@@ -72,6 +95,8 @@ public class UIController : MonoBehaviour
             
         }
     }
+
+    
 
 
 }
