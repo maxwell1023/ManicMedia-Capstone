@@ -124,7 +124,7 @@ public class UIController : MonoBehaviour
     public void ChangeMouseSensitivity(float sensitivity)
     {
         Vector2 mouseMovement = new Vector2(Input.GetAxisRaw("Mouse X") * sensitivity, Input.GetAxisRaw("Mouse Y") * sensitivity);
-        sensitivityText.text = "Mouse Sensitivity: " + sensitivity.
+        sensitivityText.text = "Mouse Sensitivity: " + sensitivity.ToString("F2");
         
     }
 
