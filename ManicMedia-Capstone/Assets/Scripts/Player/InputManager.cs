@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    public float mouseSensitivty = 1f;
+
     private static InputManager _instance;
     public static InputManager Instance
     {
@@ -42,7 +44,10 @@ public class InputManager : MonoBehaviour
     }
     public Vector2 GetCameraMovement()
     {
-        return firstPerson.Player.Look.ReadValue<Vector2>();
+        Vector2 mouseDelta = firstPerson.Player.Look.ReadValue<Vector2>();
+        mouseDelta = mouseDelta * mouseSensitivty;
+        return mouseDelta;
+        //return firstPerson.Player.Look.ReadValue<Vector2>();
     }
     public bool GetPlayerJump()
     {

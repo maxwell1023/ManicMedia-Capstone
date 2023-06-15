@@ -8,6 +8,7 @@ TagManager:
   - PlayerMelee
   - Exit
   - Key
+  - InputManager
   layers:
   - Default
   - TransparentFX

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class UIController : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
+
+    [SerializeField] AudioSource musicAudio;
+    [SerializeField] AudioSource sfxAudio;
 
     public void PlayButton()
     {
@@ -26,7 +27,7 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
-        
+
 
         if (Input.GetKeyDown(KeyCode.RightBracket))
         {
@@ -40,6 +41,5 @@ public class UIController : MonoBehaviour
 
 
     }
-
 
 }

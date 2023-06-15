@@ -23,16 +23,23 @@ public class OptionsMenu : MonoBehaviour
     [Header("Sensitivity")]
     [SerializeField] private TextMeshProUGUI sensitivityText;
     [SerializeField] private Slider sensitivitySlider;
+    [SerializeField] private InputManager inputManager;
     
+
+    //Default Values
     static private bool isFullscreen = false;
     static private float musicVolume = .5f;
     static private float sfxVolume = .5f;
-    static private float mouseSensitivity = 0f;
+    static private float mouseSensitivity = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
         optionsAnimator = GetComponent<Animator>();
+        if(inputManager != null)
+        {
+            inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
+        }
 
         //Set the fullscreen toggle to the correct color
         fullscreenToggle.isOn = isFullscreen;
@@ -46,6 +53,7 @@ public class OptionsMenu : MonoBehaviour
         //Set the sensitivity
         sensitivitySlider.value = mouseSensitivity;
         sensitivityText.text = "Mouse Sensitivity: " + mouseSensitivity.ToString("F2");
+        inputManager.mouseSensitivty = mouseSensitivity;
 
         //Options UI doesn't show up in editor unless the game object is turned off and on for some reason??
         gameObject.SetActive(false);
@@ -86,12 +94,16 @@ public class OptionsMenu : MonoBehaviour
             //Close
             optionsIsActive = false;
             optionsAnimator.SetBool("isActive", optionsIsActive);
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1f;
         }
         else
         {
             //Open
             optionsIsActive = true;
             optionsAnimator.SetBool("isActive", optionsIsActive);
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0f;
         }
     }
 
@@ -111,6 +123,8 @@ public class OptionsMenu : MonoBehaviour
     {
         Vector2 mouseMovement = new Vector2(Input.GetAxisRaw("Mouse X") * sensitivity, Input.GetAxisRaw("Mouse Y") * sensitivity);
         sensitivityText.text = "Mouse Sensitivity: " + sensitivity.ToString("F2");
+        inputManager.mouseSensitivty = sensitivity;
+        mouseSensitivity = sensitivity;
 
     }
 }
