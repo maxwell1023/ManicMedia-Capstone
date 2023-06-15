@@ -123,8 +123,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 922331282409005162}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+      - m_Target: {fileID: 4783497927421247752}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
         m_MethodName: ActivateOptionsMenu
         m_Mode: 1
         m_Arguments:
@@ -720,8 +720,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 922331282409005162}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+      - m_Target: {fileID: 4783497927421247752}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -1160,6 +1160,7 @@ GameObject:
   - component: {fileID: 635043448860598060}
   - component: {fileID: 2912062015238335587}
   - component: {fileID: 6299588181659695341}
+  - component: {fileID: 4783497927421247752}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -1288,6 +1289,24 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &4783497927421247752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3241436287944886023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86370fd64a7439445b29b3d1f113606b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullscreenToggle: {fileID: 5860579898288159443}
+  musicSlider: {fileID: 4884781258279999800}
+  sfxSlider: {fileID: 5847935721237154128}
+  musicMixer: {fileID: 24100000, guid: 71c8f9f0f924e8c429f1e950b05b76ca, type: 2}
+  sfxMixer: {fileID: 24100000, guid: 17b7c647efa70dc44a92acb50125211e, type: 2}
+  sensitivityText: {fileID: 5387657391882163832}
 --- !u!1 &3552888710609448865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,8 +1608,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 922331282409005162}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+      - m_Target: {fileID: 4783497927421247752}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
         m_MethodName: ChangeMouseSensitivity
         m_Mode: 0
         m_Arguments:
@@ -1826,8 +1845,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 922331282409005162}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+      - m_Target: {fileID: 4783497927421247752}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
         m_MethodName: SetSFXVolume
         m_Mode: 0
         m_Arguments:
@@ -2720,8 +2739,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 922331282409005162}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+      - m_Target: {fileID: 4783497927421247752}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
         m_MethodName: FullscreenMode
         m_Mode: 0
         m_Arguments:
@@ -3006,11 +3025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9734dd1d901c1489a2b7b6eb7131ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionsAnimator: {fileID: 2912062015238335587}
-  fullscreenToggle: {fileID: 5860579898288159443}
-  musicMixer: {fileID: 24100000, guid: 71c8f9f0f924e8c429f1e950b05b76ca, type: 2}
-  sfxMixer: {fileID: 24100000, guid: 17b7c647efa70dc44a92acb50125211e, type: 2}
-  sensitivityText: {fileID: 5387657391882163832}
 --- !u!1 &9007085819356186287
 GameObject:
   m_ObjectHideFlags: 0
