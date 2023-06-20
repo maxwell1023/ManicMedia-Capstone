@@ -163,26 +163,6 @@ public class PhysicsGun : MonoBehaviour
                 sliderNum = 100;
             }
 
-            /*
-            if (sliderNum <= 0)
-            {
-                switchCount = false;
-            }
-            else if (sliderNum >= 100)
-            {
-                switchCount = true;
-            }
-
-            if (!switchCount)
-            {
-                sliderNum = sliderNum + 2;
-            }
-            else
-            {
-                sliderNum = sliderNum - 2;
-            }
-            */
-
             flingSlider.value = sliderNum;
             flingSlider.gameObject.SetActive(true);
         }
