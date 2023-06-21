@@ -23,7 +23,7 @@ public class PhysicsGun : MonoBehaviour
 
     private void Start()
     {
-       GameObject.Find("FlingSlider").GetComponent<Slider>();
+        flingSlider.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -80,8 +80,8 @@ public class PhysicsGun : MonoBehaviour
             grabbedRB.position = Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10);
             grabbedRB.rotation = Quaternion.Slerp(grabbedRB.transform.rotation, objectHolder.transform.rotation, Time.deltaTime * 10);
 
-            
-            //grabRender.enabled = true;
+
+
             /*
             for (int i = 0; i <= grabRender.positionCount - 1; i++)
             {
@@ -105,6 +105,8 @@ public class PhysicsGun : MonoBehaviour
             }
             */
 
+
+            grabRender.enabled = true;
             grabRender.SetPosition(0, transform.position);
             grabRender.SetPosition(1, grabbedRB.position);
             
