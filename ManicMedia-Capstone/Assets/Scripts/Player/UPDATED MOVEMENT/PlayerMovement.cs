@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 currentVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if(currentVelocity.magnitude > moveSpeed)
+        if(currentVelocity.magnitude > moveSpeed && isGrounded)
         {
             Vector3 fixedVelocity = currentVelocity.normalized * moveSpeed;
             rb.velocity = new Vector3(fixedVelocity.x, rb.velocity.y, fixedVelocity.z);
@@ -122,4 +122,5 @@ public class PlayerMovement : MonoBehaviour
     {
         jumpReady = true;
     }
+
 }
