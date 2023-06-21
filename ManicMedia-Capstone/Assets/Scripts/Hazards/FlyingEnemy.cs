@@ -74,7 +74,7 @@ public class FlyingEnemy : MonoBehaviour
 
     private void Wandering()
     {
-        goalPos = new Vector3(transform.position.x, flyHeight, transform.position.z);
+        goalPos = new Vector3(startPos.x, flyHeight, startPos.z);
         transform.position = Vector3.Lerp(transform.position, goalPos, Time.deltaTime);
     }
 
