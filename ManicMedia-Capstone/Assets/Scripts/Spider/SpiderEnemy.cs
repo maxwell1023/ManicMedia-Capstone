@@ -97,7 +97,7 @@ public class SpiderEnemy : MonoBehaviour
         float randomHoriz = Random.Range(-walkRange, walkRange);
         float randomHeight = Random.Range(-walkRange, walkRange);
 
-        walkPoint = new Vector3(startLocation.transform.position.x + randomHoriz, transform.position.y + randomHoriz, startLocation.transform.position.z + randomVert);
+        walkPoint = new Vector3(startLocation.transform.localPosition.x + randomHoriz, transform.localPosition.y + randomHoriz, this.transform.localPosition.z);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, groundMask) || Physics.Raycast(walkPoint, transform.up, 2f, groundMask) || Physics.Raycast(walkPoint, transform.forward, 2f, groundMask) || Physics.Raycast(walkPoint, -transform.forward, 2f, groundMask) || Physics.Raycast(walkPoint, transform.right, 2f, groundMask) || Physics.Raycast(walkPoint, -transform.right, 2f, groundMask))
         {

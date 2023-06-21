@@ -35,7 +35,7 @@ public class Swinging : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) 
+        if (Input.GetKeyDown(KeyCode.Mouse1)) 
         { 
             Swing(); isSwinging = true; 
             rb.drag = 0; 
@@ -43,7 +43,7 @@ public class Swinging : MonoBehaviour
         }
 
 
-        if (Input.GetKeyUp(KeyCode.E)) { LetGo(); isSwinging = false; GOTCanRun = true; }
+        if (Input.GetKeyUp(KeyCode.Mouse1)) { LetGo(); isSwinging = false; GOTCanRun = true; }
 
         if(joint!= null)
         { DirectionInput();
