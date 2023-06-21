@@ -27,7 +27,7 @@ public class FPCinemachineExtension : CinemachineExtension
 
     protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
     {
-        Debug.unityLogger.logEnabled = false; //!!!!DANGER!!!! This is hiding a problem with this script running while not in play mode... need to find a way to fix the editor
+        //Debug.unityLogger.logEnabled = false; //!!!!DANGER!!!! This is hiding a problem with this script running while not in play mode... need to find a way to fix the editor
 
         if (vcam.Follow)
         {

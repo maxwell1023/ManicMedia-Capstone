@@ -11,27 +11,33 @@ public class FlyingEnemy : MonoBehaviour
     private float speed = 0.5f;
     private float distance = 0f;
     private float flyHeight = 16f;
-    private Vector3 playerTargetHeight;
+    private Vector3 goalPos;
 
     private bool canFire = true;
     private float timer = 0;
     private float timeBetweenFiring = 0.5f;
 
+    private bool hoverSwitch = false;
+    private Vector3 startPos;
+
     // Start is called before the first frame update
     void Start()
     {
+        startPos = transform.position;
         
         if(player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
+
+        InvokeRepeating("Hovering", 0, 2);
     }
 
     // Update is called once per frame
     void Update()
     {
         distance = (transform.position - player.transform.position).magnitude;
-        print(distance);
+        //print(distance);
     }
 
     private void FixedUpdate()
@@ -48,22 +54,37 @@ public class FlyingEnemy : MonoBehaviour
         {
             Wandering();
         }
+
+
+    }
+
+    private void Hovering()
+    {
+        if (hoverSwitch)
+        {
+            hoverSwitch = false;
+            flyHeight = 15f;
+        }
+        else if (hoverSwitch == false)
+        {
+            hoverSwitch = true;
+            flyHeight = 17f;
+        }
     }
 
     private void Wandering()
     {
-
+        goalPos = new Vector3(transform.position.x, flyHeight, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, goalPos, Time.deltaTime);
     }
 
     private void Follow()
     {
-        playerTargetHeight = player.transform.position;
 
-        //playerTargetHeight.y = transform.position.y;
-        playerTargetHeight.y = flyHeight;
+        goalPos = new Vector3(player.transform.position.x, flyHeight, player.transform.position.z);
 
         transform.LookAt(player.transform.position);
-        transform.position = Vector3.Lerp(transform.position, playerTargetHeight, speed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, goalPos, speed * Time.deltaTime);
     }
 
     private void Attack()

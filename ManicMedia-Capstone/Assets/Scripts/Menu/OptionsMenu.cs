@@ -37,10 +37,12 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         optionsAnimator = GetComponent<Animator>();
+        /*
         if(inputManager != null)
         {
             inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
         }
+        */
 
         //Set the fullscreen toggle to the correct color
         fullscreenToggle.isOn = isFullscreen;
@@ -54,7 +56,7 @@ public class OptionsMenu : MonoBehaviour
         //Set the sensitivity
         sensitivitySlider.value = mouseSensitivity;
         sensitivityText.text = "Mouse Sensitivity: " + mouseSensitivity.ToString("F2");
-        inputManager.mouseSensitivty = mouseSensitivity;
+        //inputManager.mouseSensitivty = mouseSensitivity;
 
         //Options UI doesn't show up in editor unless the game object is turned off and on for some reason??
         gameObject.SetActive(false);
@@ -107,10 +109,12 @@ public class OptionsMenu : MonoBehaviour
             Time.timeScale = 0f;
         }
 
+        /*
         if(SceneManager.GetActiveScene().name == "Menu")
         {
             Cursor.lockState = CursorLockMode.Confined;
         }
+        */
     }
 
     public void SetMusicVolume(float sliderValue)
@@ -129,7 +133,7 @@ public class OptionsMenu : MonoBehaviour
     {
         Vector2 mouseMovement = new Vector2(Input.GetAxisRaw("Mouse X") * sensitivity, Input.GetAxisRaw("Mouse Y") * sensitivity);
         sensitivityText.text = "Mouse Sensitivity: " + sensitivity.ToString("F2");
-        inputManager.mouseSensitivty = sensitivity;
+        //inputManager.mouseSensitivty = sensitivity;
         mouseSensitivity = sensitivity;
 
     }
