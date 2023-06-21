@@ -19,11 +19,11 @@ public class PhysicsGun : MonoBehaviour
     private int sliderNum = 0;
 
     [SerializeField] private LineRenderer laserRender;
-    //[SerializeField] private LineRenderer grabRender;
+    [SerializeField] private LineRenderer grabRender;
 
     private void Start()
     {
-        flingSlider.gameObject.SetActive(false);
+       GameObject.Find("FlingSlider").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class PhysicsGun : MonoBehaviour
             ChangeObjectDistance();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetMouseButtonDown(0))
         {
             if(laserMode)
             {
@@ -105,14 +105,14 @@ public class PhysicsGun : MonoBehaviour
             }
             */
 
-            //grabRender.SetPosition(0, transform.position);
-            //grabRender.SetPosition(1, grabbedRB.position);
+            grabRender.SetPosition(0, transform.position);
+            grabRender.SetPosition(1, grabbedRB.position);
             
 
         }
         else
         {
-            //grabRender.enabled = false;
+            grabRender.enabled = false;
             
         }
 
