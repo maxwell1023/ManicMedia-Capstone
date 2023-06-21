@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
@@ -104,6 +105,11 @@ public class OptionsMenu : MonoBehaviour
             optionsAnimator.SetBool("isActive", optionsIsActive);
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0f;
+        }
+
+        if(SceneManager.GetActiveScene().name == "Menu")
+        {
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 

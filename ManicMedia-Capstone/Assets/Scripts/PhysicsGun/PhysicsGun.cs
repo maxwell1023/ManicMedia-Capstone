@@ -19,6 +19,7 @@ public class PhysicsGun : MonoBehaviour
     private int sliderNum = 0;
 
     [SerializeField] private LineRenderer laserRender;
+    [SerializeField] private LineRenderer grabRender;
 
     private void Start()
     {
@@ -79,6 +80,14 @@ public class PhysicsGun : MonoBehaviour
             grabbedRB.position = Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10);
             grabbedRB.rotation = Quaternion.Slerp(grabbedRB.transform.rotation, objectHolder.transform.rotation, Time.deltaTime * 10);
 
+            grabRender.SetPosition(0, transform.position);
+            grabRender.SetPosition(laserRender.positionCount - 1, grabbedRB.position);
+
+        }
+        else
+        {
+            grabRender.SetPosition(0, new Vector3(0,0,0));
+            grabRender.SetPosition(laserRender.positionCount - 1, new Vector3(0, 0, 0));
         }
 
         LaserMode();
