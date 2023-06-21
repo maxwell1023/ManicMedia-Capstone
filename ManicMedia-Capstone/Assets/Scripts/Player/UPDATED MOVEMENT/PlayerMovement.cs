@@ -48,9 +48,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        
 
-        if(isGrounded) 
+        if (isGrounded) 
         {
             rb.drag = groundFriction;
         }

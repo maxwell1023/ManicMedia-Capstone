@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Swinging : MonoBehaviour
 {
     public LineRenderer swingLR;
-    public Transform firePoint, cam, player;
+    public Transform firePoint, cam, player, gun;
     public LayerMask grappleable;
     public bool isSwinging;
 
@@ -19,15 +22,58 @@ public class Swinging : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     [SerializeField]
-    private float horizThrustForce, forwardThrustForce, extendCableSpeed;
+    private float horizThrustForce, forwardThrustForce, pullSpeed, pullTime;
+
+    private float tempXAngle;
+
+    private bool keepMoving, GOTCanRun;
+    private Quaternion defaultGunRotation, attachRotation;
+    private void Start()
+    {
+        defaultGunRotation = gun.transform.localRotation;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) { Swing(); isSwinging = true;}
-        if (Input.GetKeyUp(KeyCode.E)) { LetGo(); isSwinging = false; }
+        if (Input.GetKeyDown(KeyCode.E)) 
+        { 
+            Swing(); isSwinging = true; 
+            rb.drag = 0; 
+ 
+        }
 
-        if(joint!= null) { directionInput(); }
-    }
+
+        if (Input.GetKeyUp(KeyCode.E)) { LetGo(); isSwinging = false; GOTCanRun = true; }
+
+        if(joint!= null)
+        { DirectionInput();
+            // gun.LookAt(attachPoint, Vector3.up);
+          /*  Vector3 look = attachPoint - gun.position;
+            look.z = 0;
+
+            Quaternion q = Quaternion.LookRotation(look);
+            if (Quaternion.Angle(q, defaultGunRotation) <= 60f)
+            {
+                attachRotation = q;
+
+                gun.transform.localRotation = Quaternion.Slerp(gun.transform.localRotation, attachRotation, Time.deltaTime * 80.0f);
+            } */
+        }
+       /* else
+        {
+            gun.transform.localRotation = defaultGunRotation;
+        }
+
+        
+            Quaternion gunRotation = Quaternion.Euler(gun.transform.eulerAngles.x, Mathf.Clamp(gun.transform.eulerAngles.y, 0, 30), gun.transform.eulerAngles.z);
+           gun.transform.localRotation = gunRotation; */
+
+      
+
+
+
+
+}
     private void LateUpdate()
     {
         DrawRope();
@@ -45,12 +91,12 @@ public class Swinging : MonoBehaviour
 
             float distanceFromAttach = Vector3.Distance(player.position, attachPoint);
 
-            joint.maxDistance = distanceFromAttach * 0.8f;   //CHANGE TO SHRINK OVER TIME
+            joint.maxDistance = distanceFromAttach * 0.5f;   //CHANGE TO SHRINK OVER TIME
             joint.minDistance = distanceFromAttach * 0.25f;
 
-            joint.spring = 4.5f;      //maybe not hard coded?
-            joint.damper = 7f;
-            joint.massScale = 4.5f;
+            joint.spring = 4f;      //maybe not hard coded?
+            joint.damper = 6f;
+            joint.massScale = 4f;
 
             swingLR.positionCount = 2;
             currentGrapplePosition = firePoint.position;
@@ -74,28 +120,24 @@ public class Swinging : MonoBehaviour
         swingLR.SetPosition(1, currentGrapplePosition);
 
     }
-    private void directionInput()
+    private void DirectionInput()
     {
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) { rb.AddForce(playerOrientation.right * horizThrustForce * Time.deltaTime); }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) { rb.AddForce( -playerOrientation.right * horizThrustForce * Time.deltaTime); }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) { rb.AddForce(playerOrientation.forward * forwardThrustForce * Time.deltaTime); }
 
-        if(Input.GetKey(KeyCode.Space)) 
-        {
-            Vector3 DirectionToPoint = attachPoint - transform.position;
-            rb.AddForce(DirectionToPoint.normalized * forwardThrustForce * Time.deltaTime);
-
-            float distanceFromAttach = Vector3.Distance(player.position, attachPoint);
-            joint.maxDistance = distanceFromAttach * 0.8f;   //CHANGE TO SHRINK OVER TIME
-            joint.minDistance = distanceFromAttach * 0.25f;
-
-
-
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-
-        }
     }
+
+    private void Grapple()
+    {
+        Vector3 DirectionToPoint = attachPoint - transform.position;
+        rb.AddForce(DirectionToPoint.normalized * pullSpeed * Time.deltaTime);
+
+        float distanceFromAttach = Vector3.Distance(player.position, attachPoint);
+        joint.maxDistance = distanceFromAttach * 0.8f;   
+        joint.minDistance = distanceFromAttach * 0.5f;
+    }
+
+  
 
 }
