@@ -22,7 +22,7 @@ public class Swinging : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     [SerializeField]
-    private float horizThrustForce, forwardThrustForce, pullSpeed, pullTime;
+    private float forwardThrustForce, horizThrustForce, pullSpring, pullScale, pullDamp;
 
     private float tempXAngle;
 
@@ -94,9 +94,9 @@ public class Swinging : MonoBehaviour
             joint.maxDistance = distanceFromAttach * 0.5f;   //CHANGE TO SHRINK OVER TIME
             joint.minDistance = distanceFromAttach * 0.25f;
 
-            joint.spring = 4f;      //maybe not hard coded?
-            joint.damper = 6f;
-            joint.massScale = 4f;
+            joint.spring = pullSpring;      //maybe not hard coded?
+            joint.damper =  pullDamp;
+            joint.massScale = pullScale;
 
             swingLR.positionCount = 2;
             currentGrapplePosition = firePoint.position;
@@ -126,16 +126,6 @@ public class Swinging : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) { rb.AddForce( -playerOrientation.right * horizThrustForce * Time.deltaTime); }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) { rb.AddForce(playerOrientation.forward * forwardThrustForce * Time.deltaTime); }
 
-    }
-
-    private void Grapple()
-    {
-        Vector3 DirectionToPoint = attachPoint - transform.position;
-        rb.AddForce(DirectionToPoint.normalized * pullSpeed * Time.deltaTime);
-
-        float distanceFromAttach = Vector3.Distance(player.position, attachPoint);
-        joint.maxDistance = distanceFromAttach * 0.8f;   
-        joint.minDistance = distanceFromAttach * 0.5f;
     }
 
   

@@ -67034,6 +67034,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4026274209911683283, guid: 8ad486b8bc04a3445ad5c5d81d77c2ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70686877
+      objectReference: {fileID: 0}
+    - target: {fileID: -4026274209911683283, guid: 8ad486b8bc04a3445ad5c5d81d77c2ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.018358363
+      objectReference: {fileID: 0}
+    - target: {fileID: -4026274209911683283, guid: 8ad486b8bc04a3445ad5c5d81d77c2ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7068681
+      objectReference: {fileID: 0}
+    - target: {fileID: -4026274209911683283, guid: 8ad486b8bc04a3445ad5c5d81d77c2ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.018358245
+      objectReference: {fileID: 0}
+    - target: {fileID: -4026274209911683283, guid: 8ad486b8bc04a3445ad5c5d81d77c2ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -4026274209911683283, guid: 8ad486b8bc04a3445ad5c5d81d77c2ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -2.975
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8ad486b8bc04a3445ad5c5d81d77c2ab, type: 3}
       propertyPath: m_Name
       value: Centipede Enemy
