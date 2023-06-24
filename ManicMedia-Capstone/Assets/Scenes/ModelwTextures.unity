@@ -1650,6 +1650,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8e614dfb50f266c468cc7661ecf26d6f, type: 2}
+    - target: {fileID: -4780072770720950627, guid: a80b645ef173c6744bc8bb3a181e36d4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ec07ce4fc6543e444ad3d7c2ab05a5fc, type: 2}
     - target: {fileID: 919132149155446097, guid: a80b645ef173c6744bc8bb3a181e36d4, type: 3}
       propertyPath: m_Name
       value: Alarm
