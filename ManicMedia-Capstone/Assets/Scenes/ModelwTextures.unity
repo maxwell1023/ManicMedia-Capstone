@@ -1369,6 +1369,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hand and Gun Model
       objectReference: {fileID: 0}
+    - target: {fileID: 8576463466945816481, guid: 6845ba09ca0f06f41a8658034796c451, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0121f9afa82b35443937d5b515ee4c9c, type: 2}
+    - target: {fileID: 8576463466945816481, guid: 6845ba09ca0f06f41a8658034796c451, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e614dfb50f266c468cc7661ecf26d6f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2269,7 +2277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.27
+      value: 0.5866537
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2277,19 +2285,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.51
+      value: 1.6866773
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.25031692
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.96816397
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2301,7 +2309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -151.007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2315,6 +2323,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8e614dfb50f266c468cc7661ecf26d6f, type: 2}
+    - target: {fileID: -3871158486661751344, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0121f9afa82b35443937d5b515ee4c9c, type: 2}
     - target: {fileID: 919132149155446097, guid: 46f3ae899331658489be8f50e495f5a2, type: 3}
       propertyPath: m_Name
       value: GravityGun
