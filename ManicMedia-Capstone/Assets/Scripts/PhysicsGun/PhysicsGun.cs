@@ -27,7 +27,7 @@ public class PhysicsGun : MonoBehaviour
     [SerializeField] private LineRenderer grabRender;
 
 
-    private bool isHolding;
+    public bool isHolding, isLasering;
 
     private void Start()
     {
@@ -67,14 +67,18 @@ public class PhysicsGun : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 laserRender.enabled = true;
-                LaserMode();
+                isLasering = true;
             }
         }
         if (Input.GetMouseButtonUp(0))
         {
+            isLasering = false;
             StopLaserMode();
         }
-
+        if(isLasering)
+        {
+            LaserMode();
+        }
         DrawLaser();
 
     }
@@ -121,7 +125,11 @@ public class PhysicsGun : MonoBehaviour
 
             grabRender.enabled = true;
             grabRender.SetPosition(0, firePoint.position);
-            grabRender.SetPosition(1, grabbedRB.position);
+            
+            Vector3 currentGrab = new Vector3();
+            currentGrab = grabRender.GetPosition(1);
+            grabRender.SetPosition(1, Vector3.Lerp(currentGrab, grabbedRB.gameObject.GetComponent<Renderer>().bounds.center, Time.deltaTime * 80f));
+            
             
 
         }

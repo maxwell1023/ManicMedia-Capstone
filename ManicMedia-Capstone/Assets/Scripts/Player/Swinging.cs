@@ -9,7 +9,7 @@ public class Swinging : MonoBehaviour
 {
     public LineRenderer swingLR;
     public Transform firePoint, cam, player, gun;
-    public LayerMask grappleable;
+    public LayerMask grappleable, notGrappleable;
     public bool isSwinging;
 
     [SerializeField]
@@ -38,14 +38,16 @@ public class Swinging : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse1)) 
         { 
-            Swing();
-            swingLR.enabled = true;
-            if(isSwinging == true)
+            if(this.gameObject.GetComponent<PhysicsGun>().isLasering == false && this.gameObject.GetComponent<PhysicsGun>().isHolding == false)
             {
-                rb.drag = 0;
+                Swing();
+                swingLR.enabled = true;
+                if (isSwinging == true)
+                {
+                    rb.drag = 0;
+                }
             }
-            
- 
+  
         }
 
 
@@ -88,8 +90,13 @@ public class Swinging : MonoBehaviour
     {
         
         RaycastHit hit;
-        if (Physics.Raycast(cam.position, cam.forward, out hit, maxSwingDistance, grappleable))
+        if (Physics.Raycast(cam.position, cam.forward, out hit, maxSwingDistance, notGrappleable))
         {
+
+        }
+        else if (Physics.Raycast(cam.position, cam.forward, out hit, maxSwingDistance, grappleable))
+        {
+
             attachPoint = hit.point;
             isSwinging = true;
             joint = player.gameObject.AddComponent<SpringJoint>();
