@@ -9,6 +9,9 @@ TagManager:
   - Exit
   - Key
   - InputManager
+  - Gear
+  - GearHolder
+  - SmallDoor
   layers:
   - Default
   - TransparentFX
