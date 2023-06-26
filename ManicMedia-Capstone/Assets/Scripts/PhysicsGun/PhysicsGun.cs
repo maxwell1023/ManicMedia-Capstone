@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,13 @@ public class PhysicsGun : MonoBehaviour
     public Camera cam;
     public LayerMask physicsInteractableObjectMask;
     public float maxGrabDistance = 30f;
-
+    public float maxLaserDistance = 10000f;
     public Transform objectHolder;
     private Rigidbody grabbedRB = null;
+
+    [SerializeField]
+    private Transform firePoint;
+    private Vector3 grabPoint, currentShotPosition, laserPoint;
 
     private bool rotateMode = false;
     private bool laserMode = false;
@@ -21,9 +26,14 @@ public class PhysicsGun : MonoBehaviour
     [SerializeField] private LineRenderer laserRender;
     [SerializeField] private LineRenderer grabRender;
 
+
+    private bool isHolding;
+
     private void Start()
     {
         flingSlider.gameObject.SetActive(false);
+        laserRender.enabled = false;
+        grabRender.enabled = false;
     }
 
     // Update is called once per frame
@@ -33,6 +43,7 @@ public class PhysicsGun : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             GrabObject();
+            StopLaserMode();
         }
 
         if (Input.GetMouseButton(0))
@@ -43,6 +54,7 @@ public class PhysicsGun : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             FlingObject();
+            isHolding = false;
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") != 0f)
@@ -50,19 +62,20 @@ public class PhysicsGun : MonoBehaviour
             ChangeObjectDistance();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (!isHolding)
         {
-            if(laserMode)
-            {
-                laserRender.enabled = false;
-                laserMode = false;
-            }
-            else
+            if (Input.GetMouseButtonDown(0))
             {
                 laserRender.enabled = true;
-                laserMode = true;
+                LaserMode();
             }
         }
+        if (Input.GetMouseButtonUp(0))
+        {
+            StopLaserMode();
+        }
+
+        DrawLaser();
 
     }
 
@@ -107,7 +120,7 @@ public class PhysicsGun : MonoBehaviour
 
 
             grabRender.enabled = true;
-            grabRender.SetPosition(0, transform.position);
+            grabRender.SetPosition(0, firePoint.position);
             grabRender.SetPosition(1, grabbedRB.position);
             
 
@@ -118,7 +131,7 @@ public class PhysicsGun : MonoBehaviour
             
         }
 
-        LaserMode();
+        
     }
 
     private void GrabObject()
@@ -128,6 +141,7 @@ public class PhysicsGun : MonoBehaviour
         {
             //Drop the object if one is already being held
             ReleaseObject();
+            isHolding = false;
         }
         else
         {
@@ -136,6 +150,7 @@ public class PhysicsGun : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, maxGrabDistance, physicsInteractableObjectMask))
             {
+                isHolding = true;
                 grabbedRB = hit.collider.gameObject.GetComponent<Rigidbody>();
                 if (grabbedRB)
                 {
@@ -209,12 +224,17 @@ public class PhysicsGun : MonoBehaviour
 
     private void LaserMode()
     {
-        if (laserMode)
-        {
+        
             RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, maxGrabDistance, physicsInteractableObjectMask))
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, maxLaserDistance))
             {
+                laserPoint = hit.point;
+
+               
+                //float distanceFromAttach = Vector3.Distance(player.position, attachPoint);
+
+                laserRender.positionCount = 2;
+                currentShotPosition = firePoint.position;
 
             }
 
@@ -223,7 +243,23 @@ public class PhysicsGun : MonoBehaviour
 
             laserRender.SetPosition(0, transform.position);
             laserRender.SetPosition(laserRender.positionCount - 1, cam.ScreenToWorldPoint(mousePos));
-        }
         
+        
+    }
+
+    private void StopLaserMode()
+    {
+        laserRender.positionCount = 0;
+    }
+
+    private void DrawLaser()
+    {
+       // if (!lasering) return;
+
+        currentShotPosition = Vector3.Lerp(currentShotPosition, laserPoint, Time.deltaTime * 800f);
+
+        laserRender.SetPosition(0, firePoint.position);
+        laserRender.SetPosition(1, currentShotPosition);
+
     }
 }

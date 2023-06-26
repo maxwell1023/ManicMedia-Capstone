@@ -31,14 +31,20 @@ public class Swinging : MonoBehaviour
     private void Start()
     {
         defaultGunRotation = gun.transform.localRotation;
+        swingLR.enabled = false;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse1)) 
         { 
-            Swing(); isSwinging = true; 
-            rb.drag = 0; 
+            Swing();
+            swingLR.enabled = true;
+            if(isSwinging == true)
+            {
+                rb.drag = 0;
+            }
+            
  
         }
 
@@ -80,11 +86,12 @@ public class Swinging : MonoBehaviour
     }
     private void Swing()
     {
+        
         RaycastHit hit;
         if (Physics.Raycast(cam.position, cam.forward, out hit, maxSwingDistance, grappleable))
         {
             attachPoint = hit.point;
-
+            isSwinging = true;
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = attachPoint;
@@ -101,6 +108,10 @@ public class Swinging : MonoBehaviour
             swingLR.positionCount = 2;
             currentGrapplePosition = firePoint.position;
 
+        }
+        else
+        {
+            isSwinging = false;
         }
     }
 
