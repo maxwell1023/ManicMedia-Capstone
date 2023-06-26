@@ -1762,6 +1762,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 2.1947813
       objectReference: {fileID: 0}
+    - target: {fileID: -5908163146266368092, guid: 1592491f34cb9d247ab1a242feabd3e4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 308765d64fc7c4243ba83a2d28873045, type: 2}
     - target: {fileID: 919132149155446097, guid: 1592491f34cb9d247ab1a242feabd3e4, type: 3}
       propertyPath: m_Name
       value: FlyingEnemy
