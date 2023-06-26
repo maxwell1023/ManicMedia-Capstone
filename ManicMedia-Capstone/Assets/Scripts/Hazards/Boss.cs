@@ -50,7 +50,7 @@ public class Boss : MonoBehaviour
         {
             Idle();
         }
-        else if(DistanceFromPlayer() <= 30 && !projectileCooldownVar) //Attack distnace less then 30 or 31
+        else if(DistanceFromPlayer() <= 30 && !projectileCooldownVar) //Attack distance less then 30 or 31
         {
             ProjectileAttack();
         }
@@ -93,6 +93,9 @@ public class Boss : MonoBehaviour
             StartCoroutine(ProjectileCooldown());
             transform.LookAt(player.transform.position);
             GameObject newBossProjectile = Instantiate(bossProjectile, projectileGunPoint.transform.position, Quaternion.identity);
+            newBossProjectile.transform.LookAt(player.transform.position);
+            newBossProjectile.transform.rotation = Quaternion.Euler(newBossProjectile.transform.rotation.x - 90, newBossProjectile.transform.rotation.y - 90, newBossProjectile.transform.rotation.z);
+            newBossProjectile.GetComponent<Rigidbody>().AddForce(projectileGunPoint.transform.forward * 80, ForceMode.Impulse);
         }
         
     }
@@ -122,7 +125,7 @@ public class Boss : MonoBehaviour
     IEnumerator ProjectileCooldown()
     {
         projectileCooldownVar = true;
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(1);
         projectileCooldownVar = false;
     }
 
