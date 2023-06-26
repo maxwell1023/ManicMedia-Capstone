@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
 public class Swinging : MonoBehaviour
 {
+    [SerializeField]
+    private float burnoutSpeed, regenSpeed, maxGrappleCharge, grappleCharge, initialCost;
+
+
     public LineRenderer swingLR;
     public Transform firePoint, cam, player, gun;
     public LayerMask grappleable, notGrappleable;
@@ -17,6 +22,7 @@ public class Swinging : MonoBehaviour
     private Vector3 attachPoint, currentGrapplePosition;
     private SpringJoint joint;
 
+    public Slider grappleSlider;
     [SerializeField]
     private Transform playerOrientation;
     [SerializeField]
@@ -26,20 +32,25 @@ public class Swinging : MonoBehaviour
 
     private float tempXAngle;
 
-    private bool keepMoving, GOTCanRun;
+    private bool canGrapple;
     private Quaternion defaultGunRotation, attachRotation;
     private void Start()
     {
+        grappleSlider.maxValue = maxGrappleCharge;
+        grappleCharge = maxGrappleCharge;
         defaultGunRotation = gun.transform.localRotation;
         swingLR.enabled = false;
     }
 
     private void Update()
     {
+        grappleSlider.value = grappleCharge;
         if (Input.GetKeyDown(KeyCode.Mouse1)) 
         { 
-            if(this.gameObject.GetComponent<PhysicsGun>().isLasering == false && this.gameObject.GetComponent<PhysicsGun>().isHolding == false)
+            if(this.gameObject.GetComponent<PhysicsGun>().isLasering == false && this.gameObject.GetComponent<PhysicsGun>().isHolding == false && canGrapple)
             {
+                grappleCharge -= initialCost;
+                if(grappleCharge <= 0) {grappleCharge = 10;}
                 Swing();
                 swingLR.enabled = true;
                 if (isSwinging == true)
@@ -50,8 +61,36 @@ public class Swinging : MonoBehaviour
   
         }
 
+        if(this.gameObject.GetComponent<PlayerMovement>().isGrounded == true && isSwinging == false)
+        {
+            grappleCharge = Mathf.Lerp(grappleCharge, maxGrappleCharge, Time.deltaTime * regenSpeed);
+        }
+        if(isSwinging == true)
+        {
+            grappleCharge -= Time.deltaTime * burnoutSpeed;
+        }
+        if(grappleCharge <= 0)
+        {
+            LetGo(); 
+            isSwinging = false;
+            canGrapple = false;
+        }
 
-        if (Input.GetKeyUp(KeyCode.Mouse1)) { LetGo(); isSwinging = false; GOTCanRun = true; }
+        if (canGrapple == false)
+        {
+            if (grappleCharge < maxGrappleCharge * .985f)// * (99/100)))
+            {
+                canGrapple = false;
+            }
+            else
+            {
+                canGrapple = true;
+            }
+
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse1)) { LetGo(); isSwinging = false; }
 
         if(joint!= null)
         { DirectionInput();
@@ -81,7 +120,8 @@ public class Swinging : MonoBehaviour
 
 
 
-}
+    }
+
     private void LateUpdate()
     {
         DrawRope();
