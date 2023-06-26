@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
-    private bool isGrounded, jumpReady;
+    public bool isGrounded;
+    private bool jumpReady;
 
 
     [SerializeField]
@@ -63,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerMove();
-        Debug.Log(isGrounded);
     }
     private void MovementInput()
     {

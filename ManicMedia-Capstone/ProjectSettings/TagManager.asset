@@ -12,6 +12,7 @@ TagManager:
   - Gear
   - GearHolder
   - SmallDoor
+  - laserReciever
   layers:
   - Default
   - TransparentFX

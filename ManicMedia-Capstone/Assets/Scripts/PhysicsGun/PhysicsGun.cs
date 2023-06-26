@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class PhysicsGun : MonoBehaviour
 {
+    [SerializeField]
+    private float burnoutSpeed, regenSpeed, maxLaserCharge, laserCharge;
+    [SerializeField]
+    private bool laserNeedsRecharge;
+    //private float laserCharge, lastLaserCharge;
+
     public Camera cam;
     public LayerMask physicsInteractableObjectMask;
     public float maxGrabDistance = 30f;
@@ -20,19 +26,24 @@ public class PhysicsGun : MonoBehaviour
     private bool rotateMode = false;
     private bool laserMode = false;
 
-    public Slider flingSlider;
+    public Slider flingSlider, laserSlider;
     private int sliderNum = 0;
 
     [SerializeField] private LineRenderer laserRender;
     [SerializeField] private LineRenderer grabRender;
 
-
+    private bool laserStartedDecreasing;//, laserNeedsRecharge; //MAYBE
+    private float secondsLasered = 0;
+    private GameObject lastThingLasered;
     public bool isHolding, isLasering;
 
     private void Start()
     {
-        flingSlider.gameObject.SetActive(false);
+        laserSlider.maxValue = maxLaserCharge;
+        // flingSlider.gameObject.SetActive(false);
+        laserCharge = maxLaserCharge;
         laserRender.enabled = false;
+        laserRender.positionCount = 0;
         grabRender.enabled = false;
     }
 
@@ -66,20 +77,62 @@ public class PhysicsGun : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                laserRender.enabled = true;
-                isLasering = true;
+                if (!laserNeedsRecharge)
+                {
+                    laserRender.enabled = true;
+                    isLasering = true;
+                    
+                }
             }
         }
         if (Input.GetMouseButtonUp(0))
         {
+            laserStartedDecreasing = false;
             isLasering = false;
+            secondsLasered = 0;
             StopLaserMode();
         }
         if(isLasering)
         {
             LaserMode();
+            DrawLaser();
+            if (laserCharge > 0)
+            {
+                laserCharge -= Time.deltaTime * burnoutSpeed;
+            }
+            
         }
-        DrawLaser();
+        else if(!isLasering)
+        {
+            if (laserCharge < maxLaserCharge)
+            {
+                laserCharge = Mathf.Lerp(laserCharge, maxLaserCharge, Time.deltaTime * regenSpeed);
+            }
+        } 
+        laserSlider.value = laserCharge;
+
+
+        if (laserCharge <= 0)
+        {
+            isLasering = false;
+            secondsLasered = 0;
+            StopLaserMode();
+            laserNeedsRecharge = true;
+        }
+
+        if(laserNeedsRecharge == true)
+        {
+            if(laserCharge < maxLaserCharge * .985f)// * (99/100)))
+            {
+                laserNeedsRecharge = true;
+            }
+            else
+            { 
+                laserNeedsRecharge = false; 
+            }
+
+            
+        }
 
     }
 
@@ -237,7 +290,29 @@ public class PhysicsGun : MonoBehaviour
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, maxLaserDistance))
             {
                 laserPoint = hit.point;
+                if(lastThingLasered == null)
+                {
+                    lastThingLasered = hit.transform.gameObject;
+                }
 
+                if (hit.transform.gameObject != lastThingLasered)
+                {
+                    secondsLasered = 0;
+                    lastThingLasered = hit.transform.gameObject;
+                }
+
+                  
+                if (hit.transform.gameObject.tag == "laserReciever")
+                 {
+                     secondsLasered += Time.deltaTime;
+                     if (secondsLasered >= 4.5)
+                     {
+                    
+                        hit.transform.gameObject.GetComponent<LaserReciever>().DropGear(); 
+                     }
+                     
+                 }
+                
                
                 //float distanceFromAttach = Vector3.Distance(player.position, attachPoint);
 
@@ -255,6 +330,11 @@ public class PhysicsGun : MonoBehaviour
         
     }
 
+    private void CheckRecieverTime()
+    {
+        float secondsHeld = 0;
+        secondsHeld += Time.deltaTime;
+    }
     private void StopLaserMode()
     {
         laserRender.positionCount = 0;

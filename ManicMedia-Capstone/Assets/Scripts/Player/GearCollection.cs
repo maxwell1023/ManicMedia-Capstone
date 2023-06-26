@@ -60,6 +60,10 @@ public class GearCollection : MonoBehaviour
     private void PlaceGears()
     {
         float gearsLeft = 3 - currentGearAcceptor.gameObject.GetComponent<GearHolder>().gearsPlaced;
+        if (gearsCollected == 0)
+        {
+            placeGearsTxt.GetComponent<TextShake>().ShakeText();
+        }
 
         if (gearsLeft >= gearsCollected)
         {
@@ -84,7 +88,9 @@ public class GearCollection : MonoBehaviour
                     placeGearsTxt.SetActive(false);
                 }
             }
+           
         }
+
         else
         {
             currentGearAcceptor.gameObject.GetComponent<GearHolder>().addGear(gearsLeft);
