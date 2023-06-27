@@ -1227,6 +1227,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6067185528594298527, guid: 7b0bf4f480b211c469a05169c24fa899, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 691600edec91ab4498d6b14b9bb1e9e0, type: 2}
     - target: {fileID: 919132149155446097, guid: 7b0bf4f480b211c469a05169c24fa899, type: 3}
       propertyPath: m_Name
       value: MetalBox
@@ -3052,6 +3056,7 @@ MonoBehaviour:
   maxLaserCharge: 0
   laserCharge: 0
   laserNeedsRecharge: 0
+  sliderMultiplier: 1
   cam: {fileID: 370553691}
   physicsInteractableObjectMask:
     serializedVersion: 2
