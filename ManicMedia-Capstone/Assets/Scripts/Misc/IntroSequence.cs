@@ -13,6 +13,7 @@ public class IntroSequence : MonoBehaviour
         wasdText.SetActive(false);
         laserText.SetActive(false);
         grappleText.SetActive(false);
+        flyingText.SetActive(false);
 
         Invoke("DisplayWASD", 3f);
     }
@@ -26,6 +27,7 @@ public class IntroSequence : MonoBehaviour
             {
                 TakeTextDown(wasdText);
                 Invoke("DisplayLaserText", 2f);
+                wasdIsCurrent = false;
             }
         }
         if (laserIsCurrent)
@@ -34,6 +36,7 @@ public class IntroSequence : MonoBehaviour
             {
                 TakeTextDown(laserText);
                 Invoke("DisplayGrappleText", 2f);
+                laserIsCurrent = false;
             }
         }
         if (grappleIsCurrent)
@@ -41,6 +44,7 @@ public class IntroSequence : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 TakeTextDown(grappleText);
+                grappleIsCurrent = false;
             }
         }
         if (flyingIsCurrent)
@@ -48,6 +52,7 @@ public class IntroSequence : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 TakeTextDown(flyingText);
+                flyingIsCurrent = false;
             }
         }
     }
@@ -58,7 +63,7 @@ public class IntroSequence : MonoBehaviour
         {
             flyingText.SetActive(true);
             flyingIsCurrent = true;
-            beatRM1 = true;
+            
         }
     }
 
