@@ -63,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
                 this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 this.gameObject.transform.position = respawnPoint;
                 this.gameObject.transform.rotation = respawnRotation;
+                print(respawnPoint);
                 startFading = true;
                 playerHasDied = false;
                 health = maxHealth;
