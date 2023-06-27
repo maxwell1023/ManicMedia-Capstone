@@ -92,17 +92,8 @@ public class PhysicsGun : MonoBehaviour
             secondsLasered = 0;
             StopLaserMode();
         }
-        if(isLasering)
-        {
-            LaserMode();
-            DrawLaser();
-            if (laserCharge > 0)
-            {
-                laserCharge -= Time.deltaTime * burnoutSpeed;
-            }
-            
-        }
-        else if(!isLasering)
+        
+        if(!isLasering)
         {
             if (laserCharge < maxLaserCharge)
             {
@@ -136,7 +127,7 @@ public class PhysicsGun : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         //Moves the held objects rigidbody to the specificed position
         if (grabbedRB)
@@ -192,7 +183,18 @@ public class PhysicsGun : MonoBehaviour
             
         }
 
-        
+        if (isLasering)
+        {
+            LaserMode();
+            DrawLaser();
+            if (laserCharge > 0)
+            {
+                laserCharge -= Time.deltaTime * burnoutSpeed;
+            }
+
+        }
+
+
     }
 
     private void GrabObject()

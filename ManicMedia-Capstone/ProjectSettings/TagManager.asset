@@ -25,7 +25,7 @@ TagManager:
   - Ground
   - PhysicsInteractable
   - Enemy
-  - 
+  - PostProccesing
   - 
   - 
   - 

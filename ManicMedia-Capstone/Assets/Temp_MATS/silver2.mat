@@ -34,7 +34,7 @@ Material:
     - _Smoothness: 0.659
     m_Colors:
     - _BaseColor: {r: 0.3985849, g: 0.42718917, b: 0.5, a: 1}
-    - _Color: {r: 0.3985849, g: 0.42718917, b: 0.5, a: 1}
+    - _Color: {r: 0.39858487, g: 0.42718914, b: 0.5, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &2692706958308176228
 MonoBehaviour:

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2377324149472853997}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.871, z: 0}
+  m_LocalPosition: {x: 0, y: 0.9900004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47,17 +47,17 @@ Light:
   m_Color: {r: 0.9528302, g: 0.8172755, b: 0.4179868, a: 1}
   m_Intensity: 65
   m_Range: 40
-  m_SpotAngle: 142.69162
-  m_InnerSpotAngle: 62.63237
+  m_SpotAngle: 169.89798
+  m_InnerSpotAngle: 84.51573
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.997
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -84,7 +84,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 75
@@ -170,12 +170,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4543377192191366421, guid: 3339b0f12fb7fa54297092786ae019ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3339b0f12fb7fa54297092786ae019ac, type: 3}
       propertyPath: m_Name
       value: Ceiling Light (2) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6552177559229579374, guid: 3339b0f12fb7fa54297092786ae019ac, type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552177559229579374, guid: 3339b0f12fb7fa54297092786ae019ac, type: 3}
+      propertyPath: m_LightProbeUsage
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6552177559229579374, guid: 3339b0f12fb7fa54297092786ae019ac, type: 3}
