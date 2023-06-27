@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,6 +28,8 @@ public class Boss : MonoBehaviour
     private float rumbleTimer = 0;
     private float timeBeforeRumbleStarts = 16;
     private bool rumbleModeLeftMovement = true;
+    private bool rumbleModeBackwardMovement = true;
+    private bool initalizeRumbleModeDone = false;
 
     private float meleeCooldownTime = 2;
     private float projectileCooldownTime = 7;
@@ -180,21 +183,24 @@ public class Boss : MonoBehaviour
             rumbleMode = true;
             disabledAttacks = true;
         }
-        
-        transform.position = new Vector3(door1.transform.position.x, 0, door1.transform.position.z);
-        transform.eulerAngles = new Vector3(0, 270, 0);
-        transform.position = new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
+
+        StartCoroutine(RumbleModeBossStartMove());
         
     }
 
+
     private void RumbleModeMovement()
     {
-        if(rumbleModeLeftMovement)
+        if(!initalizeRumbleModeDone)
+        {
+            InitalizeRumbleMode();
+        }
+        else if(rumbleModeLeftMovement)
         {
             //Left movement
             transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * 30, Space.World);
 
-            if(transform.position.x <= -80)
+            if (transform.position.x <= -80)
             {
                 rumbleModeLeftMovement = false;
 
@@ -218,16 +224,35 @@ public class Boss : MonoBehaviour
             }
         }
 
+
+
+
         //Checks if it is time to reset        
         ResetRumbleMode();
+    }
+
+    private void InitalizeRumbleMode()
+    {
+        if(rumbleModeBackwardMovement)
+        {
+            transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * 30, Space.World);
+        }
+        else
+        {
+            transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * 30, Space.World);
+        }
+        
     }
 
     private void ResetRumbleMode()
     {
         rumbleTimer += Time.deltaTime;
 
+        
+        
         if (rumbleTimer >= 32)
         {
+            //StartCoroutine(RumbleModeBossEndMove());
             rumbleTimer = 0;
             rumbleMode = false;
             disabledAttacks = false;
@@ -235,6 +260,7 @@ public class Boss : MonoBehaviour
             transform.position = new Vector3(startDoor.transform.position.x, 0, startDoor.transform.position.z);
             transform.eulerAngles = new Vector3(0, 180, 0);
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+            
         }
     }
 
@@ -266,6 +292,37 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(projectileCooldownTime);
         projectileCooldownVar = false;
     }
+
+    IEnumerator RumbleModeBossStartMove()
+    {
+        rumbleModeBackwardMovement = true;
+        yield return new WaitForSeconds(1.5f);
+
+        initalizeRumbleModeDone = true;
+
+        //Initalize boss position to begin its left right movement
+        transform.position = new Vector3(door1.transform.position.x, 0, door1.transform.position.z);
+        transform.eulerAngles = new Vector3(0, 270, 0);
+        transform.position = new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
+    }
+
+    /*
+    IEnumerator RumbleModeBossEndMove()
+    {
+        rumbleModeBackwardMovement = false;
+        initalizeRumbleModeDone = false;
+        yield return new WaitForSeconds(1.5f);
+
+        rumbleTimer = 0;
+        rumbleMode = false;
+        disabledAttacks = false;
+
+        //Initalize boss position to the start door
+        transform.position = new Vector3(startDoor.transform.position.x, 0, startDoor.transform.position.z);
+        transform.eulerAngles = new Vector3(0, 180, 0);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+    }
+    */
 
 
     public void SubtractBossHealth(float amountToSubtract)
