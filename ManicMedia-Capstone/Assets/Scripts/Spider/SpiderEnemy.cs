@@ -17,6 +17,7 @@ public class SpiderEnemy : MonoBehaviour
     [SerializeField] private bool linkedToSpawner, inSight, inRange;      //Is the player in sight? Are they within Range?
 
     public bool isAlive = true;                                         //Is the spider alive?
+    public bool hasSeenPlayer = false;
 
     [SerializeField] private GameObject hitBox;                       //Enemy Hitbox
     [SerializeField] private int sEnemyHealth = 100;                 //Spider enemy's health  

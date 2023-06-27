@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 
 public class GearHolder : MonoBehaviour
 {
@@ -88,7 +89,7 @@ public class GearHolder : MonoBehaviour
     {
         if (attachedDoor.tag == "Exit")
         {
-
+            attachedDoor.GetComponent<DoorAnimation>().OpenDoor();
         }
         else if(attachedDoor.tag == "SmallDoor") 
         {
