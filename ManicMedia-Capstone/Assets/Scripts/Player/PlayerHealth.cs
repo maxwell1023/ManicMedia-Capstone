@@ -26,8 +26,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         healthSlider.maxValue = maxHealth;
-        respawnPoint = this.transform.position;
-        respawnRotation = this.transform.rotation;
+        respawnPoint = this.gameObject.transform.position;
+        respawnRotation = this.gameObject.transform.rotation;
+        print(respawnPoint); 
         blackScreen.alpha = 0;
         deathText.alpha = 0;
         deathTextStartSize = deathText.transform.localScale;

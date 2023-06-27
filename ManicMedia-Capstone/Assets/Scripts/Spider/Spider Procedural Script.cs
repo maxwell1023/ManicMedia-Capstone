@@ -59,6 +59,7 @@ public class SpiderProceduralScript : MonoBehaviour
 
    private void checkLegOffset(Transform thisLeg, Transform thisTarget, Vector3 thisLastPosition, bool shouldMove)
     {
+        this.gameObject.layer = Physics.IgnoreRaycastLayer;
         RaycastHit hit;
         if (Physics.Raycast(thisLeg.position, -(transform.TransformDirection(Vector3.up)), out hit))
         {

@@ -90,9 +90,9 @@ public class SpiderEnemy : MonoBehaviour
             spiderAgent.speed = defaultSpeed;
             spiderAgent.SetDestination(walkPoint);
         }
-        Vector2 distanceToPoint = transform.position. - walkPoint;
+        Vector3 distanceToPoint = transform.position - walkPoint;
 
-        if (distanceToPoint.magnitude < .75f)
+        if (distanceToPoint.magnitude < 2f)
         {
             StartCoroutine(PauseWalk());
         }
@@ -102,9 +102,9 @@ public class SpiderEnemy : MonoBehaviour
         float randomVert = Random.Range(-walkRange, walkRange);
         float randomHoriz = Random.Range(-walkRange, walkRange);
         
-        walkPoint = new Vector3(startLocation.transform.position.x + randomHoriz, transform.position.y + randomHoriz, this.transform.localPosition.z);
+        walkPoint = new Vector3(transform.position.x + randomHoriz, transform.position.y + 1, transform.position.z + randomVert);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 1f, groundMask))
+        if (Physics.Raycast(walkPoint, -transform.up, 3f, groundMask))
         {
             walkPointSet = true;
         }
@@ -112,7 +112,7 @@ public class SpiderEnemy : MonoBehaviour
     private void Attack()
     {
         spiderAgent.SetDestination(transform.position);
-        transform.LookAt(player, transform.up);
+        transform.LookAt(new Vector3(player.position.x, this.transform.position.y, player.position.z));
 
 
         if (!justAttacked)
