@@ -24,7 +24,7 @@ public class BossProjectile : MonoBehaviour
 
         Invoke("CleanUp", 3);
 
-        transform.rotation = Quaternion.Euler(transform.rotation.x - 90, transform.rotation.y - 90, transform.rotation.z);
+        //transform.rotation = Quaternion.Euler(transform.rotation.x - 90, transform.rotation.y - 90, transform.rotation.z);
 
     }
 

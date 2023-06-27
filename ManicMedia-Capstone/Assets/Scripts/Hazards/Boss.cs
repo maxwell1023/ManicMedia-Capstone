@@ -29,6 +29,9 @@ public class Boss : MonoBehaviour
     private float timeBeforeRumbleStarts = 16;
     private bool rumbleModeLeftMovement = true;
 
+    private float meleeCooldownTime = 2;
+    private float projectileCooldownTime = 7;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -163,7 +166,7 @@ public class Boss : MonoBehaviour
             StartCoroutine(ProjectileCooldown());
             transform.LookAt(player.transform.position);
 
-            //projectileGunPoint.transform.LookAt(player.transform.position);
+            projectileGunPoint.transform.LookAt(player.transform.position);
             GameObject newBossProjectile = Instantiate(bossProjectile, projectileGunPoint.transform.position, Quaternion.identity);
 
             newBossProjectile.GetComponent<Rigidbody>().AddForce(transform.forward * 80, ForceMode.Impulse);
@@ -254,14 +257,14 @@ public class Boss : MonoBehaviour
     IEnumerator MeleeCooldown()
     {
         meleeCooldownVar = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(meleeCooldownTime);
         meleeCooldownVar = false;
     }
 
     IEnumerator ProjectileCooldown()
     {
         projectileCooldownVar = true;
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(projectileCooldownTime);
         projectileCooldownVar = false;
     }
 
