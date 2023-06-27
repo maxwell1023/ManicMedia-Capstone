@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -24,7 +25,7 @@ public class OptionsMenu : MonoBehaviour
     [Header("Sensitivity")]
     [SerializeField] private TextMeshProUGUI sensitivityText;
     [SerializeField] private Slider sensitivitySlider;
-    [SerializeField] private InputManager inputManager;
+    [SerializeField] private PlayerCamera playerCamera;
     
 
     //Default Values
@@ -37,12 +38,10 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         optionsAnimator = GetComponent<Animator>();
-        /*
-        if(inputManager != null)
+        if(playerCamera == null)
         {
-            inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
+            playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerCamera>();
         }
-        */
 
         //Set the fullscreen toggle to the correct color
         fullscreenToggle.isOn = isFullscreen;
@@ -56,7 +55,12 @@ public class OptionsMenu : MonoBehaviour
         //Set the sensitivity
         sensitivitySlider.value = mouseSensitivity;
         sensitivityText.text = "Mouse Sensitivity: " + mouseSensitivity.ToString("F2");
-        //inputManager.mouseSensitivty = mouseSensitivity;
+        if(SceneManager.GetActiveScene().name != "Menu")
+        {
+            playerCamera.camSensityX = 400 * mouseSensitivity;
+            playerCamera.camSensityY = 400 * mouseSensitivity;
+        }
+        
 
         //Options UI doesn't show up in editor unless the game object is turned off and on for some reason??
         gameObject.SetActive(false);
@@ -109,12 +113,12 @@ public class OptionsMenu : MonoBehaviour
             Time.timeScale = 0f;
         }
 
-        /*
+        
         if(SceneManager.GetActiveScene().name == "Menu")
         {
             Cursor.lockState = CursorLockMode.Confined;
         }
-        */
+        
     }
 
     public void SetMusicVolume(float sliderValue)
@@ -131,10 +135,16 @@ public class OptionsMenu : MonoBehaviour
 
     public void ChangeMouseSensitivity(float sensitivity)
     {
-        Vector2 mouseMovement = new Vector2(Input.GetAxisRaw("Mouse X") * sensitivity, Input.GetAxisRaw("Mouse Y") * sensitivity);
+        //Vector2 mouseMovement = new Vector2(Input.GetAxisRaw("Mouse X") * sensitivity, Input.GetAxisRaw("Mouse Y") * sensitivity);
         sensitivityText.text = "Mouse Sensitivity: " + sensitivity.ToString("F2");
-        //inputManager.mouseSensitivty = sensitivity;
         mouseSensitivity = sensitivity;
+
+        if (SceneManager.GetActiveScene().name != "Menu")
+        {
+            playerCamera.camSensityX = 400 * mouseSensitivity;
+            playerCamera.camSensityY = 400 * mouseSensitivity;
+        }
+        
 
     }
 }

@@ -6,8 +6,17 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] AudioSource musicAudio;
-    [SerializeField] AudioSource sfxAudio;
+    [SerializeField] private AudioSource musicAudio;
+    [SerializeField] private AudioSource sfxAudio;
+
+    public enum GameState
+    {
+        Menu,
+        Paused,
+        Playing
+    }
+
+    GameState gameState { get;  }
 
     public void PlayButton()
     {
