@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
-
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject bossAttackBox;
     [SerializeField] private GameObject bossProjectile;
