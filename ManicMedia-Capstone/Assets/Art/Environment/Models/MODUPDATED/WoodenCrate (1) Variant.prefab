@@ -69,9 +69,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7801217365807093107, guid: bb39842b02098494aa3098f5ac9a81da, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7801217365807093107, guid: bb39842b02098494aa3098f5ac9a81da, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 46405539b0934414890239cfed46dc42, type: 2}
+    - target: {fileID: -7801217365807093107, guid: bb39842b02098494aa3098f5ac9a81da, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f616962e237383e4eacb4dc3a667df57, type: 2}
     - target: {fileID: 919132149155446097, guid: bb39842b02098494aa3098f5ac9a81da, type: 3}
       propertyPath: m_Name
       value: WoodenCrate (1) Variant
