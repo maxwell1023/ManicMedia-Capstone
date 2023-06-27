@@ -31,7 +31,7 @@ public class SpiderEnemy : MonoBehaviour
         hitBox.SetActive(false);
         player = GameObject.FindWithTag("Player").transform;
         spiderAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        spiderAgent.speed = defaultSpeed;
+        //spiderAgent.speed = defaultSpeed;
         isAlive = true;
 
         if(linkedToSpawner == true)
@@ -81,17 +81,18 @@ public class SpiderEnemy : MonoBehaviour
     {
         if (!walkPointSet)
         {
-            spiderAgent.speed = defaultSpeed;
+           // spiderAgent.speed = defaultSpeed;
             RandomizeWalk();
         }
 
         if (walkPointSet)
         {
+            spiderAgent.speed = defaultSpeed;
             spiderAgent.SetDestination(walkPoint);
         }
-        Vector3 distanceToPoint = transform.position - walkPoint;
+        Vector2 distanceToPoint = transform.position. - walkPoint;
 
-        if (distanceToPoint.magnitude < 3f)
+        if (distanceToPoint.magnitude < .75f)
         {
             StartCoroutine(PauseWalk());
         }
@@ -103,7 +104,7 @@ public class SpiderEnemy : MonoBehaviour
         
         walkPoint = new Vector3(startLocation.transform.position.x + randomHoriz, transform.position.y + randomHoriz, this.transform.localPosition.z);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 3f, groundMask))
+        if (Physics.Raycast(walkPoint, -transform.up, 1f, groundMask))
         {
             walkPointSet = true;
         }
@@ -147,6 +148,7 @@ public class SpiderEnemy : MonoBehaviour
 
     private IEnumerator PauseWalk()
     {
+        spiderAgent.speed = 0f;
         yield return new WaitForSeconds(1f);
         walkPointSet = false;
     }
