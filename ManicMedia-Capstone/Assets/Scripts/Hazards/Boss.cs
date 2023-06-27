@@ -13,6 +13,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private GameObject projectileGunPoint;
     [SerializeField] private Slider bossHealthSlider;
 
+    [SerializeField] private GameObject startDoor;
     [SerializeField] private GameObject door1;
     [SerializeField] private GameObject door2;
 
@@ -25,7 +26,8 @@ public class Boss : MonoBehaviour
     private bool disabledAttacks = false;
 
     private float rumbleTimer = 0;
-    private float timeBeforeRumbleStarts = 2;
+    private float timeBeforeRumbleStarts = 16;
+    private bool rumbleModeLeftMovement = true;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +52,11 @@ public class Boss : MonoBehaviour
         {
             bossHealthSlider = GameObject.Find("BossHP").GetComponent<Slider>();
         }
-        if(door1 == null)
+        if (startDoor == null)
+        {
+            startDoor = GameObject.Find("StartDoor");
+        }
+        if (door1 == null)
         {
             door1 = GameObject.Find("Door1");
         }
@@ -61,6 +67,10 @@ public class Boss : MonoBehaviour
 
 
         bossAttackBox.SetActive(false);
+
+        transform.position = new Vector3(startDoor.transform.position.x, 0, startDoor.transform.position.z);
+        transform.eulerAngles = new Vector3(0, 180, 0);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
     }
 
     // Update is called once per frame
@@ -68,14 +78,21 @@ public class Boss : MonoBehaviour
     {
         //print(DistanceFromPlayer());
 
-
-        if(DistanceFromPlayer() >= 50)
+        if(DistanceFromPlayer() >= 50 && !rumbleMode)
         {
             Idle();
         }
         else if(rumbleTimer >= timeBeforeRumbleStarts)
         {
-            RumbleModeAttack();
+            if(!rumbleMode)
+            {
+                RumbleModeAttack();
+            }
+            else
+            {
+                RumbleModeMovement();
+            }
+            
         }
         else if(DistanceFromPlayer() <= 30 && !projectileCooldownVar) //Attack distance less then 30 or 31
         {
@@ -98,10 +115,9 @@ public class Boss : MonoBehaviour
             if(!disabledAttacks)
             {
                 transform.LookAt(player.transform.position);
-                rumbleTimer += Time.deltaTime;
             }
-            
-            
+
+            rumbleTimer += Time.deltaTime;
         }
         
         
@@ -114,7 +130,15 @@ public class Boss : MonoBehaviour
 
     private void Idle()
     {
-        rumbleTimer = 0;
+        if(rumbleMode)
+        {
+
+        }
+        else
+        {
+            rumbleTimer = 0;
+        }
+        
     }
 
     private void MeleeAttack()
@@ -149,15 +173,67 @@ public class Boss : MonoBehaviour
 
     private void RumbleModeAttack()
     {
-        rumbleTimer = 0;
-        disabledAttacks = true;
-
-
-        transform.position = new Vector3(door1.transform.position.x, door1.transform.position.y, door1.transform.position.z);
+        if(rumbleTimer >= timeBeforeRumbleStarts)
+        {
+            rumbleMode = true;
+            disabledAttacks = true;
+        }
+        
+        transform.position = new Vector3(door1.transform.position.x, 0, door1.transform.position.z);
         transform.eulerAngles = new Vector3(0, 270, 0);
-        transform.position = new Vector3(transform.position.x + 10, transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
+        
+    }
 
-        transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime, Space.World);
+    private void RumbleModeMovement()
+    {
+        if(rumbleModeLeftMovement)
+        {
+            //Left movement
+            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * 30, Space.World);
+
+            if(transform.position.x <= -80)
+            {
+                rumbleModeLeftMovement = false;
+
+                transform.position = new Vector3(door2.transform.position.x, 0, door2.transform.position.z);
+                transform.eulerAngles = new Vector3(0, -270, 0);
+                transform.position = new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
+            }
+        }
+        else
+        {
+            //Right movement
+            transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * 30, Space.World);
+
+            if (transform.position.x >= 80)
+            {
+                rumbleModeLeftMovement = true;
+
+                transform.position = new Vector3(door1.transform.position.x, 0, door1.transform.position.z);
+                transform.eulerAngles = new Vector3(0, 270, 0);
+                transform.position = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z);
+            }
+        }
+
+        //Checks if it is time to reset        
+        ResetRumbleMode();
+    }
+
+    private void ResetRumbleMode()
+    {
+        rumbleTimer += Time.deltaTime;
+
+        if (rumbleTimer >= 32)
+        {
+            rumbleTimer = 0;
+            rumbleMode = false;
+            disabledAttacks = false;
+
+            transform.position = new Vector3(startDoor.transform.position.x, 0, startDoor.transform.position.z);
+            transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+        }
     }
 
     private float DistanceFromPlayer()
@@ -185,7 +261,7 @@ public class Boss : MonoBehaviour
     IEnumerator ProjectileCooldown()
     {
         projectileCooldownVar = true;
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(7);
         projectileCooldownVar = false;
     }
 
