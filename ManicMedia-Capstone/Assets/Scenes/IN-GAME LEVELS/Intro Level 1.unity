@@ -4600,11 +4600,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_CollectObjects: 1
-  m_Size: {x: 16.4, y: 12.6, z: 33.77}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 19.321333, y: 12.6, z: 110.7594}
+  m_Center: {x: -1.4606676, y: 2, z: 27.5941}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2807
   m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -74909,7 +74909,7 @@ GameObject:
   - component: {fileID: 4244487729632349646}
   - component: {fileID: 5789795000867456820}
   - component: {fileID: 6252332713117686461}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Gear_LP.002
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -75264,7 +75264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2937665304813529855}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg1_targetCHECKER
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -75369,7 +75369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5518965041016032666}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Back Upper Leg.R
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -75460,7 +75460,7 @@ GameObject:
   - component: {fileID: 7046372466929269675}
   - component: {fileID: 2641530292099256347}
   - component: {fileID: 6677559551513709659}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Foot.002
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -75701,7 +75701,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4811405694692051862}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg4_targetCHECKER
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -75752,7 +75752,7 @@ GameObject:
   - component: {fileID: 6549822750296724379}
   - component: {fileID: 5698892265996269971}
   - component: {fileID: 2529935246164674797}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Shin.003
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -75871,7 +75871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2684900826841272575}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Back Upper Leg.L
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76005,7 +76005,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1117212466064553184}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg5_LiftPOS
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76021,7 +76021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2473499878666111849}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg1_LiftPOS
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76106,7 +76106,7 @@ GameObject:
   - component: {fileID: 947404433378003166}
   - component: {fileID: 574192443925849626}
   - component: {fileID: 7123441349861149947}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Foot.001
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76188,7 +76188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4949019213468873178}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg4_LiftPOS
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76278,7 +76278,7 @@ GameObject:
   - component: {fileID: 4830522193585741139}
   - component: {fileID: 2213949341688099645}
   - component: {fileID: 4826823883288785154}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Gear_LP.003
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76312,7 +76312,7 @@ GameObject:
   - component: {fileID: 7210686641921754849}
   - component: {fileID: 6874093194242113354}
   - component: {fileID: 8979458160637867187}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Pipes.002
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76328,7 +76328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8489801635306441414}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Front Middle Leg.L
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76465,7 +76465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4399998855583932645}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg6_targetCHECKER
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76511,7 +76511,7 @@ GameObject:
   - component: {fileID: 4337821396486894101}
   - component: {fileID: 818206762933296004}
   - component: {fileID: 361069093229437734}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Foot.003
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76527,7 +76527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6895357231526681717}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Back Lower Leg.R_end
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76566,7 +76566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9172873177297210013}
   - component: {fileID: 715079405329281165}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Torso
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76749,7 +76749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5869589787594293311}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Middle Middle Leg.L
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76768,7 +76768,7 @@ GameObject:
   - component: {fileID: 1748696442184067992}
   - component: {fileID: 5435559855857658650}
   - component: {fileID: 4516721820597295308}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Shin.002
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76802,7 +76802,7 @@ GameObject:
   - component: {fileID: 3322428483825236504}
   - component: {fileID: 4033931398347466243}
   - component: {fileID: 7508402211796561920}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Gear_LP
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76838,7 +76838,7 @@ GameObject:
   - component: {fileID: 2573158960412698131}
   - component: {fileID: 244582186718858325}
   - component: {fileID: 1096803352886806940}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -76856,7 +76856,7 @@ GameObject:
   - component: {fileID: 32148281125756238}
   - component: {fileID: 6481439874625841901}
   - component: {fileID: 1060840914119347248}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Gear_LP.006
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77093,7 +77093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2595659669298153440}
   - component: {fileID: 1147027317901395186}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg2
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77127,7 +77127,7 @@ GameObject:
   - component: {fileID: 7294375638403294238}
   - component: {fileID: 8531872100153267325}
   - component: {fileID: 7780759651879042034}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77175,7 +77175,7 @@ GameObject:
   - component: {fileID: 6583397165080759893}
   - component: {fileID: 1693134621651020386}
   - component: {fileID: 3430820048281828031}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Pipes.004
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77210,7 +77210,7 @@ GameObject:
   - component: {fileID: 3336452779920515117}
   - component: {fileID: 7150956286169678627}
   - component: {fileID: 8507472429012172482}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Pipes.003
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77243,7 +77243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8932439131545453602}
   - component: {fileID: 4450919003583685085}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg6
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77306,7 +77306,7 @@ GameObject:
   - component: {fileID: 2532957994647202479}
   - component: {fileID: 6251473536093994842}
   - component: {fileID: 6030674646522118819}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Shin
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77361,7 +77361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6374477640775148031}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Front Lower Leg.R_end
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77388,7 +77388,7 @@ GameObject:
   - component: {fileID: 3149700142750689417}
   - component: {fileID: 2558237505298603012}
   - component: {fileID: 2591045624996776689}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Foot.004
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77465,7 +77465,7 @@ GameObject:
   - component: {fileID: 2019239433489799060}
   - component: {fileID: 7514131445317034523}
   - component: {fileID: 3882358286043998612}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Chassie
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77531,7 +77531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2895591060794713333}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Front Lower Leg.R
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77754,7 +77754,7 @@ GameObject:
   - component: {fileID: 8091549077858500905}
   - component: {fileID: 6894341164875116243}
   - component: {fileID: 5587993877698662293}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Foot
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77797,7 +77797,7 @@ GameObject:
   - component: {fileID: 7848533633450447373}
   - component: {fileID: 4432737440989412790}
   - component: {fileID: 7483095922551853311}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77926,7 +77926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2246156348787460358}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Back Lower Leg.L_end
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -77942,7 +77942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3509238299496141618}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg3_LiftPOS
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78358,7 +78358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5404699173720129784}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Middle Upper Leg.R
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78418,7 +78418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4466235046237740825}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg2_LiftPOS
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78449,7 +78449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 997854076740261645}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Middle Middle Leg.R
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78465,7 +78465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 794000080537700316}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Front Upper Leg.L
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78520,7 +78520,7 @@ GameObject:
   - component: {fileID: 346867149539974646}
   - component: {fileID: 8945172815239702253}
   - component: {fileID: 8672875991636097480}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78639,7 +78639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4755682999554176633}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Front Upper Leg.R
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78655,7 +78655,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7747270922607547952}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Front Lower Leg.L
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78839,7 +78839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8016712711975154643}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Front Lower Leg.L_end
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78913,7 +78913,7 @@ GameObject:
   - component: {fileID: 8500878750613797103}
   - component: {fileID: 3327789734079226136}
   - component: {fileID: 4724277160469467578}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Gear_LP.005
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -78932,7 +78932,7 @@ GameObject:
   - component: {fileID: 6305938177593355640}
   - component: {fileID: 6081773885330128154}
   - component: {fileID: 2137403335118946449}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Foot.005
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79001,7 +79001,7 @@ GameObject:
   - component: {fileID: 2141024758039116006}
   - component: {fileID: 1646604449876785581}
   - component: {fileID: 343261833219134137}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Thigh.001
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79162,7 +79162,7 @@ GameObject:
   - component: {fileID: 874886002504811696}
   - component: {fileID: 233972455514317630}
   - component: {fileID: 228780418166052569}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79195,7 +79195,7 @@ GameObject:
   - component: {fileID: 8113537132038397246}
   - component: {fileID: 4402286899061377395}
   - component: {fileID: 5647288047620768394}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Gear_LP.001
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79245,7 +79245,7 @@ GameObject:
   - component: {fileID: 4968602852131971179}
   - component: {fileID: 5890381928730790124}
   - component: {fileID: 4611444884546867322}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79410,7 +79410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3111511785454555362}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg3_targetCHECKER
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79429,7 +79429,7 @@ GameObject:
   - component: {fileID: 8926928211339479370}
   - component: {fileID: 5856453887787090008}
   - component: {fileID: 729187856412392494}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Thigh.002
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79496,7 +79496,7 @@ GameObject:
   - component: {fileID: 7392041512824007649}
   - component: {fileID: 8086307754873097130}
   - component: {fileID: 7723654739958564383}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Thigh.003
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79529,7 +79529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4919768225690508455}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Middle Upper Leg.L
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79684,7 +79684,7 @@ GameObject:
   - component: {fileID: 3557241794721274583}
   - component: {fileID: 8990502140609462785}
   - component: {fileID: 5959684578961074258}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Gear_LP.004
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79709,7 +79709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8358720951980905235}
   - component: {fileID: 144576728699917028}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg1
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79727,7 +79727,7 @@ GameObject:
   - component: {fileID: 1011834637117354014}
   - component: {fileID: 5227413707831233734}
   - component: {fileID: 9203476564774918785}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Pipes.001
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -79894,7 +79894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8670241527061143811}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Middle Lower Leg.L
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80055,7 +80055,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4273520006371061572}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Back Middle Leg.L
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80090,7 +80090,7 @@ GameObject:
   - component: {fileID: 276053346670193252}
   - component: {fileID: 8848928097495452675}
   - component: {fileID: 8272059234824923538}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80279,7 +80279,7 @@ GameObject:
   - component: {fileID: 730651716450204451}
   - component: {fileID: 765592513938462495}
   - component: {fileID: 3046759490967088824}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Thigh.004
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80318,7 +80318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2483969403494894826}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Back Lower Leg.R
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80373,7 +80373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9049588839260739295}
   - component: {fileID: 5383715239145854261}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg4
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80389,7 +80389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5407948352445497968}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Back Middle Leg.R
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80430,7 +80430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1414239747004779462}
   - component: {fileID: 3104361104232897361}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg5
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80461,7 +80461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2745800931406916201}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Middle Lower Leg.R_end
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80539,7 +80539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9111568408866982119}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Enemy2
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80652,7 +80652,7 @@ GameObject:
   - component: {fileID: 3744841384616556917}
   - component: {fileID: 4834498974881138656}
   - component: {fileID: 1874734867296786160}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80848,7 +80848,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5495007176770691698}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Middle Lower Leg.L_end
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80864,7 +80864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6664822040816051431}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Front Middle Leg.R
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -80975,7 +80975,7 @@ GameObject:
   - component: {fileID: 2567135036738609899}
   - component: {fileID: 5078388447775555350}
   - component: {fileID: 6985469125730157230}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81043,7 +81043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1054531021556970169}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg5_targetCHECKER
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81062,7 +81062,7 @@ GameObject:
   - component: {fileID: 5048341036623260566}
   - component: {fileID: 2261014023825837000}
   - component: {fileID: 3341170041390646460}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81118,7 +81118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2830785168728858737}
   - component: {fileID: 5255037970492938242}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg3
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81178,7 +81178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5469389479602954169}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg6_LiftPOS
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81196,7 +81196,7 @@ GameObject:
   - component: {fileID: 8244427238532428488}
   - component: {fileID: 3982133000777042515}
   - component: {fileID: 1053860008065322240}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Pipes
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81230,7 +81230,7 @@ GameObject:
   - component: {fileID: 3699858153845058101}
   - component: {fileID: 6184214461771596595}
   - component: {fileID: 8160236060223764582}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Main Object
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81291,7 +81291,7 @@ GameObject:
   - component: {fileID: 6218788722028842906}
   - component: {fileID: 5389373782385103998}
   - component: {fileID: 3978696362671227984}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Shin.001
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81390,7 +81390,7 @@ GameObject:
   - component: {fileID: 5887131820773063899}
   - component: {fileID: 8264964385805808944}
   - component: {fileID: 4494916511788100080}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Shin.004
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81409,7 +81409,7 @@ GameObject:
   - component: {fileID: 6594455658372545652}
   - component: {fileID: 5115458633619870045}
   - component: {fileID: 2628161665587869987}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81440,7 +81440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1862568106257043261}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Leg2_targetCHECKER
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81459,7 +81459,7 @@ GameObject:
   - component: {fileID: 6880888686075981346}
   - component: {fileID: 8003912703527729507}
   - component: {fileID: 7477050806684999329}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81652,7 +81652,7 @@ GameObject:
   - component: {fileID: 3975181309386153796}
   - component: {fileID: 1841218943538976053}
   - component: {fileID: 3029446894856001298}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Shin.005
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81668,7 +81668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4327925367622813965}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Back Lower Leg.L
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -81687,7 +81687,7 @@ GameObject:
   - component: {fileID: 3423270485266975625}
   - component: {fileID: 834817997087085561}
   - component: {fileID: 611286052111111246}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Thigh
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -82023,7 +82023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5170131269683304936}
   - component: {fileID: 4368134198359818290}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: LegRigs
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -82262,7 +82262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492033199476169185}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Middle Lower Leg.R
   m_TagString: Spider
   m_Icon: {fileID: 0}
@@ -82377,7 +82377,7 @@ GameObject:
   - component: {fileID: 5380821421007746347}
   - component: {fileID: 2393273125870420405}
   - component: {fileID: 2049838350940884182}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spider Thigh.005
   m_TagString: Spider
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ public class Alarm : MonoBehaviour
     [SerializeField]
     private GameObject door;
     [SerializeField]
-    private GameObject spinner, lights, lightCenter;
+    private GameObject spinner, lights, lightCenter, spotLight1, spotLight2;
     private bool playerCaught, doorClosed;
     private Vector3 initialPosition;
     // Start is called before the first frame update
@@ -28,8 +28,8 @@ public class Alarm : MonoBehaviour
     {
         if (doorClosed)
         {
-            spinner.transform.RotateAround(lightCenter.transform.position, Vector3.forward, 100 * Time.deltaTime);
             lights.SetActive(true);
+            spinner.transform.RotateAround(lightCenter.transform.position, Vector3.right, 200 * Time.deltaTime);
         }
         
     }
