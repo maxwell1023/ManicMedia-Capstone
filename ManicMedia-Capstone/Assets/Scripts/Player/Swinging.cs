@@ -78,19 +78,20 @@ public class Swinging : MonoBehaviour
 
         if (canGrapple == false)
         {
-            if (grappleCharge < maxGrappleCharge * .985f)// * (99/100)))
+            if (grappleCharge < maxGrappleCharge * .95f)// * (99/100)))
             {
                 canGrapple = false;
             }
             else
             {
                 canGrapple = true;
+                grappleCharge = maxGrappleCharge;
             }
 
 
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse1)) { LetGo(); isSwinging = false; }
+        if (Input.GetKeyUp(KeyCode.Mouse1) || this.gameObject.GetComponent<PhysicsGun>().isHolding || this.gameObject.GetComponent<PlayerHealth>().dead) { LetGo(); isSwinging = false; }
 
         if(joint!= null)
         { DirectionInput();

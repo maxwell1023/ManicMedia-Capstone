@@ -15,6 +15,9 @@ TagManager:
   - laserReciever
   - Boss
   - Spider
+  - instantDeath
+  - checkpoint
+  - spiderHit
   layers:
   - Default
   - TransparentFX
@@ -27,7 +30,7 @@ TagManager:
   - Enemy
   - PostProccesing
   - 
-  - 
+  - checkPointLayer
   - 
   - 
   - 

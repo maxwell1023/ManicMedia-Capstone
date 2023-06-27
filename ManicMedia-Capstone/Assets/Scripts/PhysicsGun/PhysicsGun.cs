@@ -10,6 +10,9 @@ public class PhysicsGun : MonoBehaviour
     private float burnoutSpeed, regenSpeed, maxLaserCharge, laserCharge;
     [SerializeField]
     private bool laserNeedsRecharge;
+
+    [SerializeField]
+    private float sliderMultiplier = 1f;
     //private float laserCharge, lastLaserCharge;
 
     public Camera cam;
@@ -27,7 +30,7 @@ public class PhysicsGun : MonoBehaviour
     private bool laserMode = false;
 
     public Slider flingSlider, laserSlider;
-    private int sliderNum = 0;
+    private float sliderNum = 0;
 
     [SerializeField] private LineRenderer laserRender;
     [SerializeField] private LineRenderer grabRender;
@@ -37,10 +40,12 @@ public class PhysicsGun : MonoBehaviour
     private GameObject lastThingLasered;
     public bool isHolding, isLasering;
 
+    private float releaseTime;
+
     private void Start()
     {
         laserSlider.maxValue = maxLaserCharge;
-        // flingSlider.gameObject.SetActive(false);
+        flingSlider.gameObject.SetActive(false);
         laserCharge = maxLaserCharge;
         laserRender.enabled = false;
         laserRender.positionCount = 0;
@@ -50,7 +55,8 @@ public class PhysicsGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
+        
         if (Input.GetMouseButtonDown(1))
         {
             GrabObject();
@@ -59,11 +65,13 @@ public class PhysicsGun : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            ObjectVelocity();
+            releaseTime += Time.deltaTime * sliderMultiplier;
+            ObjectVelocity(releaseTime);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
+            releaseTime = 0;
             FlingObject();
             isHolding = false;
         }
@@ -258,7 +266,7 @@ public class PhysicsGun : MonoBehaviour
 
             grabbedRB.useGravity = true;
             Vector3 direction = (newObjectPos - cam.transform.position).normalized;
-            grabbedRB.AddForce(direction * (sliderNum * 300), ForceMode.Impulse);
+            grabbedRB.AddForce(direction * (sliderNum * 50), ForceMode.Impulse);
             grabbedRB = null;
 
             sliderNum = 0;
@@ -268,11 +276,11 @@ public class PhysicsGun : MonoBehaviour
 
     }
 
-    private void ObjectVelocity()
+    private void ObjectVelocity(float numbey)
     {
         if (grabbedRB)
         {
-            sliderNum = sliderNum + 1;
+            sliderNum = numbey;
             if (sliderNum >= 100)
             {
                 sliderNum = 100;

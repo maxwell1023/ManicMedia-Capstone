@@ -28,22 +28,26 @@ public class Alarm : MonoBehaviour
     {
         if (doorClosed)
         {
-            spinner.transform.RotateAround(lightCenter.transform.position, Vector3.right, 100 * Time.deltaTime);
+            spinner.transform.RotateAround(lightCenter.transform.position, Vector3.forward, 100 * Time.deltaTime);
             lights.SetActive(true);
         }
+        
     }
 
     private void FixedUpdate()
     {
         CheckAlerted();
 
-        if(AllSpiderDead() && doorClosed)
+        if (AllSpiderDead() && doorClosed == true)
         {
-            OpenDoor();
+            doorClosed = false;
+            lights.SetActive(false);
+            Invoke("OpenDoor", 2);
         }
 
-        if(playerCaught && doorClosed == false) 
+        if(playerCaught && doorClosed == false && !AllSpiderDead()) 
         {
+            doorClosed = true;
             CloseDoor();
         }
     }
@@ -71,22 +75,22 @@ public class Alarm : MonoBehaviour
 
         for (int i = 0; i < connectedSpiders.Length; i++)
         {
-            if (connectedSpiders[i] != null)
-            {
+            
                 if (connectedSpiders[i].gameObject.GetComponent<SpiderEnemy>().isAlive == true)
                 {
                     spidersStillLiving = true;
                 }
 
-            }
+           
         }
-
+       // print(spidersStillLiving);
         return !spidersStillLiving;
+        
     }
 
     private void CloseDoor()
     {
-        doorClosed = true;
+
         if (door.tag == "Exit")
         {
             door.GetComponent<DoorAnimation>().CloseDoor();
@@ -103,8 +107,7 @@ public class Alarm : MonoBehaviour
 
     private void OpenDoor()
     {
-        doorClosed = false;
-        lights.SetActive(false);
+        
         if (door.tag == "Exit")
         {
             door.GetComponent<DoorAnimation>().OpenDoor();

@@ -6,7 +6,7 @@ public class DoorAnimation : MonoBehaviour
 {
    
     [SerializeField]
-    private Animation doorAnim;
+    private Animator doorAnim;
     // Start is called before the first frame update
     void Start()
     {
