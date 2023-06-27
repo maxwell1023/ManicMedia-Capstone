@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6252332712640691586}
   m_Layer: 9
   m_Name: Gear_LP.002
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc11c458cf75d3b43b10ba494045b7ad, type: 2}
+  - {fileID: 2100000, guid: 47b8d50b40030334295a5a05bc61c30e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3507724756696310104}
   m_Layer: 9
   m_Name: FullSpider
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 151724766357044241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.4, y: -4.1, z: 276.8}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3810162204900854269}
@@ -155,6 +155,7 @@ MonoBehaviour:
   inSight: 0
   inRange: 0
   isAlive: 1
+  hasSeenPlayer: 0
   hitBox: {fileID: 678911015595287163}
   sEnemyHealth: 100
   spawner: {fileID: 0}
@@ -226,7 +227,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 1.8
   m_Center: {x: -0.45, y: 3.49, z: 0.07}
@@ -241,7 +242,7 @@ GameObject:
   - component: {fileID: 2937665305814093248}
   m_Layer: 9
   m_Name: Leg1_targetCHECKER
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +274,7 @@ GameObject:
   - component: {fileID: 5518965041625361061}
   m_Layer: 9
   m_Name: Back Upper Leg.R
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,7 +307,7 @@ GameObject:
   - component: {fileID: 8447432719281822698}
   m_Layer: 0
   m_Name: Leg5_target
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,7 +341,7 @@ GameObject:
   - component: {fileID: 4843652535099031803}
   m_Layer: 9
   m_Name: hitbox
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,8 +354,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678911015595287163}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.24, y: 5.33, z: 3.28}
-  m_LocalScale: {x: 3.857, y: 4.1978, z: 6.5949535}
+  m_LocalPosition: {x: 0.24, y: 3.1, z: 2.7000134}
+  m_LocalScale: {x: 2.8358207, y: 2.7906976, z: 4.127517}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5503529131406312191}
@@ -442,9 +443,10 @@ GameObject:
   - component: {fileID: 4618778513878482384}
   - component: {fileID: 7046372466721479828}
   - component: {fileID: 2641530291904919332}
+  - component: {fileID: 6677559551171128164}
   m_Layer: 9
   m_Name: Spider Foot.002
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -492,7 +494,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -514,6 +516,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6677559551171128164
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698828618369987403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4715032378136248816, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &979253115326907703
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +549,7 @@ GameObject:
   - component: {fileID: 4811405695558020265}
   m_Layer: 9
   m_Name: Leg4_targetCHECKER
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -557,9 +581,10 @@ GameObject:
   - component: {fileID: 2158211346710232160}
   - component: {fileID: 6549822751171605668}
   - component: {fileID: 5698892265787891372}
+  - component: {fileID: 2529935247031496658}
   m_Layer: 9
   m_Name: Spider Shin.003
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -607,7 +632,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -629,6 +654,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2529935247031496658
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013409221677390385}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -414718757090712461, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &1054198140785488668
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +687,7 @@ GameObject:
   - component: {fileID: 2684900826512193472}
   m_Layer: 9
   m_Name: Back Upper Leg.L
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -673,7 +720,7 @@ GameObject:
   - component: {fileID: 1117212466527720415}
   m_Layer: 9
   m_Name: Leg5_LiftPOS
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -705,7 +752,7 @@ GameObject:
   - component: {fileID: 2473499879133031510}
   m_Layer: 9
   m_Name: Leg1_LiftPOS
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -737,9 +784,10 @@ GameObject:
   - component: {fileID: 8467452556847996342}
   - component: {fileID: 947404434253541345}
   - component: {fileID: 574192444523299109}
+  - component: {fileID: 7123441350730722244}
   m_Layer: 9
   m_Name: Spider Foot.001
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -787,7 +835,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -809,6 +857,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7123441350730722244
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401945086865122418}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4715032378136248816, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &1462850386404091015
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +890,7 @@ GameObject:
   - component: {fileID: 8015569015223995520}
   m_Layer: 0
   m_Name: Leg4_target
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -851,7 +921,7 @@ GameObject:
   - component: {fileID: 4949019212993173221}
   m_Layer: 9
   m_Name: Leg4_LiftPOS
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -885,7 +955,7 @@ GameObject:
   - component: {fileID: 4826823883890038333}
   m_Layer: 9
   m_Name: Gear_LP.003
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -933,7 +1003,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f48024d47e2f7414bbc1f6421c0b8807, type: 2}
+  - {fileID: 2100000, guid: 47b8d50b40030334295a5a05bc61c30e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -968,7 +1038,7 @@ GameObject:
   - component: {fileID: 8979458159896875916}
   m_Layer: 9
   m_Name: Pipes.002
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1016,7 +1086,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f48024d47e2f7414bbc1f6421c0b8807, type: 2}
+  - {fileID: 2100000, guid: 9a732741687df694786b7ec82330d93c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1049,7 +1119,7 @@ GameObject:
   - component: {fileID: 8489801634293427705}
   m_Layer: 9
   m_Name: Front Middle Leg.L
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1082,7 +1152,7 @@ GameObject:
   - component: {fileID: 4399998855653558234}
   m_Layer: 9
   m_Name: Leg6_targetCHECKER
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1114,9 +1184,10 @@ GameObject:
   - component: {fileID: 8280451204202941914}
   - component: {fileID: 4337821397093913898}
   - component: {fileID: 818206763933875387}
+  - component: {fileID: 361069093161239577}
   m_Layer: 9
   m_Name: Spider Foot.003
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1164,7 +1235,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1186,6 +1257,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &361069093161239577
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041495309881813050}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4715032378136248816, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &2044635233656034454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1290,7 @@ GameObject:
   - component: {fileID: 6895357230929820490}
   m_Layer: 9
   m_Name: Back Lower Leg.R_end
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1226,9 +1319,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9172873178176679330}
+  - component: {fileID: 715079404588816306}
   m_Layer: 9
   m_Name: Torso
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1255,6 +1349,27 @@ Transform:
   m_Father: {fileID: 9111568409205649368}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &715079404588816306
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066509779908211540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.005284339, y: 0.007553166, z: 0.0018896835}
+  m_Center: {x: 0.00020656729, y: 0.0036642032, z: -0.00007596141}
 --- !u!1 &2436398688083390474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,7 +1381,7 @@ GameObject:
   - component: {fileID: 5869589786720610048}
   m_Layer: 9
   m_Name: Middle Middle Leg.L
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1299,9 +1414,10 @@ GameObject:
   - component: {fileID: 8644107084961198756}
   - component: {fileID: 1748696441577098407}
   - component: {fileID: 5435559856057306149}
+  - component: {fileID: 4516721819987394547}
   m_Layer: 9
   m_Name: Spider Shin.002
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1349,7 +1465,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1371,6 +1487,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4516721819987394547
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453248630706308188}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -414718757090712461, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &2473949710898578128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,7 +1522,7 @@ GameObject:
   - component: {fileID: 7508402212528953151}
   m_Layer: 9
   m_Name: Gear_LP
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1432,7 +1570,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc11c458cf75d3b43b10ba494045b7ad, type: 2}
+  - {fileID: 2100000, guid: 47b8d50b40030334295a5a05bc61c30e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1468,7 +1606,7 @@ GameObject:
   - component: {fileID: 1096803352951991971}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1572,7 +1710,7 @@ GameObject:
   - component: {fileID: 1060840914318486287}
   m_Layer: 9
   m_Name: Gear_LP.006
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1620,7 +1758,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc11c458cf75d3b43b10ba494045b7ad, type: 2}
+  - {fileID: 2100000, guid: 47b8d50b40030334295a5a05bc61c30e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1654,7 +1792,7 @@ GameObject:
   - component: {fileID: 1147027317164417997}
   m_Layer: 9
   m_Name: Leg2
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1711,7 +1849,7 @@ GameObject:
   - component: {fileID: 7780759651940736205}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1815,7 +1953,7 @@ GameObject:
   - component: {fileID: 3430820048486260096}
   m_Layer: 9
   m_Name: Pipes.004
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1863,7 +2001,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc11c458cf75d3b43b10ba494045b7ad, type: 2}
+  - {fileID: 2100000, guid: 9a732741687df694786b7ec82330d93c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1898,7 +2036,7 @@ GameObject:
   - component: {fileID: 8507472430021515773}
   m_Layer: 9
   m_Name: Pipes.003
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1946,7 +2084,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc11c458cf75d3b43b10ba494045b7ad, type: 2}
+  - {fileID: 2100000, guid: 9a732741687df694786b7ec82330d93c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1980,7 +2118,7 @@ GameObject:
   - component: {fileID: 4450919002848069346}
   m_Layer: 9
   m_Name: Leg6
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2034,9 +2172,10 @@ GameObject:
   - component: {fileID: 1845095209890108086}
   - component: {fileID: 2532957993633385872}
   - component: {fileID: 6251473535492724837}
+  - component: {fileID: 6030674646582977948}
   m_Layer: 9
   m_Name: Spider Shin
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2084,7 +2223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2106,6 +2245,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6030674646582977948
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049809487514182376}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -414718757090712461, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &3121276445043692350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,7 +2278,7 @@ GameObject:
   - component: {fileID: 6374477641386100416}
   m_Layer: 9
   m_Name: Front Lower Leg.R_end
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2148,9 +2309,10 @@ GameObject:
   - component: {fileID: 2373880657012448739}
   - component: {fileID: 3149700143356923830}
   - component: {fileID: 2558237504419937083}
+  - component: {fileID: 2591045625196637646}
   m_Layer: 9
   m_Name: Spider Foot.004
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2198,7 +2360,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2220,6 +2382,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2591045625196637646
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199450471744966992}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4715032378136248816, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &3357603769608036953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2417,7 @@ GameObject:
   - component: {fileID: 3882358285971345067}
   m_Layer: 9
   m_Name: Spider Chassie
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2293,7 +2477,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 93c0c93e692082f4ea265503560ea728, type: 2}
+  - {fileID: 2100000, guid: 570bb7774f79471429941fb00c1c3d88, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2326,7 +2510,7 @@ GameObject:
   - component: {fileID: 2895591060184531914}
   m_Layer: 9
   m_Name: Front Lower Leg.R
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2359,9 +2543,10 @@ GameObject:
   - component: {fileID: 483163325463699255}
   - component: {fileID: 8091549077114381846}
   - component: {fileID: 6894341163870079468}
+  - component: {fileID: 5587993878568822954}
   m_Layer: 9
   m_Name: Spider Foot
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2409,7 +2594,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2431,6 +2616,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5587993878568822954
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999331505134454842}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4715032378136248816, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &4053999500332121134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,7 +2649,7 @@ GameObject:
   - component: {fileID: 1572356516672556779}
   m_Layer: 0
   m_Name: Leg6_target
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2476,7 +2683,7 @@ GameObject:
   - component: {fileID: 7483095922210977728}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2578,7 +2785,7 @@ GameObject:
   - component: {fileID: 2246156348311514681}
   m_Layer: 9
   m_Name: Back Lower Leg.L_end
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2609,7 +2816,7 @@ GameObject:
   - component: {fileID: 3509238300504650765}
   m_Layer: 9
   m_Name: Leg3_LiftPOS
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2641,7 +2848,7 @@ GameObject:
   - component: {fileID: 5404699173779941319}
   m_Layer: 9
   m_Name: Middle Upper Leg.R
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2674,7 +2881,7 @@ GameObject:
   - component: {fileID: 4466235047104034854}
   m_Layer: 9
   m_Name: Leg2_LiftPOS
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2706,7 +2913,7 @@ GameObject:
   - component: {fileID: 997854076000071730}
   m_Layer: 9
   m_Name: Middle Middle Leg.R
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2739,7 +2946,7 @@ GameObject:
   - component: {fileID: 794000081014186211}
   m_Layer: 9
   m_Name: Front Upper Leg.L
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2775,7 +2982,7 @@ GameObject:
   - component: {fileID: 8672875990891110135}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2877,7 +3084,7 @@ GameObject:
   - component: {fileID: 4755683000155754822}
   m_Layer: 9
   m_Name: Front Upper Leg.R
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2910,7 +3117,7 @@ GameObject:
   - component: {fileID: 7747270921736679695}
   m_Layer: 9
   m_Name: Front Lower Leg.L
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2943,7 +3150,7 @@ GameObject:
   - component: {fileID: 8016712711239668972}
   m_Layer: 9
   m_Name: Front Lower Leg.L_end
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2976,7 +3183,7 @@ GameObject:
   - component: {fileID: 4724277160937371269}
   m_Layer: 9
   m_Name: Gear_LP.005
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3024,7 +3231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f48024d47e2f7414bbc1f6421c0b8807, type: 2}
+  - {fileID: 2100000, guid: 47b8d50b40030334295a5a05bc61c30e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3057,9 +3264,10 @@ GameObject:
   - component: {fileID: 1464091144578105960}
   - component: {fileID: 6305938176727386695}
   - component: {fileID: 6081773886200273445}
+  - component: {fileID: 2137403336132896686}
   m_Layer: 9
   m_Name: Spider Foot.005
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3107,7 +3315,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3129,6 +3337,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2137403336132896686
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020760879508794217}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4715032378136248816, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &5109653875503243067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,9 +3370,10 @@ GameObject:
   - component: {fileID: 1566500004669562613}
   - component: {fileID: 2141024757033951193}
   - component: {fileID: 1646604449534451346}
+  - component: {fileID: 343261833682384262}
   m_Layer: 9
   m_Name: Spider Thigh.001
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3190,7 +3421,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3212,6 +3443,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &343261833682384262
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5109653875503243067}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3650412852591029254, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &5188205841472765482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,7 +3479,7 @@ GameObject:
   - component: {fileID: 228780419036082662}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3330,7 +3583,7 @@ GameObject:
   - component: {fileID: 5647288048494405045}
   m_Layer: 9
   m_Name: Gear_LP.001
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3378,7 +3631,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc11c458cf75d3b43b10ba494045b7ad, type: 2}
+  - {fileID: 2100000, guid: 47b8d50b40030334295a5a05bc61c30e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3414,7 +3667,7 @@ GameObject:
   - component: {fileID: 4611444884348008261}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3516,7 +3769,7 @@ GameObject:
   - component: {fileID: 3111511784441935837}
   m_Layer: 9
   m_Name: Leg3_targetCHECKER
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3548,9 +3801,10 @@ GameObject:
   - component: {fileID: 4571247066064193100}
   - component: {fileID: 8926928211940617845}
   - component: {fileID: 5856453886921860967}
+  - component: {fileID: 729187855801424657}
   m_Layer: 9
   m_Name: Spider Thigh.002
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3598,7 +3852,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3620,6 +3874,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &729187855801424657
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5460055947101272721}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3650412852591029254, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &5504233405080807078
 GameObject:
   m_ObjectHideFlags: 0
@@ -3631,9 +3907,10 @@ GameObject:
   - component: {fileID: 7017343490370371687}
   - component: {fileID: 7392041513024179422}
   - component: {fileID: 8086307755077217429}
+  - component: {fileID: 7723654739213263136}
   m_Layer: 9
   m_Name: Spider Thigh.003
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3681,7 +3958,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3703,6 +3980,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7723654739213263136
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504233405080807078}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3650412852591029254, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &5559141615072624840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3714,7 +4013,7 @@ GameObject:
   - component: {fileID: 4919768225763752856}
   m_Layer: 9
   m_Name: Middle Upper Leg.L
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3747,7 +4046,7 @@ GameObject:
   - component: {fileID: 7919733394401222871}
   m_Layer: 0
   m_Name: Leg1_target
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3780,7 +4079,7 @@ GameObject:
   - component: {fileID: 5959684577952173933}
   m_Layer: 9
   m_Name: Gear_LP.004
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3828,7 +4127,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f48024d47e2f7414bbc1f6421c0b8807, type: 2}
+  - {fileID: 2100000, guid: 47b8d50b40030334295a5a05bc61c30e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3862,7 +4161,7 @@ GameObject:
   - component: {fileID: 144576729298367963}
   m_Layer: 9
   m_Name: Leg1
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3918,7 +4217,7 @@ GameObject:
   - component: {fileID: 9203476564311096766}
   m_Layer: 9
   m_Name: Pipes.001
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3966,7 +4265,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dc11c458cf75d3b43b10ba494045b7ad, type: 2}
+  - {fileID: 2100000, guid: 9a732741687df694786b7ec82330d93c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3999,7 +4298,7 @@ GameObject:
   - component: {fileID: 8670241526992750140}
   m_Layer: 9
   m_Name: Middle Lower Leg.L
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4032,7 +4331,7 @@ GameObject:
   - component: {fileID: 4273520007375882363}
   m_Layer: 9
   m_Name: Back Middle Leg.L
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4068,7 +4367,7 @@ GameObject:
   - component: {fileID: 8272059233820020397}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4170,9 +4469,10 @@ GameObject:
   - component: {fileID: 5675831526893013829}
   - component: {fileID: 730651715986299932}
   - component: {fileID: 765592514549755936}
+  - component: {fileID: 3046759491305146759}
   m_Layer: 9
   m_Name: Spider Thigh.004
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4220,7 +4520,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4242,6 +4542,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3046759491305146759
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257492813168585230}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3650412852591029254, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &6346930168764495297
 GameObject:
   m_ObjectHideFlags: 0
@@ -4253,7 +4575,7 @@ GameObject:
   - component: {fileID: 2483969404231953365}
   m_Layer: 9
   m_Name: Back Lower Leg.R
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4287,7 +4609,7 @@ GameObject:
   - component: {fileID: 5383715239081210378}
   m_Layer: 9
   m_Name: Leg4
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4341,7 +4663,7 @@ GameObject:
   - component: {fileID: 5407948351440414031}
   m_Layer: 9
   m_Name: Back Middle Leg.R
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4374,7 +4696,7 @@ GameObject:
   - component: {fileID: 6059358279555949010}
   m_Layer: 0
   m_Name: Leg2_target
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4406,7 +4728,7 @@ GameObject:
   - component: {fileID: 3104361104969104494}
   m_Layer: 9
   m_Name: Leg5
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4460,7 +4782,7 @@ GameObject:
   - component: {fileID: 2745800930663173462}
   m_Layer: 9
   m_Name: Middle Lower Leg.R_end
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4491,7 +4813,7 @@ GameObject:
   - component: {fileID: 9111568409205649368}
   m_Layer: 9
   m_Name: Spider Enemy2
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4506,7 +4828,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0.0019989014, y: -1.672, z: 0.06}
   m_LocalScale: {x: 181.93001, y: 181.93002, z: 181.93002}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9172873178176679330}
   - {fileID: 5170131270427180759}
@@ -4527,7 +4849,7 @@ GameObject:
   - component: {fileID: 1874734867630797263}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4629,7 +4951,7 @@ GameObject:
   - component: {fileID: 5495007176974665037}
   m_Layer: 9
   m_Name: Middle Lower Leg.L_end
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4660,7 +4982,7 @@ GameObject:
   - component: {fileID: 6664822041023562712}
   m_Layer: 9
   m_Name: Front Middle Leg.R
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4696,7 +5018,7 @@ GameObject:
   - component: {fileID: 6985469126608512401}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4798,7 +5120,7 @@ GameObject:
   - component: {fileID: 1054531022569854342}
   m_Layer: 9
   m_Name: Leg5_targetCHECKER
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4833,7 +5155,7 @@ GameObject:
   - component: {fileID: 3341170042127246211}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4936,7 +5258,7 @@ GameObject:
   - component: {fileID: 5255037970687491901}
   m_Layer: 9
   m_Name: Leg3
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4990,7 +5312,7 @@ GameObject:
   - component: {fileID: 5469389479126087814}
   m_Layer: 9
   m_Name: Leg6_LiftPOS
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5024,7 +5346,7 @@ GameObject:
   - component: {fileID: 1053860007060630079}
   m_Layer: 9
   m_Name: Pipes
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5072,7 +5394,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f48024d47e2f7414bbc1f6421c0b8807, type: 2}
+  - {fileID: 2100000, guid: 9a732741687df694786b7ec82330d93c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5108,7 +5430,7 @@ GameObject:
   - component: {fileID: 8160236061089849177}
   m_Layer: 9
   m_Name: Spider Main Object
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5122,7 +5444,7 @@ Transform:
   m_GameObject: {fileID: 7983588381954204238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.1396942, y: 1.56, z: -0.09}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2937665305814093248}
@@ -5226,9 +5548,10 @@ GameObject:
   - component: {fileID: 4129703586709246715}
   - component: {fileID: 6218788721829062821}
   - component: {fileID: 5389373782180868929}
+  - component: {fileID: 3978696363545715567}
   m_Layer: 9
   m_Name: Spider Shin.001
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5276,7 +5599,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5298,6 +5621,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3978696363545715567
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004485528899385397}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -414718757090712461, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &8092717278727352038
 GameObject:
   m_ObjectHideFlags: 0
@@ -5309,9 +5654,10 @@ GameObject:
   - component: {fileID: 2709622809104837608}
   - component: {fileID: 5887131820981230564}
   - component: {fileID: 8264964384935776783}
+  - component: {fileID: 4494916511856938703}
   m_Layer: 9
   m_Name: Spider Shin.004
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5359,7 +5705,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5381,6 +5727,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4494916511856938703
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092717278727352038}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -414718757090712461, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &8108917962733335853
 GameObject:
   m_ObjectHideFlags: 0
@@ -5395,7 +5763,7 @@ GameObject:
   - component: {fileID: 2628161664717315612}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5497,7 +5865,7 @@ GameObject:
   - component: {fileID: 1862568107122616322}
   m_Layer: 9
   m_Name: Leg2_targetCHECKER
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5532,7 +5900,7 @@ GameObject:
   - component: {fileID: 7477050805953919390}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5634,7 +6002,7 @@ GameObject:
   - component: {fileID: 6335464361055191080}
   m_Layer: 0
   m_Name: Leg3_target
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5665,9 +6033,10 @@ GameObject:
   - component: {fileID: 7673976121249968150}
   - component: {fileID: 3975181309186439291}
   - component: {fileID: 1841218942663913994}
+  - component: {fileID: 3029446894249242669}
   m_Layer: 9
   m_Name: Spider Shin.005
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5715,7 +6084,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5737,6 +6106,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3029446894249242669
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360931966012083073}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -414718757090712461, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &8398383826724621671
 GameObject:
   m_ObjectHideFlags: 0
@@ -5748,7 +6139,7 @@ GameObject:
   - component: {fileID: 4327925368500579890}
   m_Layer: 9
   m_Name: Back Lower Leg.L
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5781,9 +6172,10 @@ GameObject:
   - component: {fileID: 6637581208529239986}
   - component: {fileID: 3423270484253699254}
   - component: {fileID: 834817997281768646}
+  - component: {fileID: 611286051240309617}
   m_Layer: 9
   m_Name: Spider Thigh
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5831,7 +6223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5853,6 +6245,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &611286051240309617
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433935464858527287}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3650412852591029254, guid: db057d59e906b7443a265848028285eb, type: 3}
 --- !u!1 &8856861108362887925
 GameObject:
   m_ObjectHideFlags: 0
@@ -5865,7 +6279,7 @@ GameObject:
   - component: {fileID: 4368134197480957709}
   m_Layer: 9
   m_Name: LegRigs
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6172,7 +6586,7 @@ GameObject:
   - component: {fileID: 492033200207855326}
   m_Layer: 9
   m_Name: Middle Lower Leg.R
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6205,9 +6619,10 @@ GameObject:
   - component: {fileID: 5219594011164211223}
   - component: {fileID: 5380821421336629780}
   - component: {fileID: 2393273126198797962}
+  - component: {fileID: 2049838350870932457}
   m_Layer: 9
   m_Name: Spider Thigh.005
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6255,7 +6670,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+  - {fileID: 2100000, guid: 653b8df0f07c0414d9bc65ee05d0c855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6277,3 +6692,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2049838350870932457
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198882228633659430}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3650412852591029254, guid: db057d59e906b7443a265848028285eb, type: 3}

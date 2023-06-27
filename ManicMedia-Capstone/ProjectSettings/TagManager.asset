@@ -14,6 +14,7 @@ TagManager:
   - SmallDoor
   - laserReciever
   - Boss
+  - Spider
   layers:
   - Default
   - TransparentFX
