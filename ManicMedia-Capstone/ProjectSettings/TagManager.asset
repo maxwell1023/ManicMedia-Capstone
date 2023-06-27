@@ -13,6 +13,7 @@ TagManager:
   - GearHolder
   - SmallDoor
   - laserReciever
+  - Boss
   layers:
   - Default
   - TransparentFX

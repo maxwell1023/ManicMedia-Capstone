@@ -311,8 +311,13 @@ public class PhysicsGun : MonoBehaviour
                         hit.transform.gameObject.GetComponent<LaserReciever>().DropGear(); 
                      }
                      
-                 }
+                }
                 
+                if(hit.transform.root.transform.CompareTag("Boss"))
+                {
+                    hit.transform.root.transform.GetComponent<Boss>().SubtractBossHealth(0.5f);
+                    
+                }
                
                 //float distanceFromAttach = Vector3.Distance(player.position, attachPoint);
 

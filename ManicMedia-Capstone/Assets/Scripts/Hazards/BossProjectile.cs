@@ -11,18 +11,20 @@ public class BossProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
+        
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
         
-
+        /*
         goalPos = player.transform.position;
         transform.LookAt(goalPos);
         */
 
         Invoke("CleanUp", 3);
+
+        transform.rotation = Quaternion.Euler(transform.rotation.x - 90, transform.rotation.y - 90, transform.rotation.z);
 
     }
 
