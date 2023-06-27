@@ -17,18 +17,35 @@ public class Alarm : MonoBehaviour
     {
         lights.SetActive(false);
         initialPosition = door.transform.position;
+
+         OpenDoor();
+        doorClosed = false;
         //spidersStillLiving = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        spinner.transform.RotateAround(lightCenter.transform.position, Vector3.up, 45 * Time.deltaTime);
+        if (doorClosed)
+        {
+            spinner.transform.RotateAround(lightCenter.transform.position, Vector3.right, 100 * Time.deltaTime);
+            lights.SetActive(true);
+        }
     }
 
     private void FixedUpdate()
     {
         CheckAlerted();
+
+        if(AllSpiderDead() && doorClosed)
+        {
+            OpenDoor();
+        }
+
+        if(playerCaught && doorClosed == false) 
+        {
+            CloseDoor();
+        }
     }
 
     private void CheckAlerted()
@@ -86,6 +103,8 @@ public class Alarm : MonoBehaviour
 
     private void OpenDoor()
     {
+        doorClosed = false;
+        lights.SetActive(false);
         if (door.tag == "Exit")
         {
             door.GetComponent<DoorAnimation>().OpenDoor();

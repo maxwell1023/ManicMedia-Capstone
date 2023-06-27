@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/IN-GAME LEVELS/Menu.unity
     guid: a7a2c68575e02a44eaa7d41325282d3b
   - enabled: 1
+    path: Assets/Scenes/IN-GAME LEVELS/Intro Level 1.unity
+    guid: 5e44306957872d7499c726cc1f95a0d9
+  - enabled: 1
     path: Assets/Scenes/Enemy test Scene.unity
     guid: 7cf74d51afbd13848a126408691cb66b
   - enabled: 1

@@ -312,8 +312,14 @@ public class PhysicsGun : MonoBehaviour
                      }
                      
                 }
-                
-                if(hit.transform.root.transform.CompareTag("Boss"))
+            if (hit.transform.gameObject.tag == "Spider")
+            {
+                secondsLasered += Time.deltaTime;
+                hit.transform.root.transform.GetComponent<SpiderEnemy>().sEnemyHealth -= secondsLasered;
+
+            }
+
+            if (hit.transform.root.transform.CompareTag("Boss"))
                 {
                     hit.transform.root.transform.GetComponent<Boss>().SubtractBossHealth(0.5f);
                     

@@ -20,7 +20,7 @@ public class SpiderEnemy : MonoBehaviour
     public bool hasSeenPlayer = false;
 
     [SerializeField] private GameObject hitBox;                       //Enemy Hitbox
-    [SerializeField] private int sEnemyHealth = 100;                 //Spider enemy's health  
+    public float sEnemyHealth = 100;                 //Spider enemy's health  
     [SerializeField] private GameObject spawner;                    //Where the spider Spawns from
     private Transform startLocation;
     [SerializeField] private float defaultSpeed, chaseSpeed;
@@ -44,10 +44,7 @@ public class SpiderEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            modeSWITCHER = !modeSWITCHER;
-        }
+       
         if (isAlive == true)
         {
             
@@ -56,20 +53,27 @@ public class SpiderEnemy : MonoBehaviour
             inRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
             //...and decides where to move
 
-                if (modeSWITCHER == true && inRange == false)  
+                if (inSight == false && inRange == false)  
                 {
                     Scatter();
                 }
-                else if (modeSWITCHER == false && inRange == false)
+                else if (inSight == true && inRange == false)
                 {
                     Chase();
+                    hasSeenPlayer = true;
                 }
 
-               /* if (inRange)
+                if (inRange)
                 {
                     Attack();
-                } */
+                } 
             
+        }
+
+        if(sEnemyHealth <= 0) 
+        {
+            isAlive = false;
+            this.gameObject.SetActive(false);
         }
     }
 

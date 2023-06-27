@@ -146,9 +146,9 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 8
-  walkRange: 20
+  walkRange: 5
   attackCooldown: 1
-  followRange: 80
+  followRange: 10
   attackRange: 7
   attackTime: 0.3
   linkedToSpawner: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
   hitBox: {fileID: 678911015595287163}
   sEnemyHealth: 100
   spawner: {fileID: 0}
-  defaultSpeed: 30
-  chaseSpeed: 60
+  defaultSpeed: 8
+  chaseSpeed: 17.8
 --- !u!195 &7602092172884486406
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -354,8 +354,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678911015595287163}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.24, y: 3.1, z: 2.7000134}
-  m_LocalScale: {x: 2.8358207, y: 2.7906976, z: 4.127517}
+  m_LocalPosition: {x: 0.24, y: 3.1, z: 2.5000317}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5503529131406312191}
@@ -368,7 +368,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678911015595287163}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &263903706022234494
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -430,8 +430,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.8912958, y: 0.8459175, z: 0.4706723}
+  m_Center: {x: 0.054352134, y: -0.0018314769, z: -0.0013626915}
 --- !u!1 &698828618369987403
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,7 +4827,7 @@ Transform:
   m_GameObject: {fileID: 6824302841944911178}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0.0019989014, y: -1.672, z: 0.06}
-  m_LocalScale: {x: 181.93001, y: 181.93002, z: 181.93002}
+  m_LocalScale: {x: 152.04, y: 152.04, z: 152.04}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9172873178176679330}
