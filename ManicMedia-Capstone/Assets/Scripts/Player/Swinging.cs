@@ -32,7 +32,7 @@ public class Swinging : MonoBehaviour
 
     private float tempXAngle;
 
-    private bool canGrapple;
+    public bool canGrapple;
     private Quaternion defaultGunRotation, attachRotation;
     private void Start()
     {
