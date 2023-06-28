@@ -156,18 +156,10 @@ public class SpiderEnemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-      /*  if (other.gameObject.tag == "PlayerMelee")
+        if (other.gameObject.tag == "PlayerMelee")
         {
             sEnemyHealth = sEnemyHealth - player.gameObject.GetComponent<PlayerController>().playerMelee;
-            if (sEnemyHealth <= 0)
-            {
-                this.gameObject.transform.position = startLocation.position;
-                this.gameObject.transform.rotation = startLocation.rotation;
-                //this.gameObject.transform.rotation = startRotation;       
-                this.gameObject.SetActive(false);
-                isAlive = false;
-                //need to FIX
-            }
-        } */
+            
+        } 
     }
 }
