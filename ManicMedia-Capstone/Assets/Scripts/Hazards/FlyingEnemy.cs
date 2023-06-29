@@ -7,6 +7,7 @@ public class FlyingEnemy : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject projectile;
     [SerializeField] private GameObject projectileShooter;
+    [SerializeField] private GameObject rotationSetter;
 
     private float speed = 0.5f;
     private float distance = 0f;
@@ -83,7 +84,8 @@ public class FlyingEnemy : MonoBehaviour
 
         goalPos = new Vector3(player.transform.position.x, flyHeight, player.transform.position.z);
 
-        transform.LookAt(player.transform.position);
+        rotationSetter.transform.LookAt(player.transform.position);
+        transform.eulerAngles = new Vector3(rotationSetter.transform.rotation.x, rotationSetter.transform.rotation.y, rotationSetter.transform.rotation.z);
         transform.position = Vector3.Lerp(transform.position, goalPos, speed * Time.deltaTime);
     }
 
@@ -100,13 +102,15 @@ public class FlyingEnemy : MonoBehaviour
             }
         }
 
-        transform.LookAt(player.transform.position);
+        rotationSetter.transform.LookAt(player.transform.position);
+        
 
         if (canFire)
         {
             canFire = false;
             Vector3 direction = (transform.position - player.transform.position);
-            transform.LookAt(player.transform.position);
+            //transform.LookAt(player.transform.position);
+            transform.eulerAngles = new Vector3(rotationSetter.transform.rotation.x, rotationSetter.transform.rotation.y, rotationSetter.transform.rotation.z);
 
             GameObject newProjectile = Instantiate(projectile, projectileShooter.transform.position, Quaternion.identity);
             newProjectile.GetComponent<Rigidbody>().AddForce(projectileShooter.transform.forward * 80, ForceMode.Impulse);

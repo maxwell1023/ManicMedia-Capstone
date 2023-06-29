@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource musicAudio;
     [SerializeField] private AudioSource sfxAudio;
 
+    public static GameManager instance;
+
     public enum GameState
     {
         Menu,
@@ -16,7 +18,12 @@ public class GameManager : MonoBehaviour
         Playing
     }
 
-    GameState gameState { get;  }
+    public GameState gameState { get; set; }
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     public void PlayButton()
     {
