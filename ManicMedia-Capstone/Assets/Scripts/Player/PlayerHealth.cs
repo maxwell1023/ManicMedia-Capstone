@@ -25,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerHasDied = false;
         healthSlider.maxValue = maxHealth;
         respawnPoint = this.gameObject.transform.position;
         respawnRotation = this.gameObject.transform.rotation;
@@ -60,13 +61,14 @@ public class PlayerHealth : MonoBehaviour
 
             if (deathText.alpha >= 1 && blackScreen.alpha >= 1)
             {
+                health = maxHealth;
                 this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 this.gameObject.transform.position = respawnPoint;
-                this.gameObject.transform.rotation = respawnRotation;
+                //this.gameObject.transform.rotation = respawnRotation;
+                this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 print(respawnPoint);
                 startFading = true;
                 playerHasDied = false;
-                health = maxHealth;
             }
 
             if (deathText.alpha > 0 && startFading)
