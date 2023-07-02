@@ -12,6 +12,9 @@ public class PhysicsGun : MonoBehaviour
     private bool laserNeedsRecharge;
 
     [SerializeField]
+    private float damageRate = 10;
+
+    [SerializeField]
     private float sliderMultiplier = 1f;
     //private float laserCharge, lastLaserCharge;
 
@@ -315,21 +318,21 @@ public class PhysicsGun : MonoBehaviour
                 if (hit.transform.gameObject.tag == "laserReciever")
                  {
                      secondsLasered += Time.deltaTime;
-                     if (secondsLasered >= 4.5)
+                     if (secondsLasered >= 2.2)
                      {
                     
                         hit.transform.gameObject.GetComponent<LaserReciever>().DropGear(); 
                      }
                      
                 }
-            if (hit.transform.gameObject.tag == "Spider")
-            {
-                secondsLasered += Time.deltaTime;
-                hit.transform.root.transform.GetComponent<SpiderEnemy>().sEnemyHealth -= secondsLasered;
+                if (hit.transform.gameObject.tag == "Spider")
+                {
+                    secondsLasered += Time.deltaTime;
+                    hit.transform.root.transform.GetComponent<SpiderEnemy>().sEnemyHealth -= secondsLasered * damageRate;
 
-            }
+                }
 
-            if (hit.transform.root.transform.CompareTag("Boss"))
+                if (hit.transform.root.transform.CompareTag("Boss"))
                 {
                     hit.transform.root.transform.GetComponent<Boss>().SubtractBossHealth(0.5f);
                     
@@ -340,7 +343,7 @@ public class PhysicsGun : MonoBehaviour
                 laserRender.positionCount = 2;
                 currentShotPosition = firePoint.position;
 
-            }
+                }
 
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 100f;

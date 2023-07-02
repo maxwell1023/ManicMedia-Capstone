@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextShake : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     [SerializeField]
     private float offset, speed, length;
 
@@ -12,17 +12,17 @@ public class TextShake : MonoBehaviour
 
     private float shakeTime;
     private bool moving, moveRight;
-    void Start()
+    void Start() //gets the orginal position & positions to offset to
     {
         originalPosition = this.transform.position;
         leftSide = new Vector3(transform.position.x - offset, transform.position.y, transform.position.z);
         rightSide = new Vector3(transform.position.x + offset, transform.position.y, transform.position.z);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if(moving == true)
+        if(moving == true) //shake text between right & left
         {
             
                 if (moveRight)
@@ -48,14 +48,14 @@ public class TextShake : MonoBehaviour
         }
     }
 
-    public void ShakeText()
+    public void ShakeText() //will be called by gear placement (GearCollection) script to start shaking
     {
         moving = true;
         Invoke("StopShake", length);
         
     }
 
-    private void StopShake() 
+    private void StopShake() //stops the shake...
     {
         moving = false;
         this.transform.position = originalPosition;

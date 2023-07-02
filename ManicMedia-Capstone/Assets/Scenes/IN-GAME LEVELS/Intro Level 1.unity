@@ -14648,6 +14648,7 @@ MonoBehaviour:
   maxLaserCharge: 100
   laserCharge: 0
   laserNeedsRecharge: 0
+  damageRate: 7
   sliderMultiplier: 1
   cam: {fileID: 1748944778}
   physicsInteractableObjectMask:

@@ -7,17 +7,7 @@ public class DoorAnimation : MonoBehaviour
    
     [SerializeField]
     private Animator doorAnim;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // script for animating the winged doors
 
     public void OpenDoor() 
     {

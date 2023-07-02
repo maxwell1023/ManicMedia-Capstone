@@ -10,7 +10,7 @@ public class CrosshairManagement : MonoBehaviour
     [SerializeField]
     private GameObject normalCrossHair, pullCrossHair, grabCrossHair;
 
-    void Start()
+    void Start() 
     {
         normalCrossHair.SetActive(false);
         pullCrossHair.SetActive(false);
@@ -18,11 +18,11 @@ public class CrosshairManagement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         CheckSights();
     }
-    private void CheckSights()
+    private void CheckSights() //sets the crosshair based on ammount of ammo & what is in sights
     {
         RaycastHit hit;
         if (Physics.Raycast(cam.position, cam.forward, out hit, 300f, this.gameObject.GetComponent<PhysicsGun>().physicsInteractableObjectMask) && this.gameObject.GetComponent<PhysicsGun>().isLasering == false || this.gameObject.GetComponent<PhysicsGun>().isHolding == true)

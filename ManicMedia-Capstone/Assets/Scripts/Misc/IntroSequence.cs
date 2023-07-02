@@ -8,6 +8,15 @@ public class IntroSequence : MonoBehaviour
     [SerializeField]
     private GameObject wasdText, laserText, grappleText, flyingText;
     private bool wasdIsCurrent, laserIsCurrent, grappleIsCurrent, beatRM1, flyingIsCurrent;
+
+    //
+    //
+    //
+    //    THIS SCRIPT IS A STARTING POINT BUT NEEDS TO BE ENTIRELY RE-DONE!!!
+    //
+    //
+    //
+    //
     void Start()
     {
         wasdText.SetActive(false);

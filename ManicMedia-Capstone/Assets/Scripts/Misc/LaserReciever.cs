@@ -11,7 +11,7 @@ public class LaserReciever : MonoBehaviour
     private GameObject gearToSpawn;
     [SerializeField]
     private Transform gearDropper;
-    public void DropGear()
+    public void DropGear() //drops the gear
     {
 
         if (!hasDroppedGear)

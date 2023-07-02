@@ -9,29 +9,29 @@ public class GearHolder : MonoBehaviour
     public float gearsPlaced;
 
     [SerializeField]
-    private GameObject gear1Pt1, gear1Pt2, gear1Pt3, gear2Pt1, gear2Pt2, gear2Pt3, gear3Pt1, gear3Pt2, gear3Pt3;
+    private GameObject gear1Pt1, gear1Pt2, gear1Pt3, gear2Pt1, gear2Pt2, gear2Pt3, gear3Pt1, gear3Pt2, gear3Pt3; //every gear consists of 3 parts
 
     [SerializeField]
-    private GameObject attachedDoor;
+    private GameObject attachedDoor; //the door this holder will move
 
     public bool doorIsClosed;
     // Start is called before the first frame update
     void Start()
     {
-        doorIsClosed = true;
-        updateGearPlacement();
+        doorIsClosed = true; //door defaults to closed
+        updateGearPlacement(); 
     }
 
     // Update is called once per frame
 
     public void addGear(float gearsAdded)
     {
-        gearsPlaced = gearsPlaced + gearsAdded;
+        gearsPlaced = gearsPlaced + gearsAdded; //changes the variable to now have the extra gears placed
         updateGearPlacement();
 
     }
 
-    private void updateGearPlacement()
+    private void updateGearPlacement() //place the physical gear items
     {
         if (gearsPlaced == 1)
         {
@@ -85,7 +85,7 @@ public class GearHolder : MonoBehaviour
         }
     }
 
-    private void UpdateDoor()
+    private void UpdateDoor() //animate or slide up door!
     {
         if (attachedDoor.tag == "Exit")
         {
@@ -100,7 +100,7 @@ public class GearHolder : MonoBehaviour
             StartCoroutine(Move(8f, 1f));
         }
     }
-    IEnumerator Move(float heightAdd, float time)
+    IEnumerator Move(float heightAdd, float time) //the door sliding function (not for the winged doors)
     {
         Vector3 initialPosition = attachedDoor.transform.position;
         Vector3 newPosition = new Vector3(attachedDoor.transform.position.x, attachedDoor.transform.position.y + heightAdd, attachedDoor.transform.position.z);

@@ -1789,7 +1789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4051562888414197354, guid: 34f1318ecd6c9024780e41cc29f2107a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.2488575
+      value: -1.0488572
       objectReference: {fileID: 0}
     - target: {fileID: 4051562888414197354, guid: 34f1318ecd6c9024780e41cc29f2107a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4277,6 +4277,7 @@ MonoBehaviour:
   maxLaserCharge: 100
   laserCharge: 0
   laserNeedsRecharge: 0
+  damageRate: 20
   sliderMultiplier: 1
   cam: {fileID: 318297139}
   physicsInteractableObjectMask:
@@ -12327,7 +12328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8317347395061880421, guid: aa9414c73340ab7448a2b52aa38276db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.2488594
+      value: -1.0488591
       objectReference: {fileID: 0}
     - target: {fileID: 8317347395061880421, guid: aa9414c73340ab7448a2b52aa38276db, type: 3}
       propertyPath: m_LocalRotation.w

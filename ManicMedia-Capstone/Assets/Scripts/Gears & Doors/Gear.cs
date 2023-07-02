@@ -8,7 +8,7 @@ public class Gear : MonoBehaviour
     private Transform gearCenter;
    
 
-    // Update is called once per frame
+    // This script controlls the gear movement when not attached to a door
     void Update()
     {
         transform.RotateAround(gearCenter.transform.position, Vector3.up, 45 * Time.deltaTime);

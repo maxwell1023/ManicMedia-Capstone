@@ -102,7 +102,7 @@ public class SpiderEnemy : MonoBehaviour
         float randomVert = Random.Range(-walkRange, walkRange);
         float randomHoriz = Random.Range(-walkRange, walkRange);
         
-        walkPoint = new Vector3(transform.position.x + randomHoriz, transform.position.y + 1, transform.position.z + randomVert);
+        walkPoint = new Vector3(transform.localPosition.x + randomHoriz, transform.localPosition.y + 1, transform.localPosition.z + randomVert);
 
         if (Physics.Raycast(walkPoint, -transform.up, 3f, groundMask))
         {

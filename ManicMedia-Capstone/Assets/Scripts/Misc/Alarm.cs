@@ -88,7 +88,7 @@ public class Alarm : MonoBehaviour
         
     }
 
-    private void CloseDoor()
+    private void CloseDoor() //closes the doors by putting them in their needed positions
     {
 
         if (door.tag == "Exit")
@@ -97,15 +97,15 @@ public class Alarm : MonoBehaviour
         }
         else if (door.tag == "SmallDoor")
         {
-            door.transform.position = initialPosition;
+            StartCoroutine(Move(-8f, 1f));
         }
         else if (door.tag == "BigDoor")
         {
-            door.transform.position = initialPosition;
+            StartCoroutine(Move(-8f, 1f));
         }
     }
 
-    private void OpenDoor()
+    private void OpenDoor() //opens the doors
     {
         
         if (door.tag == "Exit")
@@ -122,7 +122,7 @@ public class Alarm : MonoBehaviour
         }
     }
 
-    IEnumerator Move(float heightAdd, float time)
+    IEnumerator Move(float heightAdd, float time) //moves the flat doors up and down over time
     {
         Vector3 initialPosition = door.transform.position;
         Vector3 newPosition = new Vector3(door.transform.position.x, door.transform.position.y + heightAdd, door.transform.position.z);
