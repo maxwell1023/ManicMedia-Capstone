@@ -4064,6 +4064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitbox: {fileID: 798917309}
   gun: {fileID: 607776982}
+  canAttack: 1
   meleeCoolDown: 0.7
   playerMelee: 70
 --- !u!114 &802208029

@@ -60,19 +60,19 @@ public class PhysicsGun : MonoBehaviour
     {
         
         
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && this.gameObject.GetComponent<PlayerMelee>().canAttack == true && isLasering == false)
         {
             GrabObject();
             StopLaserMode();
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && isHolding)
         {
             releaseTime += Time.deltaTime * sliderMultiplier;
             ObjectVelocity(releaseTime);
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && isHolding)
         {
             releaseTime = 0;
             FlingObject();
@@ -84,7 +84,7 @@ public class PhysicsGun : MonoBehaviour
             ChangeObjectDistance();
         }
 
-        if (!isHolding)
+        if (!isHolding && this.gameObject.GetComponent<PlayerMelee>().canAttack == true && this.gameObject.GetComponent<Swinging>().isSwinging == false)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -124,12 +124,13 @@ public class PhysicsGun : MonoBehaviour
 
         if(laserNeedsRecharge == true)
         {
-            if(laserCharge < maxLaserCharge * .985f)// * (99/100)))
+            if(laserCharge < maxLaserCharge * .98f)// * (99/100)))
             {
                 laserNeedsRecharge = true;
             }
             else
-            { 
+            {
+                laserCharge = maxLaserCharge;
                 laserNeedsRecharge = false; 
             }
 

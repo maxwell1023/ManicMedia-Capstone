@@ -6,7 +6,7 @@ public class PlayerMelee : MonoBehaviour
 {
     [SerializeField]
     private GameObject hitbox, gun;
-    private bool canAttack = true;
+    public bool canAttack = true;
 
     [SerializeField]
     private float meleeCoolDown = .7f;
@@ -26,7 +26,7 @@ public class PlayerMelee : MonoBehaviour
             gunInUse = !gunInUse;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && canAttack && gunInUse == false && this.gameObject.GetComponent<PhysicsGun>().isHolding == false)
+        if (Input.GetKeyDown(KeyCode.R) && canAttack && gunInUse == false)
         {
             gun.GetComponent<GunAnimation>().Melee();
             StartCoroutine(Attack());

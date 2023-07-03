@@ -47,7 +47,7 @@ public class Swinging : MonoBehaviour
         grappleSlider.value = grappleCharge;
         if (Input.GetKeyDown(KeyCode.Mouse1)) 
         { 
-            if(this.gameObject.GetComponent<PhysicsGun>().isLasering == false && this.gameObject.GetComponent<PhysicsGun>().isHolding == false && canGrapple)
+            if(this.gameObject.GetComponent<PhysicsGun>().isLasering == false && this.gameObject.GetComponent<PhysicsGun>().isHolding == false && canGrapple && this.gameObject.GetComponent<PlayerMelee>().canAttack == true)
             {
                 grappleCharge -= initialCost;
                 if(grappleCharge <= 0) {grappleCharge = 10;}
