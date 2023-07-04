@@ -5260,6 +5260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitbox: {fileID: 116429678}
   gun: {fileID: 0}
+  canAttack: 1
   meleeCoolDown: 0.7
   playerMelee: 70
 --- !u!114 &1908824824
@@ -5473,6 +5474,7 @@ MonoBehaviour:
   maxLaserCharge: 0
   laserCharge: 0
   laserNeedsRecharge: 0
+  damageRate: 10
   sliderMultiplier: 1
   cam: {fileID: 370553691}
   physicsInteractableObjectMask:
