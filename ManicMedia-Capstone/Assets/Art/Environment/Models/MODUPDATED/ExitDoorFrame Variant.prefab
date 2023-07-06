@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 42d1d34ebdf11474a96aa765afd1f4a5, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42d1d34ebdf11474a96aa765afd1f4a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -42788126053464484, guid: 42d1d34ebdf11474a96aa765afd1f4a5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed30d3029c304504a8713000c4da049c, type: 2}
     - target: {fileID: 919132149155446097, guid: 42d1d34ebdf11474a96aa765afd1f4a5, type: 3}
       propertyPath: m_Name
       value: ExitDoorFrame Variant

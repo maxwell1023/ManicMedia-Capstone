@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e9699514f1dec464baada8a944a741c2, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9699514f1dec464baada8a944a741c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2508920818499147873, guid: e9699514f1dec464baada8a944a741c2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61b1e863c8bd65e42a9950d6453913b7, type: 2}
     - target: {fileID: 919132149155446097, guid: e9699514f1dec464baada8a944a741c2, type: 3}
       propertyPath: m_Name
       value: DoorWallLRG Variant
@@ -64,7 +68,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7393734901524746032}
   m_SourcePrefab: {fileID: 100100000, guid: e9699514f1dec464baada8a944a741c2, type: 3}
---- !u!1 &7281146448254769896 stripped
+--- !u!1 &3617088543788638417 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8966659547169499688, guid: e9699514f1dec464baada8a944a741c2, type: 3}
   m_PrefabInstance: {fileID: 3576557925980763401}
@@ -75,7 +79,7 @@ MeshCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7281146448254769896}
+  m_GameObject: {fileID: 3617088543788638417}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

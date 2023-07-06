@@ -25,13 +25,13 @@ public class CrosshairManagement : MonoBehaviour
     private void CheckSights() //sets the crosshair based on ammount of ammo & what is in sights
     {
         RaycastHit hit;
-        if (Physics.Raycast(cam.position, cam.forward, out hit, 300f, this.gameObject.GetComponent<PhysicsGun>().physicsInteractableObjectMask) && this.gameObject.GetComponent<PhysicsGun>().isLasering == false || this.gameObject.GetComponent<PhysicsGun>().isHolding == true)
+        if (Physics.Raycast(cam.position, cam.forward, out hit, 30f, this.gameObject.GetComponent<PhysicsGun>().physicsInteractableObjectMask) && this.gameObject.GetComponent<PhysicsGun>().isLasering == false || this.gameObject.GetComponent<PhysicsGun>().isHolding == true)
         {
             grabCrossHair.SetActive(true);
             normalCrossHair.SetActive(false);
             pullCrossHair.SetActive(false);
         }
-        else if (Physics.Raycast(cam.position, cam.forward, out hit, 300f, this.gameObject.GetComponent<Swinging>().grappleable) && this.gameObject.GetComponent<Swinging>().canGrapple && this.gameObject.GetComponent<PhysicsGun>().isLasering == false)
+        else if (Physics.Raycast(cam.position, cam.forward, out hit, 60f, this.gameObject.GetComponent<Swinging>().grappleable) && this.gameObject.GetComponent<Swinging>().canGrapple && this.gameObject.GetComponent<PhysicsGun>().isLasering == false)
         {
             pullCrossHair.SetActive(true);
             normalCrossHair.SetActive(false);

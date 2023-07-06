@@ -45,6 +45,29 @@ public class PhysicsGun : MonoBehaviour
 
     private float releaseTime;
 
+
+    /// <updatedstuff>
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// </summary>
+
+    private float grabbedDistance;
+    private Vector3 grabbedTargetPosition;
+  //  private
+
+
+
+    /// <updatedstuff>
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// </summary>
+
     private void Start()
     {
         laserSlider.maxValue = maxLaserCharge;
@@ -137,6 +160,16 @@ public class PhysicsGun : MonoBehaviour
             
         }
 
+
+        if (objectHolder.transform.localPosition.z > 25)
+        {
+            objectHolder.transform.localPosition = new Vector3(objectHolder.transform.localPosition.x, objectHolder.transform.localPosition.y, 25);
+        }
+        if (objectHolder.transform.localPosition.z < 8)
+        {
+            objectHolder.transform.localPosition = new Vector3(objectHolder.transform.localPosition.x, objectHolder.transform.localPosition.y, 8);
+        }
+
     }
 
     private void LateUpdate()
@@ -146,12 +179,18 @@ public class PhysicsGun : MonoBehaviour
         {
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            //grabbedTargetPosition = (ray.origin + ray.direction * grabbedDistance) - grabbedRB.transform.TransformVector
             Vector3 newObjectPos = ray.GetPoint(objectHolder.transform.localPosition.z);
 
             objectHolder.transform.LookAt(cam.transform.position, Vector3.up);
 
-            grabbedRB.position = Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10);
-            grabbedRB.rotation = Quaternion.Slerp(grabbedRB.transform.rotation, objectHolder.transform.rotation, Time.deltaTime * 10);
+            grabbedRB.velocity = Vector3.zero;
+            if(objectHolder.gameObject.GetComponent<OHCollisionCheck>().somethingBetween == false) 
+            {
+                grabbedRB.position = Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10);
+            }
+           // grabbedRB.MovePosition(Vector3.Lerp(grabbedRB.transform.position, newObjectPos, Time.deltaTime * 10));
+           // grabbedRB.rotation = Quaternion.Slerp(grabbedRB.transform.rotation, objectHolder.transform.rotation, Time.deltaTime * 10);
 
 
 
@@ -355,11 +394,11 @@ public class PhysicsGun : MonoBehaviour
         
     }
 
-    private void CheckRecieverTime()
+   /* private void CheckRecieverTime()
     {
         float secondsHeld = 0;
         secondsHeld += Time.deltaTime;
-    }
+    } */
     private void StopLaserMode()
     {
         laserRender.positionCount = 0;

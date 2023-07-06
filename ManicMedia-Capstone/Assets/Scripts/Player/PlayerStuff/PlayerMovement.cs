@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+using System.Runtime.CompilerServices;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed, groundFriction, playerHeight, jumpForce, jumpCooldown, airMultiplier, fallMultiplier;
 
+    [SerializeField]
+    private TMP_Text dashText;
 
     [SerializeField]
     private LayerMask groundLayer;
@@ -25,7 +29,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
 
     private Rigidbody rb;
-
+    private bool isDashing, canDash;
+    private int dashesLeft;
+    private float timeSinceDash;
 
 
     // Start is called before the first frame update
@@ -34,16 +40,38 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         jumpReady = true;
-
+        canDash = true;
+        dashesLeft = 2;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundLayer);
-        MovementInput();
-        SpeedLimiter();
+        dashText.text = dashesLeft.ToString();
+
+        if(Input.GetKeyDown(KeyCode.LeftShift) && dashesLeft>0 && GetComponent<Swinging>().isSwinging == false && isDashing == false)
+        {
+            StartCoroutine(Dash());
+        }
+
+        if (isDashing == false)
+        {
+            isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundLayer);
+
+            MovementInput();
+            SpeedLimiter();
+
+            if(dashesLeft < 2)
+            {
+                timeSinceDash += Time.deltaTime;
+            }
+            if(timeSinceDash >= .9)
+            {
+                dashesLeft++;
+                timeSinceDash = 0;
+            }
+        }
 
         if(rb.velocity.y < 0 && GetComponent<Swinging>().isSwinging == false) //&& get isSwinging from script
         {
@@ -120,6 +148,19 @@ public class PlayerMovement : MonoBehaviour
     private void JumpRest()
     {
         jumpReady = true;
+    }
+
+    private IEnumerator Dash()
+    {
+        timeSinceDash = 0;
+        isGrounded = true;
+        moveSpeed = moveSpeed * 8;
+        isDashing = true;
+        dashesLeft -= 1;
+        yield return new WaitForSeconds(0.16f);
+        moveSpeed = moveSpeed/8;
+        isDashing = false;
+        
     }
 
 }
