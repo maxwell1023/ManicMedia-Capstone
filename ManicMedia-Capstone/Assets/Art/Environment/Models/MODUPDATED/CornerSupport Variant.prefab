@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1de2c4f95b30b9a49a494e815f0e53e0, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1de2c4f95b30b9a49a494e815f0e53e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: -6067185528594298527, guid: 1de2c4f95b30b9a49a494e815f0e53e0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6453542f243ecc4fbc6003e1d7f2a43, type: 2}
+      objectReference: {fileID: 2100000, guid: ac3f7f41c2e19b443a6f6c89e323b93d, type: 2}
     - target: {fileID: 919132149155446097, guid: 1de2c4f95b30b9a49a494e815f0e53e0, type: 3}
       propertyPath: m_Name
       value: CornerSupport Variant

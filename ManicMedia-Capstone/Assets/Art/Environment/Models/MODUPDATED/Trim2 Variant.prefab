@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3008b41053da38f4cb94b370a766fb96, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3008b41053da38f4cb94b370a766fb96, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: -4766214406840045309, guid: 3008b41053da38f4cb94b370a766fb96, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8227e62c5be965945847701e3141ef7b, type: 2}
+      objectReference: {fileID: 2100000, guid: 9f7e2a4544d40f24c8da3afe9b293e14, type: 2}
     - target: {fileID: 919132149155446097, guid: 3008b41053da38f4cb94b370a766fb96, type: 3}
       propertyPath: m_Name
       value: Trim2 Variant

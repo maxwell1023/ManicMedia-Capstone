@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 12f456467fece8b46b219b910efbcbed, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 12f456467fece8b46b219b910efbcbed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: -6636569964863955296, guid: 12f456467fece8b46b219b910efbcbed, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f48024d47e2f7414bbc1f6421c0b8807, type: 2}
+      objectReference: {fileID: 2100000, guid: c003c822105b76c428b6bc5fed9f358e, type: 2}
     - target: {fileID: 919132149155446097, guid: 12f456467fece8b46b219b910efbcbed, type: 3}
       propertyPath: m_Name
       value: CircularWallVent Variant
