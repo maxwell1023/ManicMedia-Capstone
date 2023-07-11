@@ -13,7 +13,7 @@ public class PhysicsGun : MonoBehaviour
 
     [SerializeField]
     private float damageRate = 10;
-
+    [SerializeField] private AudioManager gunAudio;
     [SerializeField]
     private float sliderMultiplier = 1f;
     //private float laserCharge, lastLaserCharge;
@@ -45,7 +45,7 @@ public class PhysicsGun : MonoBehaviour
 
     private float releaseTime;
 
-
+    private bool hasPlayedLow, hasPlayedEmpty;
     /// <updatedstuff>
     /// 
     /// 
@@ -136,13 +136,31 @@ public class PhysicsGun : MonoBehaviour
         } 
         laserSlider.value = laserCharge;
 
+        if (laserCharge < 0.3 * maxLaserCharge && laserCharge > 0)
+        {
+            if (hasPlayedLow == false)
+            {
+                gunAudio.Play("Weapon Low Whir");
+                hasPlayedLow = true;
+            }
+        }
+        if(laserCharge > .75f)            //CHANGE CHANGE CHANGE TO MATCH THE ACTUAL LENGTH OF OVERHEAT SOUND + A SMALL DELAY
+        {
+            hasPlayedLow = false;   
+        }
 
         if (laserCharge <= 0)
         {
+            hasPlayedLow = false;
             isLasering = false;
             secondsLasered = 0;
             StopLaserMode();
             laserNeedsRecharge = true;
+            if(hasPlayedEmpty == false)
+            {
+                gunAudio.Play("Weapon Overheat");
+                hasPlayedEmpty = true;
+            }
         }
 
         if(laserNeedsRecharge == true)
@@ -150,6 +168,7 @@ public class PhysicsGun : MonoBehaviour
             if(laserCharge < maxLaserCharge * .98f)// * (99/100)))
             {
                 laserNeedsRecharge = true;
+                hasPlayedEmpty = false;
             }
             else
             {
@@ -309,7 +328,7 @@ public class PhysicsGun : MonoBehaviour
 
             grabbedRB.useGravity = true;
             Vector3 direction = (newObjectPos - cam.transform.position).normalized;
-            grabbedRB.AddForce(direction * (sliderNum * 50), ForceMode.Impulse);
+            grabbedRB.AddForce(direction * (sliderNum * 100), ForceMode.Impulse);
             grabbedRB = null;
 
             sliderNum = 0;
@@ -371,8 +390,14 @@ public class PhysicsGun : MonoBehaviour
                     hit.transform.root.transform.GetComponent<SpiderEnemy>().sEnemyHealth -= secondsLasered * damageRate;
 
                 }
+                if (hit.transform.gameObject.tag == "Flyer")
+                {
+                secondsLasered += Time.deltaTime;
+                hit.transform.root.transform.GetComponent<FlyingEnemy>().fEnemyHealth -= secondsLasered * damageRate;
 
-                if (hit.transform.root.transform.CompareTag("Boss"))
+                }
+
+            if (hit.transform.root.transform.CompareTag("Boss"))
                 {
                     hit.transform.root.transform.GetComponent<Boss>().SubtractBossHealth(0.5f);
                     

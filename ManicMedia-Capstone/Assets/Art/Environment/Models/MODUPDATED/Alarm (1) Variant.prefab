@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 125570801868034901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.476, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4951436866020533943}
@@ -59,8 +59,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442870763862942779}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: -0.232, y: -0.023999989, z: -0.2460022}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.1058, y: -0.001, z: -0.084}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4034602239918220317}
@@ -176,7 +176,7 @@ Transform:
   m_GameObject: {fileID: 1042065709810260767}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.476, z: -0.26031494}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4292419968448287508}
@@ -208,8 +208,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983760788544939646}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.232, y: -0.023999989, z: -0.2460022}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.1096, y: -0.001, z: -0.085}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4034602239918220317}
@@ -227,7 +227,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.6792453, g: 0, b: 0, a: 1}
-  m_Intensity: 40
+  m_Intensity: 90
   m_Range: 8.15
   m_SpotAngle: 141.5813
   m_InnerSpotAngle: 123.86573
@@ -360,6 +360,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ec07ce4fc6543e444ad3d7c2ab05a5fc, type: 2}
+    - target: {fileID: -1733364143346948256, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1733364143346948256, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1733364143346948256, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1287722658500987141, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1287722658500987141, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1287722658500987141, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
       propertyPath: m_Name
       value: Alarm (1) Variant
@@ -368,6 +392,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ec07ce4fc6543e444ad3d7c2ab05a5fc, type: 2}
+    - target: {fileID: 9166346350026587631, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166346350026587631, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166346350026587631, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -399,11 +435,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005bd60a686a7a346b1dd1fc060975f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectedSpiders: []
+  connectedEnemies: []
   door: {fileID: 0}
   spinner: {fileID: 4831386612914563357}
   lights: {fileID: 125570801868034901}
   lightCenter: {fileID: 1042065709810260767}
+  spotLight1: {fileID: 0}
+  spotLight2: {fileID: 0}
 --- !u!4 &4292419968448287508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ff7fdbec650d3ce478a3c6a512a12cd1, type: 3}

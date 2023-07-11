@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class SpiderProceduralScript : MonoBehaviour
 {
-
+    
     [SerializeField]
     private float maxLegDistance = 2f;
     [SerializeField]
@@ -31,7 +32,7 @@ public class SpiderProceduralScript : MonoBehaviour
 
     private bool[] shouldMove = new bool[6];
 
-    
+    private AudioSource clicking;
     //public LayerM IgnoreMe;
 
     private void Start()
@@ -41,6 +42,7 @@ public class SpiderProceduralScript : MonoBehaviour
         {
             shouldMove[i] = false;
         }
+        clicking = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -76,6 +78,7 @@ public class SpiderProceduralScript : MonoBehaviour
 
                 float step = legSpeed * Time.deltaTime;
                 thisTarget.position = Vector3.MoveTowards(thisTarget.position, hit.point, step);
+                clicking.Play(0);
 
             }
 

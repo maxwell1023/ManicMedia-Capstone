@@ -50,7 +50,7 @@ public class Swinging : MonoBehaviour
             if(this.gameObject.GetComponent<PhysicsGun>().isLasering == false && this.gameObject.GetComponent<PhysicsGun>().isHolding == false && canGrapple && this.gameObject.GetComponent<PlayerMelee>().canAttack == true)
             {
                 grappleCharge -= initialCost;
-                if(grappleCharge <= 0) {grappleCharge = 10;}
+               // if(grappleCharge <= 0) {grappleCharge = 10;}
                 Swing();
                 swingLR.enabled = true;
                 if (isSwinging == true)

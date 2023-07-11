@@ -5,12 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/IN-GAME LEVELS/Menu.unity
     guid: a7a2c68575e02a44eaa7d41325282d3b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/IN-GAME LEVELS/Intro Level 1.unity
     guid: 5e44306957872d7499c726cc1f95a0d9
+  - enabled: 1
+    path: Assets/Scenes/IN-GAME LEVELS/SomeLevels/Room1.unity
+    guid: b19c593ef81b6c146a66b8a240d3a522
+  - enabled: 1
+    path: Assets/Scenes/IN-GAME LEVELS/SomeLevels/Room2.unity
+    guid: 38b6474624c8f474d809ff545851a7c9
   - enabled: 0
     path: Assets/Scenes/Enemy test Scene/Enemy test Scene.unity
     guid: 7cf74d51afbd13848a126408691cb66b
@@ -20,7 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LevelA1.unity
     guid: 111c5eb003de70e4b9f1a8202c5118cc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MovementTest.unity
     guid: 80a37ec79e7be874490dc8d0008e0c9c
   m_configObjects: {}

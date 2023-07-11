@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+//using System.Runtime.CompilerServices;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using TMPro;
+//using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed, groundFriction, playerHeight, jumpForce, jumpCooldown, airMultiplier, fallMultiplier;
 
     [SerializeField]
-    private TMP_Text dashText;
+    private GameObject dash0, dash1, dash2;
+
+    [SerializeField] private GameObject groundChecker;
 
     [SerializeField]
     private LayerMask groundLayer;
@@ -23,13 +26,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform playerOrientation;
 
+    [SerializeField] private AudioManager playerAudio;
+
     private float horizInput;
     private float vertInput;
 
     private Vector3 moveDirection;
 
     private Rigidbody rb;
-    private bool isDashing, canDash;
+    private bool isDashing, footStepAlreadyStarted;
     private int dashesLeft;
     private float timeSinceDash;
 
@@ -40,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         jumpReady = true;
-        canDash = true;
         dashesLeft = 2;
 
     }
@@ -48,16 +52,33 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dashText.text = dashesLeft.ToString();
+        PlaySteps(horizInput * horizInput > 0 || vertInput * vertInput > 0);
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && dashesLeft>0 && GetComponent<Swinging>().isSwinging == false && isDashing == false)
+        if (isGrounded == false)
+        {
+            print("Air Born!!!");
+        }
+        if (dashesLeft <= 0)
+        {
+            DashEmpty();
+        }
+        if (dashesLeft >= 2)
+        {
+            DashFull();
+        }
+        if (dashesLeft < 2 && dashesLeft > 0)
+        {
+            DashHalf();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashesLeft>0 && GetComponent<Swinging>().isSwinging == false && isDashing == false)
         {
             StartCoroutine(Dash());
         }
 
         if (isDashing == false)
         {
-            isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundLayer);
+            isGrounded = Physics.CheckSphere(groundChecker.transform.position, .4f, groundLayer);
 
             MovementInput();
             SpeedLimiter();
@@ -150,17 +171,61 @@ public class PlayerMovement : MonoBehaviour
         jumpReady = true;
     }
 
+    private void DashFull()
+    {
+        dash2.gameObject.SetActive(true);
+        dash1.gameObject.SetActive(false);
+        dash0.gameObject.SetActive(false);
+    }
+    private void DashEmpty()
+    {
+        dash2.gameObject.SetActive(false);
+        dash1.gameObject.SetActive(false);
+        dash0.gameObject.SetActive(true);
+    }
+    private void DashHalf()
+    {
+        dash2.gameObject.SetActive(false);
+        dash1.gameObject.SetActive(true);
+        dash0.gameObject.SetActive(false);
+    }
     private IEnumerator Dash()
     {
         timeSinceDash = 0;
         isGrounded = true;
-        moveSpeed = moveSpeed * 8;
+        moveSpeed = moveSpeed * 6;
         isDashing = true;
         dashesLeft -= 1;
-        yield return new WaitForSeconds(0.16f);
-        moveSpeed = moveSpeed/8;
+        yield return new WaitForSeconds(0.14f);
+        moveSpeed = moveSpeed/6;
         isDashing = false;
         
     }
 
+    private bool CheckGround()
+    {
+        
+        bool groundHit = false;
+        /*if (Physics.CheckSphere(groundChecker.transform.position, .4f, groundLayer).Length > 0)
+        {
+            groundHit = true;
+            print(Physics.CheckSphere(groundChecker.transform.position, results[], .4f, groundLayer));
+        } */
+        return groundHit;
+    }
+
+    private void PlaySteps(bool isWalking)
+    {
+        if(isWalking && footStepAlreadyStarted == false)
+        {
+            playerAudio.Play("Player Footstep 2");
+            footStepAlreadyStarted = true;
+
+        }
+        else
+        {
+            playerAudio.Stop("Player Footstep 2");
+            footStepAlreadyStarted = false;
+        }
+    }
 }

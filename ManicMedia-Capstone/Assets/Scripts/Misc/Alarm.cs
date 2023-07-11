@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class Alarm : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] connectedSpiders;
+    
+    [SerializeField] private GameObject[] connectedEnemies;
     [SerializeField]
     private GameObject door;
+    [SerializeField] private bool doorController;
     [SerializeField]
     private GameObject spinner, lights, lightCenter, spotLight1, spotLight2;
     private bool playerCaught, doorClosed;
     private Vector3 initialPosition;
+    private AudioSource alarmSound, doorSound;
+    private bool alarmRinging;
     // Start is called before the first frame update
     void Start()
     {
+        alarmSound = GetComponent<AudioSource>();
+        doorSound = door.GetComponent<AudioSource>();
         lights.SetActive(false);
         initialPosition = door.transform.position;
 
@@ -36,29 +41,53 @@ public class Alarm : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CheckAlerted();
+        
+            CheckAlerted();
 
-        if (AllSpiderDead() && doorClosed == true)
-        {
-            doorClosed = false;
-            lights.SetActive(false);
-            Invoke("OpenDoor", 2);
-        }
+            if (AllSpiderDead() && doorClosed == true)
+            {
+                doorClosed = false;
+                lights.SetActive(false);
+                if (alarmRinging == true)
+                {
+                    alarmSound.Stop();
+                    alarmRinging = false;
+                }
 
-        if(playerCaught && doorClosed == false && !AllSpiderDead()) 
-        {
-            doorClosed = true;
-            CloseDoor();
-        }
+
+                if(doorController)
+                {
+                
+                    Invoke("OpenDoor", 2);
+                }
+                
+            }
+
+            if (playerCaught && doorClosed == false && !AllSpiderDead())
+            {
+                doorClosed = true;
+                if (alarmRinging == false)
+                {
+                    alarmSound.Play(0);
+                    alarmRinging = true;
+                }
+
+                if (doorController)
+                {
+                    CloseDoor();
+                    
+                }
+            }
+        
     }
 
     private void CheckAlerted()
     {
-        for (int i = 0; i < connectedSpiders.Length; i++)
+        for (int i = 0; i < connectedEnemies.Length; i++)
         {
-            if (connectedSpiders[i] != null)
+            if (connectedEnemies[i] != null)
             {
-                if (connectedSpiders[i].gameObject.GetComponent<SpiderEnemy>().hasSeenPlayer == true)
+                if (connectedEnemies[i].gameObject.GetComponent<EnemyStats>().sawPlayer == true)
                 {
                     playerCaught = true;
                 }
@@ -71,53 +100,59 @@ public class Alarm : MonoBehaviour
 
     private bool AllSpiderDead()
     {
-        bool spidersStillLiving = false;
+        bool enemiesStillLiving = false;
 
-        for (int i = 0; i < connectedSpiders.Length; i++)
+        for (int i = 0; i < connectedEnemies.Length; i++)
         {
             
-                if (connectedSpiders[i].gameObject.GetComponent<SpiderEnemy>().isAlive == true)
+                if (connectedEnemies[i].gameObject.GetComponent<EnemyStats>().stillAlive == true)
                 {
-                    spidersStillLiving = true;
+                    enemiesStillLiving = true;
                 }
 
            
         }
        // print(spidersStillLiving);
-        return !spidersStillLiving;
+        return !enemiesStillLiving;
         
     }
 
     private void CloseDoor() //closes the doors by putting them in their needed positions
     {
 
-        if (door.tag == "Exit")
+        if (door.CompareTag("Exit"))
         {
+            doorSound.Play(0);
             door.GetComponent<DoorAnimation>().CloseDoor();
         }
-        else if (door.tag == "SmallDoor")
+        else if (door.CompareTag("SmallDoor"))
         {
+            doorSound.Play(0);
             StartCoroutine(Move(-8f, 1f));
         }
-        else if (door.tag == "BigDoor")
+        else if (door.CompareTag("BigDoor"))
         {
+            doorSound.Play(0);
             StartCoroutine(Move(-8f, 1f));
         }
     }
 
     private void OpenDoor() //opens the doors
     {
-        
-        if (door.tag == "Exit")
+
+        if (door.CompareTag("Exit"))
         {
+            doorSound.Play(0);
             door.GetComponent<DoorAnimation>().OpenDoor();
         }
-        else if (door.tag == "SmallDoor")
+        else if (door.CompareTag("SmallDoor"))
         {
+            doorSound.Play(0);
             StartCoroutine(Move(8f, 1f));
         }
-        else if (door.tag == "BigDoor")
+        else if (door.CompareTag("BigDoor"))
         {
+            doorSound.Play(0);
             StartCoroutine(Move(8f, 1f));
         }
     }

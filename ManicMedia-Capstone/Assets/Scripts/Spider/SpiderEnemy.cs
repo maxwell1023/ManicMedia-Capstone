@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class SpiderEnemy : MonoBehaviour
 {
     [SerializeField] UnityEngine.AI.NavMeshAgent spiderAgent; //NavMesh Agent that controls movement options for this enemy
     [SerializeField] Transform player;                       //Player's transform (to be followed within reason)
     [SerializeField] LayerMask groundMask, playerMask;      //Masks to look for places to wal towards
     private Vector3 walkPoint;                             //Position to walk towards
-    bool walkPointSet;                                    //Has the position above been set to something new?
+    private bool walkPointSet;                                    //Has the position above been set to something new?
     [SerializeField] private float walkRange;            //Range from the spawner the spider will usually stay within
     [SerializeField] private float attackCooldown;      //How long to wait between attacks
     private bool justAttacked;                         //Do we still need to wait between attacks for that cooldown?\
@@ -24,10 +24,11 @@ public class SpiderEnemy : MonoBehaviour
     [SerializeField] private GameObject spawner;                    //Where the spider Spawns from
     private Transform startLocation;
     [SerializeField] private float defaultSpeed, chaseSpeed;
-    private bool modeSWITCHER; //temporary test bool
-
+    private bool isPaused, hasPaused; //temporary test bool
+    private AudioSource zap;
     void Awake()
     {
+        zap = GetComponent<AudioSource>();
         hitBox.SetActive(false);
         player = GameObject.FindWithTag("Player").transform;
         spiderAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -72,27 +73,32 @@ public class SpiderEnemy : MonoBehaviour
 
         if(sEnemyHealth <= 0) 
         {
+            this.gameObject.GetComponent<EnemyStats>().stillAlive = false;
             isAlive = false;
             this.gameObject.SetActive(false);
         }
+
+        this.gameObject.GetComponent<EnemyStats>().sawPlayer = hasSeenPlayer;
     }
 
     private void Scatter()
     {
-        if (!walkPointSet)
+        if (!walkPointSet && isPaused == false)
         {
            // spiderAgent.speed = defaultSpeed;
             RandomizeWalk();
         }
 
-        if (walkPointSet)
+        if (walkPointSet && isPaused == false)
         {
             spiderAgent.speed = defaultSpeed;
+            hasPaused = false;
             spiderAgent.SetDestination(walkPoint);
+            
         }
         Vector3 distanceToPoint = transform.position - walkPoint;
 
-        if (distanceToPoint.magnitude < 2f)
+        if (distanceToPoint.magnitude < 2f && hasPaused == false)
         {
             StartCoroutine(PauseWalk());
         }
@@ -107,6 +113,7 @@ public class SpiderEnemy : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 3f, groundMask))
         {
             walkPointSet = true;
+            
         }
     }
     private void Attack()
@@ -118,6 +125,7 @@ public class SpiderEnemy : MonoBehaviour
         if (!justAttacked)
         {
             hitBox.SetActive(true);
+            zap.Play(0);
             Invoke("hitBoxVanish", attackTime);
 
 
@@ -149,7 +157,11 @@ public class SpiderEnemy : MonoBehaviour
     private IEnumerator PauseWalk()
     {
         spiderAgent.speed = 0f;
-        yield return new WaitForSeconds(1f);
+        isPaused = true;
+        hasPaused = true;
+        float randomPause = Random.Range(3, 10);
+        yield return new WaitForSeconds(randomPause);
+        isPaused = false;
         walkPointSet = false;
     }
 

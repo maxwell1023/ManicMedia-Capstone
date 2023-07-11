@@ -107,13 +107,13 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth: 0
+    - _Depth: -1.07
     - _Depth_Opacity: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Emission: -0.03
+    - _Emission: 0.03
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -138,6 +138,6 @@ Material:
     - _BaseColor: {r: 0.17856853, g: 1.0592737, b: 0.15489379, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GasColor: {r: 0.021359911, g: 0.9056604, b: 0.1354633, a: 0}
+    - _GasColor: {r: 0.021359911, g: 0.9056604, b: 0.1354633, a: 0.95686275}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

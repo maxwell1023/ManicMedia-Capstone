@@ -26,7 +26,7 @@ public class OHCollisionCheck : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, 100f))
         {
-            print(hit.collider.gameObject.layer);
+            //print(hit.collider.gameObject.layer);
             if(hit.collider.gameObject.layer != 3 && hit.collider.gameObject.layer != 7)
             {
                 somethingBetween = true;
@@ -35,7 +35,7 @@ public class OHCollisionCheck : MonoBehaviour
             {
                 somethingBetween = false;
             }
-            print(somethingBetween);
+            //print(somethingBetween);
         }
         
      

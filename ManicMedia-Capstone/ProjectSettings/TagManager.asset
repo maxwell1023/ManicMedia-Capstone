@@ -18,6 +18,7 @@ TagManager:
   - instantDeath
   - checkpoint
   - spiderHit
+  - BigDoor
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - PostProccesing
   - 
   - checkPointLayer
-  - 
+  - Projectile
   - 
   - 
   - 
