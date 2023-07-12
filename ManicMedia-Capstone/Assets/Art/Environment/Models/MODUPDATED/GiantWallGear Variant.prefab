@@ -52,14 +52,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6457059698422034359, guid: 79e9d4469f893874c9ec5cbd8d0d3462, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 79e9d4469f893874c9ec5cbd8d0d3462, type: 3}
       propertyPath: m_Name
       value: GiantWallGear Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79e9d4469f893874c9ec5cbd8d0d3462, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3058740718062855896, guid: 79e9d4469f893874c9ec5cbd8d0d3462, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 61b1e863c8bd65e42a9950d6453913b7, type: 2}
+    - target: {fileID: 3592243152198503134, guid: 79e9d4469f893874c9ec5cbd8d0d3462, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4253280567622488715, guid: 79e9d4469f893874c9ec5cbd8d0d3462, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -68,6 +80,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 61b1e863c8bd65e42a9950d6453913b7, type: 2}
+    - target: {fileID: 7750397243111347764, guid: 79e9d4469f893874c9ec5cbd8d0d3462, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

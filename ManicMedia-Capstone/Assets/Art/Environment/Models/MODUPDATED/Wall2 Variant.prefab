@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 769941ae0bd5c704491de8d1882d5e1a, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 769941ae0bd5c704491de8d1882d5e1a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,9 +52,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 597380298134971516, guid: 769941ae0bd5c704491de8d1882d5e1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 769941ae0bd5c704491de8d1882d5e1a, type: 3}
       propertyPath: m_Name
       value: Wall2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 769941ae0bd5c704491de8d1882d5e1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64,7 +72,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1912247273121601575}
   m_SourcePrefab: {fileID: 100100000, guid: 769941ae0bd5c704491de8d1882d5e1a, type: 3}
---- !u!1 &1352198041057737819 stripped
+--- !u!1 &2379124494413895614 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 597380298134971516, guid: 769941ae0bd5c704491de8d1882d5e1a, type: 3}
   m_PrefabInstance: {fileID: 2976328670431310786}
@@ -75,7 +83,7 @@ MeshCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352198041057737819}
+  m_GameObject: {fileID: 2379124494413895614}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

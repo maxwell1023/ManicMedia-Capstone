@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
 
-    public Text nameText;
-    public Text dialogueText;
+    public TMP_Text nameText;
+    public TMP_Text dialogueText;
 
     public Animator animator;
 
@@ -18,21 +18,28 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
     }
-
-    public void StartDialogue(Dialogue dialogue)
+    private void Update()
     {
-       // animator.SetBool("IsOpen", true);
-
-        nameText.text = dialogue.name;
-
-        sentences.Clear();
-
-        foreach (string sentence in dialogue.sentences)
+       if(Input.GetKeyDown(KeyCode.L))
         {
-            sentences.Enqueue(sentence);
+            animator.SetBool("RadioUp", !animator.GetBool("RadioUp"));  
         }
+    }
 
-        DisplayNextSentence();
+    public void StartDialogue(Dialogue dialogue, int DialoguePosition)
+    {
+        if (sentences.Count == 0)
+        {
+            animator.SetBool("RadioUp", true);
+
+            nameText.text = dialogue.name;
+
+
+            sentences.Enqueue(dialogue.sentences[DialoguePosition]);
+
+
+            DisplayNextSentence();
+        }
     }
 
     public void DisplayNextSentence()
@@ -60,7 +67,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        //animator.SetBool("IsOpen", false);
+        animator.SetBool("RadioUp", false);
     }
 
 }

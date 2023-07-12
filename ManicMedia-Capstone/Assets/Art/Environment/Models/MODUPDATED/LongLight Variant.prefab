@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3e3cd304ecb2b154cacde2acff8f2a0b, type: 2}
+    - target: {fileID: -1058976313529914444, guid: 472cf5b629933db4dbc626f298880faf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 472cf5b629933db4dbc626f298880faf, type: 3}
       propertyPath: m_Name
       value: LongLight Variant

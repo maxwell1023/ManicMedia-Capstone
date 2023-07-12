@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8966659547169499688, guid: e9699514f1dec464baada8a944a741c2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9699514f1dec464baada8a944a741c2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e9699514f1dec464baada8a944a741c2, type: 3}
       propertyPath: m_Name
       value: DoorWallLRG Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e9699514f1dec464baada8a944a741c2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

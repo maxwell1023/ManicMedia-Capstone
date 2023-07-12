@@ -93,7 +93,7 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
+  m_ShadowRadius: 0.1
   m_ShadowAngle: 0
 --- !u!114 &4969230342957075262
 MonoBehaviour:
@@ -172,11 +172,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4543377192191366421, guid: 3339b0f12fb7fa54297092786ae019ac, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3339b0f12fb7fa54297092786ae019ac, type: 3}
       propertyPath: m_Name
       value: Ceiling Light (2) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5718551170233233185, guid: 3339b0f12fb7fa54297092786ae019ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6552177559229579374, guid: 3339b0f12fb7fa54297092786ae019ac, type: 3}
       propertyPath: m_CastShadows

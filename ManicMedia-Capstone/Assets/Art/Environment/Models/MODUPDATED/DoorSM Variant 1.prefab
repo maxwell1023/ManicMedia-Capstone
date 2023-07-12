@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorSM Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f7d9582630bd84d45b713200c5b5bada, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651299991687069456, guid: f7d9582630bd84d45b713200c5b5bada, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9014502301586071008, guid: f7d9582630bd84d45b713200c5b5bada, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
