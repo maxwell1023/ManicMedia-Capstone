@@ -29,9 +29,11 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses:
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -92,6 +94,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 050b35946a124df419d65b3a7c134daf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Roughness_Map:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Smoothness_Map:
         m_Texture: {fileID: 2800000, guid: e8734727e8e971741bd74cbd818d36ff, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -116,10 +122,12 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _Base_Roughness: 0.5
     - _Base_Smoothness: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 0
     - _BumpScale: 1
+    - _CastShadows: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -135,6 +143,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _Mode: 0
+    - _Multiply_Smoothness: 0
     - _OcclusionStrength: 1
     - _Opacity: 1
     - _Opacity_smoothness_multiplier: 0
@@ -157,7 +166,9 @@ Material:
     - _UseRoughnessMap: 0
     - _Use_opacity_for_smooth: 1
     - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZWrite: 1
+    - _ZWriteControl: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
