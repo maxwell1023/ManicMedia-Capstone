@@ -52,7 +52,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlaySteps(horizInput * horizInput > 0 || vertInput * vertInput > 0);
+        //PlaySteps(horizInput * horizInput > 0 || vertInput * vertInput > 0);
+
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A)) && this.gameObject.GetComponent<IntroManager>().dialogueReached == 2)
+        {
+            Invoke("NextTutorial", 1.5f);
+        }
 
         if (isGrounded == false)
         {
@@ -227,5 +232,10 @@ public class PlayerMovement : MonoBehaviour
             playerAudio.Stop("Player Footstep 2");
             footStepAlreadyStarted = false;
         }
+    }
+
+    private void NextTutorial()
+    {
+        this.gameObject.GetComponent<IntroManager>().DownDialogue();
     }
 }

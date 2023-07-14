@@ -5,10 +5,12 @@ using UnityEngine;
 public class IntroManager : MonoBehaviour
 {
     public Dialogue introDialogue;
+    public int dialogueReached = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Invoke("TutorialDialogue", 2f);
+        Invoke("TutorialDialogue", 3f);
     }
 
     // Update is called once per frame
@@ -17,30 +19,30 @@ public class IntroManager : MonoBehaviour
         
     }
 
-    public void Room1Dialogue()
+    public void TutorialDialogue()
     {
-       // if(introHappened == false)
+        if(dialogueReached < 10)
         {
-          FindObjectOfType<DialogueManager>().StartDialogue(introDialogue, 1);
-         //   introHappened = true;
-        }
-       // if(movementLearned == false)
-        {
-            FindObjectOfType<DialogueManager>().StartDialogue(introDialogue, 1);
+            FindObjectOfType<DialogueManager>().StartDialogue(introDialogue, dialogueReached);
+            dialogueReached += 1;
         }
 
     }
 
-    public void Room2Dialogue()
+    public void DownDialogue()
     {
-       // FindObjectOfType<DialogueManager>().StartDialogue(introDialogue);
+        
+
     }
-    public void Room3Dialogue()
+
+    private void OnTriggerEnter(Collider other)
     {
-       // FindObjectOfType<DialogueManager>().StartDialogue(introDialogue);
+        if(other.gameObject.tag == "introSequencer")
+        {
+            TutorialDialogue();
+            Destroy(other.gameObject);
+        }
     }
-    public void Room4Dialogue()
-    {
-       // FindObjectOfType<DialogueManager>().StartDialogue(introDialogue);
-    }
+
+
 }
